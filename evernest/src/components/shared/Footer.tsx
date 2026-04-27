@@ -1,0 +1,71 @@
+import Link from "next/link"
+import Image from "next/image"
+import { siteConfig } from "@/data/site"
+
+export function Footer() {
+  return (
+    <footer className="bg-brand-blue text-white pt-16 pb-8">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          <div className="space-y-4">
+            <Link href="/" className="inline-block bg-white p-2 rounded-md">
+              <Image 
+                src="/brand/evernest-logo.jpeg" 
+                alt={siteConfig.name} 
+                width={150} 
+                height={50}
+                className="h-auto w-auto"
+              />
+            </Link>
+            <p className="text-brand-ice/80 text-sm mt-4 leading-relaxed max-w-xs">
+              {siteConfig.description}
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-display text-xl font-semibold mb-4 text-white">Services</h3>
+            <ul className="space-y-3 text-brand-ice/80 text-sm">
+              <li><Link href="/study-visas" className="hover:text-white transition-colors">Study Visas</Link></li>
+              <li><Link href="/immigration" className="hover:text-white transition-colors">Immigration</Link></li>
+              <li><Link href="/b2b-partnerships" className="hover:text-white transition-colors">B2B Partnerships</Link></li>
+              <li><Link href="/success-stories" className="hover:text-white transition-colors">Success Stories</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-xl font-semibold mb-4 text-white">Company</h3>
+            <ul className="space-y-3 text-brand-ice/80 text-sm">
+              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/resources" className="hover:text-white transition-colors">Resources</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-xl font-semibold mb-4 text-white">Contact</h3>
+            <ul className="space-y-3 text-brand-ice/80 text-sm">
+              <li><a href={`mailto:${siteConfig.contact.email}`} className="hover:text-white transition-colors">{siteConfig.contact.email}</a></li>
+              <li><a href={`tel:${siteConfig.contact.phone.replace(/ /g, '')}`} className="hover:text-white transition-colors">{siteConfig.contact.phone}</a></li>
+              <li className="pt-4">
+                <strong>{siteConfig.pakistanOffice.label}:</strong><br />
+                {siteConfig.pakistanOffice.address}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-brand-ice/60">
+          <p>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p>
+          <div className="flex gap-4">
+            {siteConfig.social.map((social) => (
+              <a key={social.label} href={social.href} className="hover:text-white transition-colors">
+                {social.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}

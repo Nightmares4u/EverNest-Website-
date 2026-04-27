@@ -1,0 +1,140 @@
+import Image from "next/image"
+import { CheckCircle2, Target, Eye, Users } from "lucide-react"
+import { FinalCTA } from "@/components/sections/FinalCTA"
+import { siteConfig } from "@/data/site"
+
+export default function AboutPage() {
+  return (
+    <>
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-brand-ice overflow-hidden relative">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-brand-blue mb-6">
+              About <span className="text-brand-red">Evernest</span>
+            </h1>
+            <p className="text-lg md:text-xl text-foreground/70 mb-10 leading-relaxed max-w-2xl">
+              Founded in {siteConfig.registeredYear}, EverNest Consultants is a leading business, education, and immigration consultancy firm with a global footprint.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-display font-bold text-brand-blue mb-4">Our Story</h2>
+                <p className="text-foreground/70 leading-relaxed">
+                  Over the years, we have developed a strong portfolio in the consultancy market by providing professional, tailored solutions to valuable clients. We believe that practicing our core values of honesty, dignity, and professionalism has served as the backbone to our success story.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-8">
+                <div className="bg-brand-neutral p-6 rounded-2xl border border-border-subtle">
+                  <div className="h-12 w-12 rounded-xl bg-white text-brand-red flex items-center justify-center mb-4 shadow-sm">
+                    <Eye className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-blue mb-2">Our Vision</h3>
+                  <p className="text-foreground/70 text-sm leading-relaxed">
+                    Introducing effective investment and educational strategies to empower individuals, entrepreneurs, and professionals eager to brighten their future.
+                  </p>
+                </div>
+                
+                <div className="bg-brand-neutral p-6 rounded-2xl border border-border-subtle">
+                  <div className="h-12 w-12 rounded-xl bg-white text-brand-red flex items-center justify-center mb-4 shadow-sm">
+                    <Target className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-blue mb-2">Our Mission</h3>
+                  <p className="text-foreground/70 text-sm leading-relaxed">
+                    To settle the limitations associated with global mobility. We are highly committed to ensuring confidentiality and transparency to develop a reliable bond with our clients.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-brand-blue relative">
+                {/* Abstract graphic representing global connection */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-20">
+                  <Globe2Icon className="w-full h-full text-white" />
+                </div>
+                <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-white">
+                  <div className="text-2xl font-display font-bold mb-2">Global Presence</div>
+                  <p className="text-brand-ice/80 text-sm">Headquartered in Pakistan, with active satellite offices in Naples, Italy and Edmonton, Canada.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-brand-blue text-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+              Core Principles
+            </h2>
+            <p className="text-brand-ice/80">
+              The foundation of everything we do.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="h-16 w-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-brand-red">01</span>
+              </div>
+              <h3 className="font-bold text-lg mb-2">Strategy</h3>
+              <p className="text-sm text-brand-ice/70">Profit-oriented bespoke strategies that fit your individual needs.</p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-brand-red">02</span>
+              </div>
+              <h3 className="font-bold text-lg mb-2">Expertise</h3>
+              <p className="text-sm text-brand-ice/70">A team with deep domain expertise capable to guarantee desired results.</p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-brand-red">03</span>
+              </div>
+              <h3 className="font-bold text-lg mb-2">Communication</h3>
+              <p className="text-sm text-brand-ice/70">Detailed and precise communication to understand your unique requirements.</p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-brand-red">04</span>
+              </div>
+              <h3 className="font-bold text-lg mb-2">Flexibility</h3>
+              <p className="text-sm text-brand-ice/70">Ultimate flexibility in our approaches to overcome uncertainties readily.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <FinalCTA />
+    </>
+  )
+}
+
+function Globe2Icon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+      <path d="M2 12h20" />
+    </svg>
+  )
+}
