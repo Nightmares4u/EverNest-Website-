@@ -8,13 +8,14 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="space-y-4">
-            <Link href="/" className="inline-block bg-white p-2 rounded-md">
+            <Link href="/" className="inline-block">
               <Image 
-                src="/brand/evernest-logo.jpeg" 
-                alt={siteConfig.name} 
-                width={150} 
-                height={50}
-                className="h-auto w-auto"
+                src="/brand/evernest-logo-white.png" 
+                alt="EN Consultants (Pvt) Ltd." 
+                width={616} 
+                height={536}
+                className="h-16 w-auto object-contain"
+                sizes="64px"
               />
             </Link>
             <p className="text-brand-ice/80 text-sm mt-4 leading-relaxed max-w-xs">

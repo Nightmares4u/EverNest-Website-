@@ -6,7 +6,6 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu, X, ChevronDown } from "lucide-react"
 
-import { siteConfig } from "@/data/site"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -96,11 +95,12 @@ export function Header() {
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <Image 
-              src="/brand/evernest-logo.jpeg" 
-              alt={siteConfig.name} 
-              width={140} 
-              height={40}
-              className="h-10 w-auto object-contain"
+              src="/brand/evernest-logo.png" 
+              alt="EverNest Consultants" 
+              width={617} 
+              height={537}
+              className="h-14 w-auto object-contain"
+              sizes="(max-width: 768px) 64px, 72px"
               priority
             />
           </Link>

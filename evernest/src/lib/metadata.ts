@@ -39,7 +39,7 @@ export function buildMetadata({
   type = "website",
 }: MetadataInput): Metadata {
   const url = absoluteUrl(path);
-  const image = absoluteUrl("/brand/evernest-logo.jpeg");
+  const image = absoluteUrl("/brand/evernest-logo.png");
 
   return {
     title,
