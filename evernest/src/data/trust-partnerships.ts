@@ -83,6 +83,7 @@ export const featuredCredibilityGallery: CredibilityMediaItem[] = [
     category: "Recognition",
     caption:
       "Sir Raza representing EN Consultants at an annual IELTS partners gathering, reflecting the company’s long-standing role in international student guidance and English-language preparation.",
+    imagePath: "/images/trust/ielts/ielts-partner-network.jpg",
     assetSlot: "/images/trust/ielts/ielts-partner-network.jpg",
   },
   {
@@ -90,6 +91,7 @@ export const featuredCredibilityGallery: CredibilityMediaItem[] = [
     category: "Partner Network",
     caption:
       "EN Consultants receiving IELTS-related recognition at our office, reinforcing our commitment to structured test preparation, student counselling, and international education pathways.",
+    imagePath: "/images/trust/ielts/ielts-office-recognition.jpg",
     assetSlot: "/images/trust/ielts/ielts-office-recognition.jpg",
   },
   {
@@ -113,15 +115,17 @@ export const certificationRecognitionItems: CredibilityMediaItem[] = [
     title: "British Council UK Certified Agent",
     category: "Recognition",
     caption:
-      "British Council-related recognition supports a clear positioning around responsible student guidance, documentation awareness, and international education counselling.",
-    assetSlot: "/images/trust/british-council/british-council-certified-agent.jpg",
+      "British Council UK agent and counsellor training certification supports EN Consultants’ emphasis on informed student guidance, documentation awareness, and responsible international education counselling.",
+    imagePath: "/images/trust/british-council/british-council-certified-agent.png",
+    assetSlot: "/images/trust/british-council/british-council-certified-agent.png",
   },
   {
     title: "IELTS Partner / Recognition Certificate",
     category: "Partner Network",
     caption:
       "IELTS-related recognition reinforces EN Consultants’ active role in English-language pathway awareness and preparation-focused student support.",
-    assetSlot: "/images/trust/certificates/ielts-recognition-certificate.jpg",
+    imagePath: "/images/trust/certificates/ielts-recognition-certificate.png",
+    assetSlot: "/images/trust/certificates/ielts-recognition-certificate.png",
   },
   {
     title: "University Partnership Certificates",
