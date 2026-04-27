@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
 import type { SVGProps } from "react"
 import { Eye, Target } from "lucide-react"
+import { LeadershipProfile } from "@/components/sections/LeadershipProfile"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { TrustPartnershipsSection } from "@/components/sections/TrustPartnershipsSection"
 import { siteConfig } from "@/data/site"
 import { buildMetadata } from "@/lib/metadata"
 
@@ -122,6 +124,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <LeadershipProfile />
+      <TrustPartnershipsSection />
 
       <FinalCTA />
     </>
