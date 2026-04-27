@@ -1,7 +1,9 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { CheckCircle2, Globe, BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { buildMetadata } from "@/lib/metadata"
 
 const pageData = {
   heroTitle: "H-1B Visa",
@@ -33,6 +35,14 @@ const pageData = {
     desc: "Get in touch with EverNest. You start packing your bags, and we’ll initiate your visa process."
   }
 }
+
+export const metadata: Metadata = buildMetadata({
+  title: "H-1B Visa",
+  description:
+    "Understand the H-1B visa process, benefits, and employer-sponsored work pathway details with EverNest Consultants.",
+  path: "/immigration/h1b",
+  keywords: ["H-1B visa", "U.S. work visa", "EverNest Consultants", "employer-sponsored visa"],
+})
 
 export default function H1BVisaPage() {
   return (

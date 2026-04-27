@@ -1,6 +1,16 @@
+import type { Metadata } from "next"
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react"
 import { siteConfig } from "@/data/site"
 import { Button } from "@/components/ui/button"
+import { buildMetadata } from "@/lib/metadata"
+
+export const metadata: Metadata = buildMetadata({
+  title: "Contact EverNest Consultants",
+  description:
+    "Contact EverNest Consultants for study visa, immigration, and partnership inquiries by phone, WhatsApp, email, or office visit.",
+  path: "/contact",
+  keywords: ["Contact EverNest Consultants", "consultation", "study visa inquiry", "immigration inquiry"],
+})
 
 export default function ContactPage() {
   return (

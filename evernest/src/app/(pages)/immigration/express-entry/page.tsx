@@ -1,7 +1,9 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { CheckCircle2, Briefcase, Globe, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { buildMetadata } from "@/lib/metadata"
 
 const pageData = {
   heroTitle: "Express Entry Program for Canada",
@@ -71,6 +73,14 @@ const pageData = {
   ctaTitle: "Start Your Express Entry Journey",
   ctaDesc: "We equip Pakistanis with the tools to live their dream life in Canada. Get your profile assessed today."
 }
+
+export const metadata: Metadata = buildMetadata({
+  title: "Express Entry Program",
+  description:
+    "Learn about Canada Express Entry eligibility, benefits, and profile preparation support with EverNest Consultants.",
+  path: "/immigration/express-entry",
+  keywords: ["Express Entry", "Canada PR", "EverNest Consultants", "Canadian immigration"],
+})
 
 export default function ExpressEntryPage() {
   return (

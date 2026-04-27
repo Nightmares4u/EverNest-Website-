@@ -8,13 +8,13 @@ const testimonials = [
   {
     name: "Ahmed Raza",
     destination: "Masters in Italy",
-    quote: "Evernest made my study visa process incredibly smooth. Their team guided me through every documentation step, ensuring my admission to a top Italian university.",
+    quote: "EverNest made my study visa process incredibly smooth. Their team guided me through every documentation step, ensuring my admission to a top Italian university.",
     type: "video" // Placeholder for future video implementation
   },
   {
     name: "Fatima & Family",
     destination: "Canada PR (Express Entry)",
-    quote: "After months of confusion, the experts at Evernest provided a clear strategy for our Canada PR. We just received our ITA and couldn't be happier.",
+    quote: "After months of confusion, the experts at EverNest provided a clear strategy for our Canada PR. We just received our ITA and couldn't be happier.",
     type: "text"
   },
   {

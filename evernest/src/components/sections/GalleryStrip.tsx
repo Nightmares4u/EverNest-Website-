@@ -39,7 +39,7 @@ export function GalleryStrip({ images = defaultImages }: { images?: string[] }) 
             >
               <Image 
                 src={src} 
-                alt="Evernest Global Campus" 
+                alt="EverNest Global Campus" 
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 sizes="(max-width: 768px) 256px, 320px"

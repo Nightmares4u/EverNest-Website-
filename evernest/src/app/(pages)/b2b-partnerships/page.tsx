@@ -1,8 +1,18 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ShieldCheck, Globe2, Banknote, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { siteConfig } from "@/data/site"
+import { buildMetadata } from "@/lib/metadata"
+
+export const metadata: Metadata = buildMetadata({
+  title: "B2B Partnerships",
+  description:
+    "Explore B2B partnerships with EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd., for institutional collaboration and recruitment support.",
+  path: "/b2b-partnerships",
+  keywords: ["B2B partnerships", siteConfig.legalName, "student recruitment partnerships", "education consultancy partnerships"],
+})
 
 export default function B2BPartnershipsPage() {
   return (
@@ -38,7 +48,7 @@ export default function B2BPartnershipsPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-blue mb-4">
-              Why Partner With Evernest?
+              Why Partner With EverNest?
             </h2>
             <p className="text-lg text-foreground/70">
               We empower local agents and consultants to offer premium international services without the overhead of direct affiliations.

@@ -3,6 +3,8 @@ import Image from "next/image"
 import { siteConfig } from "@/data/site"
 
 export function Footer() {
+  const socialLinks = siteConfig.social.filter((social) => social.href && social.href !== "#")
+
   return (
     <footer className="bg-brand-blue text-white pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
@@ -41,7 +43,7 @@ export function Footer() {
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               <li><Link href="/resources" className="hover:text-white transition-colors">Resources</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 
@@ -60,13 +62,15 @@ export function Footer() {
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-brand-ice/60">
           <p>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p>
-          <div className="flex gap-4">
-            {siteConfig.social.map((social) => (
-              <a key={social.label} href={social.href} className="hover:text-white transition-colors">
-                {social.label}
-              </a>
-            ))}
-          </div>
+          {socialLinks.length > 0 && (
+            <div className="flex gap-4">
+              {socialLinks.map((social) => (
+                <a key={social.label} href={social.href} className="hover:text-white transition-colors">
+                  {social.label}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </footer>

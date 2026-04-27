@@ -3,6 +3,11 @@ export interface FaqItem {
   a: string;
 }
 
+export interface ProgramStat {
+  label: string;
+  value: string;
+}
+
 export interface TitledDescription {
   title: string;
   desc: string;
@@ -79,4 +84,14 @@ export interface ImmigrationCountryData {
   faq?: FaqItem[];
   ctaTitle?: string;
   ctaDesc?: string;
+}
+
+export interface ImmigrationProgramPageData {
+  name: string;
+  country: string;
+  heroDesc: string;
+  stats: ProgramStat[];
+  benefits: string[];
+  requirements: string[];
+  process: string[];
 }

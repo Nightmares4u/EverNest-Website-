@@ -1,5 +1,15 @@
+import type { Metadata } from "next"
 import { PlayCircle, Star, Quote } from "lucide-react"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { buildMetadata } from "@/lib/metadata"
+
+export const metadata: Metadata = buildMetadata({
+  title: "Success Stories",
+  description:
+    "Read success stories and client outcomes across study visa and immigration pathways supported by EverNest Consultants.",
+  path: "/success-stories",
+  keywords: ["Success stories", "study visa outcomes", "immigration outcomes", "EverNest Consultants"],
+})
 
 const stories = [
   {
@@ -7,7 +17,7 @@ const stories = [
     category: "Study Visa",
     destination: "Italy",
     program: "Masters in Data Science",
-    quote: "Evernest made my study visa process incredibly smooth. Their team guided me through every documentation step, ensuring my admission to a top Italian university. The pre-departure briefing was especially helpful.",
+    quote: "EverNest made my study visa process incredibly smooth. Their team guided me through every documentation step, ensuring my admission to a top Italian university. The pre-departure briefing was especially helpful.",
     type: "video"
   },
   {
@@ -15,7 +25,7 @@ const stories = [
     category: "Immigration",
     destination: "Canada",
     program: "Express Entry (PR)",
-    quote: "After months of confusion, the experts at Evernest provided a clear strategy for our Canada PR. We just received our ITA and couldn't be happier. Highly recommend their transparent process.",
+    quote: "After months of confusion, the experts at EverNest provided a clear strategy for our Canada PR. We just received our ITA and couldn't be happier. Highly recommend their transparent process.",
     type: "text"
   },
   {
@@ -31,7 +41,7 @@ const stories = [
     category: "Study Visa",
     destination: "France",
     program: "MBA",
-    quote: "Securing admission in a top French Business School seemed impossible until I met the Evernest team. They helped with my SOP, interview prep for Campus France, and accommodation.",
+    quote: "Securing admission in a top French Business School seemed impossible until I met the EverNest team. They helped with my SOP, interview prep for Campus France, and accommodation.",
     type: "video"
   },
   {
@@ -39,7 +49,7 @@ const stories = [
     category: "Immigration",
     destination: "Australia",
     program: "Subclass 189",
-    quote: "The skills assessment phase was daunting, but Evernest's step-by-step guidance made it seamless. We are now happily settled in Melbourne.",
+    quote: "The skills assessment phase was daunting, but EverNest's step-by-step guidance made it seamless. We are now happily settled in Melbourne.",
     type: "text"
   },
   {
@@ -47,7 +57,7 @@ const stories = [
     category: "Study Visa",
     destination: "Germany",
     program: "BSc Engineering",
-    quote: "Opening the blocked account and getting the Visa appointment was so stressful, but Evernest handled the bureaucracy perfectly. I'm now enjoying my tuition-free education in Berlin.",
+    quote: "Opening the blocked account and getting the Visa appointment was so stressful, but EverNest handled the bureaucracy perfectly. I'm now enjoying my tuition-free education in Berlin.",
     type: "text"
   }
 ]
@@ -61,7 +71,7 @@ export default function SuccessStoriesPage() {
             Real People. <span className="text-brand-red">Real Success.</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/70 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Thousands of students and professionals have trusted Evernest with their global aspirations. Here are some of their stories.
+            Thousands of students and professionals have trusted EverNest with their global aspirations. Here are some of their stories.
           </p>
         </div>
       </section>

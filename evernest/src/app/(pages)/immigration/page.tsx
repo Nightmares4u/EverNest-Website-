@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight, Plane } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -6,6 +7,15 @@ import { FinalCTA } from "@/components/sections/FinalCTA"
 import Image from "next/image"
 import { immigrationData } from "@/data/immigration-countries"
 import type { ImmigrationProgramData } from "@/data/types"
+import { buildMetadata } from "@/lib/metadata"
+
+export const metadata: Metadata = buildMetadata({
+  title: "Immigration Pathways",
+  description:
+    "Explore immigration pathways, country-specific guidance, and work permit options with EverNest Consultants.",
+  path: "/immigration",
+  keywords: ["Immigration pathways", "work permits", "immigration consultants in Pakistan", "EverNest Consultants"],
+})
 
 const countryImages: Record<string, string> = {
   australia: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=600&auto=format&fit=crop",

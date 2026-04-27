@@ -1,7 +1,9 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ChevronDown, CheckCircle2, Globe, PiggyBank, Briefcase, BookOpen, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { buildMetadata } from "@/lib/metadata"
 
 const pageData = {
   heroTitle: "Top Countries for Pakistani Students to Study Abroad in 2025",
@@ -141,7 +143,7 @@ const pageData = {
     ]
   },
 
-  conclusion: "The best countries to study abroad depend on your budget, program choice, and how important job opportunities are after graduation. If you want a structured shortlist and clean documentation support, Evernest Consultants can guide you through university selection, scholarship strategy, and visa preparation based on your profile.",
+  conclusion: "The best countries to study abroad depend on your budget, program choice, and how important job opportunities are after graduation. If you want a structured shortlist and clean documentation support, EverNest Consultants can guide you through university selection, scholarship strategy, and visa preparation based on your profile.",
 
   faq: [
     {
@@ -163,7 +165,7 @@ const pageData = {
   ],
 
   ctaBlock: {
-    title: "Contact Evernest Consultants",
+    title: "Contact EverNest Consultants",
     contactDetails: [
       "WhatsApp: +92 302 290 7411",
       "Email: info@evernestconsultants.com",
@@ -173,6 +175,15 @@ const pageData = {
     ]
   }
 }
+
+export const metadata: Metadata = buildMetadata({
+  title: "Country Comparison for Pakistani Students",
+  description:
+    "Compare top study abroad countries for Pakistani students by tuition, living costs, work rights, and post-study opportunities.",
+  path: "/resources/country-comparison",
+  keywords: ["country comparison", "study abroad costs", "Pakistani students", "EverNest Consultants"],
+  type: "article",
+})
 
 export default function CountryComparisonPage() {
   return (

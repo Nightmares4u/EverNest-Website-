@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { CheckCircle2, GraduationCap, Calendar, BookOpen, Globe, FileText, ArrowRight, DollarSign, Briefcase } from "lucide-react"
@@ -6,6 +7,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA"
 import { GalleryStrip } from "@/components/sections/GalleryStrip"
 import { studyVisasData } from "@/data/study-visas"
 import type { StudyVisaCountryData } from "@/data/types"
+import { buildMetadata, getFirstSentence } from "@/lib/metadata"
 import { use } from "react"
 
 import Image from "next/image"
@@ -28,6 +30,31 @@ const countryImages: Record<string, string> = {
   spain: "https://images.unsplash.com/photo-1539037116277-4db2020280eb?q=80&w=2000&auto=format&fit=crop",
   cyprus: "https://images.unsplash.com/photo-1555589139-25b4cb8ec042?q=80&w=2000&auto=format&fit=crop",
   usa: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2000&auto=format&fit=crop"
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ country: string }>
+}): Promise<Metadata> {
+  const resolvedParams = await params
+  const pageData = studyVisasData[resolvedParams.country.toLowerCase()]
+
+  if (!pageData) {
+    return buildMetadata({
+      title: "Study Visa Destination",
+      description: "Explore study visa destinations and country-specific guidance from EverNest Consultants.",
+      path: `/study-visas/${resolvedParams.country}`,
+      keywords: ["Study visa destination", "EverNest Consultants"],
+    })
+  }
+
+  return buildMetadata({
+    title: `Study in ${pageData.name}`,
+    description: getFirstSentence(pageData.heroDesc),
+    path: `/study-visas/${resolvedParams.country.toLowerCase()}`,
+    keywords: [`Study in ${pageData.name}`, `${pageData.name} student visa`, "EverNest Consultants"],
+  })
 }
 
 export default function StudyVisaCountryPage({ params }: { params: Promise<{ country: string }> }) {
@@ -347,7 +374,7 @@ export default function StudyVisaCountryPage({ params }: { params: Promise<{ cou
                 </div>
               )}
 
-              {/* Why Evernest */}
+              {/* Why EverNest */}
               {pageData.whyEvernest && (
                 <div>
                   <h2 className="text-3xl font-display font-bold text-brand-blue mb-6">{pageData.whyEvernest.title}</h2>

@@ -4,7 +4,7 @@ export const immigrationData: Record<string, ImmigrationCountryData> = {
   australia: {
     name: "Australia",
     heroTitle: "Australian Immigration Consultants in Pakistan",
-    heroDesc: "Australia remains a desirable destination for successful professionals and families looking for enhanced job prospects and enduring security. Evernest Consultants is a seasoned Australian immigration consultant in Pakistan and assists clients in obtaining an Australia PR from Pakistan via dependable immigration processes. Our immigration specialists assess potential migrants and provide a roadmap for Australia’s skilled migration system to determine the best visa category in relation to their credentials and work experience.",
+    heroDesc: "Australia remains a desirable destination for successful professionals and families looking for enhanced job prospects and enduring security. EverNest Consultants is a seasoned Australian immigration consultant in Pakistan and assists clients in obtaining an Australia PR from Pakistan via dependable immigration processes. Our immigration specialists assess potential migrants and provide a roadmap for Australia’s skilled migration system to determine the best visa category in relation to their credentials and work experience.",
     whyImmigrate: {
       title: "Why Immigrate to Australia?",
       desc: "Australia is an ideal option for people who wish to live and work in Australia and develop a secure future. Benefits of Australia's permanent residency include:",
@@ -75,8 +75,8 @@ export const immigrationData: Record<string, ImmigrationCountryData> = {
       }
     ],
     whyEvernest: {
-      title: "Why Choose Evernest Consultants for Australia Immigration?",
-      desc: "Choosing the right immigration consultant can make a significant difference in the success of your application. Evernest Consultants is recognized among the best Australian immigration consultants providing professional guidance for skilled migration pathways. Our services include:",
+      title: "Why Choose EverNest Consultants for Australia Immigration?",
+      desc: "Choosing the right immigration consultant can make a significant difference in the success of your application. EverNest Consultants is recognized among the best Australian immigration consultants providing professional guidance for skilled migration pathways. Our services include:",
       points: [
         "Points-based profile assessment",
         "Strategic guidance for state and regional nominations",
@@ -259,7 +259,7 @@ export const immigrationData: Record<string, ImmigrationCountryData> = {
   "united-kingdom": {
     name: "United Kingdom",
     heroTitle: "UK Immigration Consultants in Pakistan",
-    heroDesc: "Professionals, students, and families looking to secure a future with improved job opportunities continue to aim for the United Kingdom. Evernest Consultants, a UK immigration consultant in Pakistan, assists clients in obtaining UK visa services and navigating the immigration process. Our experts help applicants assess their immigration goals and qualifications and choose the appropriate visa options.",
+    heroDesc: "Professionals, students, and families looking to secure a future with improved job opportunities continue to aim for the United Kingdom. EverNest Consultants, a UK immigration consultant in Pakistan, assists clients in obtaining UK visa services and navigating the immigration process. Our experts help applicants assess their immigration goals and qualifications and choose the appropriate visa options.",
     whyImmigrate: {
       title: "Why Immigrate to the United Kingdom?",
       desc: "The UK continues to be a popular option for people who want to live and work in the UK while securing a long-term future. Some of the benefits of getting UK permanent residence are:",
@@ -327,7 +327,7 @@ export const immigrationData: Record<string, ImmigrationCountryData> = {
       }
     ],
     whyEvernest: {
-      title: "Why Choose Evernest Consultants for UK Immigration?",
+      title: "Why Choose EverNest Consultants for UK Immigration?",
       desc: "Eversnest Consultants offers professional guidance as one of the best UK immigration consultants. This includes the following services.",
       points: [
         "Assessments of eligibility for immigration programs",
@@ -367,7 +367,7 @@ export const immigrationData: Record<string, ImmigrationCountryData> = {
   "united-states": {
     name: "United States",
     heroTitle: "United States Immigration Consultants in Pakistan",
-    heroDesc: "People who want to build an international career, study, or settle down permanently continue to be drawn to the United States. Evernest Consultants, a US immigration consultancy in Pakistan, assists individuals and families seeking US immigration services. Our experts guide clients through the various visa options, determine eligibility, and advise on the best choice according to their qualifications and immigration objectives.",
+    heroDesc: "People who want to build an international career, study, or settle down permanently continue to be drawn to the United States. EverNest Consultants, a US immigration consultancy in Pakistan, assists individuals and families seeking US immigration services. Our experts guide clients through the various visa options, determine eligibility, and advise on the best choice according to their qualifications and immigration objectives.",
     whyImmigrate: {
       title: "Why Immigrate to the United States?",
       desc: "The United States remains an attractive destination for individuals and families who want to live and work in the US and establish a secure future. Some benefits of attaining US permanent residency include the ability to:",
@@ -434,8 +434,8 @@ export const immigrationData: Record<string, ImmigrationCountryData> = {
       }
     ],
     whyEvernest: {
-      title: "Why Choose Evernest Consultants for US Immigration?",
-      desc: "Choosing the right immigration consultant can make a significant difference in the success of your application. Evernest Consultants is recognized among the best US immigration consultants providing professional immigration guidance. Our services include:",
+      title: "Why Choose EverNest Consultants for US Immigration?",
+      desc: "Choosing the right immigration consultant can make a significant difference in the success of your application. EverNest Consultants is recognized among the best US immigration consultants providing professional immigration guidance. Our services include:",
       points: [
         "Case-based eligibility assessments",
         "Accurate documentation preparation",

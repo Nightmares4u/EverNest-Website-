@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+
 import { Hero } from "@/components/sections/Hero"
 import { TrustRibbon } from "@/components/sections/TrustRibbon"
 import { CoreServices } from "@/components/sections/CoreServices"
@@ -11,6 +13,20 @@ import { Testimonials } from "@/components/sections/Testimonials"
 import { PartnerStrip } from "@/components/sections/PartnerStrip"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { GalleryStrip } from "@/components/sections/GalleryStrip"
+import { buildMetadata } from "@/lib/metadata"
+
+export const metadata: Metadata = buildMetadata({
+  title: "Study Visas, Immigration & Partnerships",
+  description:
+    "Explore study visa, immigration, work permit, and B2B partnership guidance from EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd.",
+  path: "/",
+  keywords: [
+    "EverNest Consultants",
+    "study visas",
+    "immigration consultants in Pakistan",
+    "B2B partnerships",
+  ],
+})
 
 export default function Home() {
   return (

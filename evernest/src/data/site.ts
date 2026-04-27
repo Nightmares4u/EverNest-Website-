@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Evernest Consultants",
+  name: "EverNest Consultants",
   legalName: "EN Consultants (Pvt) Ltd.",
   tagline: "Global study and immigration pathways, built around outcomes.",
   registeredYear: "2013",

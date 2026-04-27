@@ -1,7 +1,17 @@
+import type { Metadata } from "next"
 import type { SVGProps } from "react"
 import { Eye, Target } from "lucide-react"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { siteConfig } from "@/data/site"
+import { buildMetadata } from "@/lib/metadata"
+
+export const metadata: Metadata = buildMetadata({
+  title: "About EverNest Consultants",
+  description:
+    "Learn more about EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd., including the firm’s background, mission, and global presence.",
+  path: "/about",
+  keywords: ["About EverNest Consultants", siteConfig.legalName, "study visa consultants in Pakistan"],
+})
 
 export default function AboutPage() {
   return (
@@ -10,7 +20,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-brand-blue mb-6">
-              About <span className="text-brand-red">Evernest</span>
+              About <span className="text-brand-red">EverNest</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/70 mb-10 leading-relaxed max-w-2xl">
               Founded in {siteConfig.registeredYear}, EverNest Consultants is a leading business, education, and immigration consultancy firm with a global footprint.

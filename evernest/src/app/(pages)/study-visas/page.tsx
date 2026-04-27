@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import {
@@ -12,6 +13,15 @@ import {
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { GalleryStrip } from "@/components/sections/GalleryStrip"
 import { studyVisasData } from "@/data/study-visas"
+import { buildMetadata } from "@/lib/metadata"
+
+export const metadata: Metadata = buildMetadata({
+  title: "Study Visas",
+  description:
+    "Browse study visa destinations, admissions guidance, and country-specific education pathways with EverNest Consultants.",
+  path: "/study-visas",
+  keywords: ["Study visas", "study abroad consultants", "student visa support", "EverNest Consultants"],
+})
 
 const destinations = Object.entries(studyVisasData).map(([slug, data]) => ({
   name: data.name,
@@ -259,7 +269,7 @@ export default function StudyVisasIndexPage() {
           <div className="space-y-4">
             <details className="group bg-white rounded-xl border border-border-subtle overflow-hidden">
               <summary className="flex items-center justify-between p-5 cursor-pointer bg-white hover:bg-brand-ice/30 transition-colors list-none font-bold text-brand-blue">
-                Can Evernest Help Me With Pre-departure?
+                Can EverNest Help Me With Pre-departure?
                 <ChevronDown className="h-5 w-5 text-brand-blue/50 group-open:rotate-180 transition-transform" />
               </summary>
               <div className="p-5 pt-0 text-foreground/70 text-sm leading-relaxed border-t border-border-subtle/50 mt-2">

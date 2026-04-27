@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { CheckCircle2, Briefcase, Globe, FileText, ChevronDown } from "lucide-react"
@@ -6,6 +7,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA"
 import { GalleryStrip } from "@/components/sections/GalleryStrip"
 import { immigrationData } from "@/data/immigration-countries"
 import type { FaqItem, ImmigrationCountryData, ImmigrationProgramData } from "@/data/types"
+import { buildMetadata, getFirstSentence } from "@/lib/metadata"
 import { use } from "react"
 
 import Image from "next/image"
@@ -16,6 +18,31 @@ const countryImages: Record<string, string> = {
   "new-zealand": "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?q=80&w=2000&auto=format&fit=crop",
   "united-kingdom": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2000&auto=format&fit=crop",
   "united-states": "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2000&auto=format&fit=crop"
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ country: string }>
+}): Promise<Metadata> {
+  const resolvedParams = await params
+  const pageData = immigrationData[resolvedParams.country.toLowerCase()]
+
+  if (!pageData) {
+    return buildMetadata({
+      title: "Immigration Pathway",
+      description: "Explore country-specific immigration guidance from EverNest Consultants.",
+      path: `/immigration/${resolvedParams.country}`,
+      keywords: ["Immigration pathway", "EverNest Consultants"],
+    })
+  }
+
+  return buildMetadata({
+    title: pageData.heroTitle,
+    description: getFirstSentence(pageData.heroDesc),
+    path: `/immigration/${resolvedParams.country.toLowerCase()}`,
+    keywords: [pageData.name, `${pageData.name} immigration`, "EverNest Consultants"],
+  })
 }
 
 export default function ImmigrationCountryPage({ params }: { params: Promise<{ country: string }> }) {
@@ -156,7 +183,7 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
                 </div>
               )}
 
-              {/* Why Evernest */}
+              {/* Why EverNest */}
               {pageData.whyEvernest && (
                 <div>
                   <h2 className="text-3xl font-display font-bold text-brand-blue mb-6">{pageData.whyEvernest.title}</h2>

@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 const reasons = [
   {
     title: "Personalized Advisory",
-    desc: "Evernest Consultants, being study abroad consultants in Karachi and study visa consultants in Karachi, provide systematized, profile-based guidance to students and professionals for overseas education and visa options."
+    desc: "EverNest Consultants, being study abroad consultants in Karachi and study visa consultants in Karachi, provide systematized, profile-based guidance to students and professionals for overseas education and visa options."
   },
   {
     title: "End-to-End Immigration Support",
@@ -29,7 +29,7 @@ export function WhyEvernest() {
               Why Choose Us
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-5xl font-display font-bold mb-12">
-              Evernest Consultants - Trusted Support to <span className="text-brand-red">Move Abroad</span>
+              EverNest Consultants - Trusted Support to <span className="text-brand-red">Move Abroad</span>
             </h2>
             
             <div className="grid sm:grid-cols-1 gap-x-8 gap-y-10">

@@ -78,13 +78,13 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
       "Early planning is strongly recommended for Pakistani students intending to study in Italy for Pakistani students, especially for visa timelines."
     ],
     whyEvernest: {
-      title: "How Evernest Consultants Can Help",
-      desc: "Planning to study in Italy? Get expert guidance and reliable support from Evernest Consultants to start your journey with confidence. Evernest Consultants supports students planning to study in Italy with clear, structured guidance at every stage. We have years of experience as study abroad consultants in Karachi, and as Italy study visa consultants in Karachi, helping students with university choices, application submissions, and comprehensive visa document preparation while providing guidance on accuracy and process compliance."
+      title: "How EverNest Consultants Can Help",
+      desc: "Planning to study in Italy? Get expert guidance and reliable support from EverNest Consultants to start your journey with confidence. EverNest Consultants supports students planning to study in Italy with clear, structured guidance at every stage. We have years of experience as study abroad consultants in Karachi, and as Italy study visa consultants in Karachi, helping students with university choices, application submissions, and comprehensive visa document preparation while providing guidance on accuracy and process compliance."
     }
   },
   finland: {
     name: "Finland",
-    heroDesc: "For Pakistani students, Finland is a top choice if you want to study in Europe while also receiving a great education at a reasonable price. Study in Finland has highly regarded international universities that offer programs in English, along with welcoming and safe student cities that cater to international students. Evernest Consultants is there to assist students in every step of their journey, whether it is selecting the best university to gaining admission, preparing their student visa, or helping them during their stay in Finland after they arrive.",
+    heroDesc: "For Pakistani students, Finland is a top choice if you want to study in Europe while also receiving a great education at a reasonable price. Study in Finland has highly regarded international universities that offer programs in English, along with welcoming and safe student cities that cater to international students. EverNest Consultants is there to assist students in every step of their journey, whether it is selecting the best university to gaining admission, preparing their student visa, or helping them during their stay in Finland after they arrive.",
     benefits: [
       {
         title: "Finland’s Research and Innovation",
@@ -152,7 +152,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
       "University of Helsinki International Scholarship",
       "Aalto University Incentive Grants",
       "Erasmus+ Joint Master’s Program",
-      "Evernest Consultants helps students identify the most appropriate scholarships based on their academic profile and prepare strong applications targeting financial aid."
+      "EverNest Consultants helps students identify the most appropriate scholarships based on their academic profile and prepare strong applications targeting financial aid."
     ],
     visaProcessTitle: "Visa Process",
     visaProcessDesc: "Follow these steps for your Finland student visa application:",
@@ -165,8 +165,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     workDuringStudies: "In Finland, students can also work part-time for up to 30 hours a week, acquiring work experience and helping to pay for their living expenses. This is a big part of the reason why many students from Pakistan choose to study in Finland.",
     postStudy: "The Residence Permit Extension in Finland lets international students who graduate from Finnish institutions remain in the country for another 2 years to seek work or create a business. This is important because you can even apply for Permanent Residency in Finland after 5years of uninterrupted residence. This opens eligibility to citizenship and long-term settlement in Europe.",
     whyEvernest: {
-      title: "Why Choose Evernest Consultants?",
-      desc: "Evernest Consultants provides full support for your study journey:",
+      title: "Why Choose EverNest Consultants?",
+      desc: "EverNest Consultants provides full support for your study journey:",
       points: [
         "Personalized university and course selection",
         "Scholarship and visa documentation",
@@ -256,8 +256,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     workDuringStudies: "Students may work part‑time during studies (subject to permit) and full‑time during official breaks; typical wages are around $4–$6 per hour, depending on city and role.",
     postStudy: "Graduates can apply for a residence permit to look for jobs or internships; after securing employment, they can transition to a work permit. Long‑term residence eligibility is possible with continuous legal stay.",
     whyEvernest: {
-      title: "Why Choose Evernest Consultants?",
-      desc: "Start Your Journey with Evernest Consultants: Book your free consultation today.",
+      title: "Why Choose EverNest Consultants?",
+      desc: "Start Your Journey with EverNest Consultants: Book your free consultation today.",
       points: [
         "University shortlisting & application filing.",
         "Scholarship strategy & documentation support.",
@@ -268,7 +268,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
   },
   uae: {
     name: "United Arab Emirates",
-    heroDesc: "The United Arab Emirates (UAE) has become a top destination for globally recognized education, accompanied by cultural proximity and modern amenities, for most Pakistani students. With reasonable tuition, the Emirates also has excellent universities and offers a Muslim-friendly atmosphere. With such a wide array of amenities, the country provides a good combination of education and lifestyle. To ensure a seamless transition with minimum hassle for your admission, visa, and post-arrival travel, Evernest Consultants works with trusted immigration and education experts.",
+    heroDesc: "The United Arab Emirates (UAE) has become a top destination for globally recognized education, accompanied by cultural proximity and modern amenities, for most Pakistani students. With reasonable tuition, the Emirates also has excellent universities and offers a Muslim-friendly atmosphere. With such a wide array of amenities, the country provides a good combination of education and lifestyle. To ensure a seamless transition with minimum hassle for your admission, visa, and post-arrival travel, EverNest Consultants works with trusted immigration and education experts.",
     benefits: [
       {
         title: "Affordable Education",
@@ -335,7 +335,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
       "Khalifa University Graduate Scholarships",
       "University of Dubai Merit Awards",
       "Middlesex University Dubai Scholarships",
-      "Evernest Consultants provides services to students in spotting scholarship opportunities and organizing and compiling application documents."
+      "EverNest Consultants provides services to students in spotting scholarship opportunities and organizing and compiling application documents."
     ],
     visaProcessTitle: "Visa Process",
     visaProcessDesc: "Follow these steps for your UAE student visa:",
@@ -348,8 +348,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     workDuringStudies: "Students are permitted to work legally for 15–20 hours a week at approved jobs. Most universities aid students in obtaining internships and part-time jobs that align with their educational focus.",
     postStudy: "Golden Visa program and Employment Residence Permit options allow UAE graduates to extend their stay and secure employment opportunities in the country’s growing job market.",
     whyEvernest: {
-      title: "Why Choose Evernest Consultants?",
-      desc: "Evernest Consultants offers full support for your study journey, including:",
+      title: "Why Choose EverNest Consultants?",
+      desc: "EverNest Consultants offers full support for your study journey, including:",
       points: [
         "Personalized university selection & application filing",
         "Scholarship guidance & documentation",
@@ -426,8 +426,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     visaProcessTitle: "Visa Process",
     visaProcessDesc: "Required for Study Permit approval and visa filing.",
     whyEvernest: {
-      title: "Why Evernest?",
-      desc: "To carve out a path for your future as a student in Canada, Evernest Consultants is partnered up with RCIC Consultants to ensure you receive comprehensive on-the-ground support throughout your admission and immigration journey. Once we’re done with securing your admissions, Evernest will be your trusted consultant to file your Study Permit."
+      title: "Why EverNest?",
+      desc: "To carve out a path for your future as a student in Canada, EverNest Consultants is partnered up with RCIC Consultants to ensure you receive comprehensive on-the-ground support throughout your admission and immigration journey. Once we’re done with securing your admissions, EverNest will be your trusted consultant to file your Study Permit."
     }
   },
   georgia: {
@@ -497,8 +497,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
       }
     ],
     whyEvernest: {
-      title: "Why Choose Evernest?",
-      desc: "At Evernest, we have multiple partnerships with leading universities in Georgia to help you obtain your Student Visa and secure your rightful spot at the heart of Europe."
+      title: "Why Choose EverNest?",
+      desc: "At EverNest, we have multiple partnerships with leading universities in Georgia to help you obtain your Student Visa and secure your rightful spot at the heart of Europe."
     }
   },
   "united-kingdom": {
@@ -559,7 +559,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
   },
   azerbaijan: {
     name: "Azerbaijan",
-    heroDesc: "Azerbaijan is an excellent option if you’re looking for a more economical and contemporary place to study in a warm and friendly environment. Due to affordable tuition, universities offering English-medium instruction, and a focus on international students, it is no wonder it is a growing favorite among Pakistani students. Evernest Consultants assists you in all phases of this—from university selection to visa and settlement guidance.",
+    heroDesc: "Azerbaijan is an excellent option if you’re looking for a more economical and contemporary place to study in a warm and friendly environment. Due to affordable tuition, universities offering English-medium instruction, and a focus on international students, it is no wonder it is a growing favorite among Pakistani students. EverNest Consultants assists you in all phases of this—from university selection to visa and settlement guidance.",
     benefits: [
       {
         title: "Cost-Effective Higher Learning",
@@ -624,7 +624,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
       "Khazar University Merit Scholarships",
       "Azerbaijan Government Scholarship (State Program)",
       "Baku State University Excellence Awards",
-      "Evernest Consultants helps students apply for these scholarships with personalized guidance on essay writing, document preparation, and application filing."
+      "EverNest Consultants helps students apply for these scholarships with personalized guidance on essay writing, document preparation, and application filing."
     ],
     visaProcessTitle: "Visa Process",
     visaProcessSteps: [
@@ -636,8 +636,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     workDuringStudies: "During the academic year, students can work for 20 hours a week and full-time during the academic breaks. Working part-time in retail, tourism, and university offices helps cover living expenses.",
     postStudy: "Graduates get to keep working in Azerbaijan on an Employment Residence Permit. As for employment, you can work continuously and qualify for long-term residency, which extends to mobility in different regions and countries in Eurasia.",
     whyEvernest: {
-      title: "Why Choose Evernest Consultants?",
-      desc: "Evernest Consultants offers complete support throughout your study journey:",
+      title: "Why Choose EverNest Consultants?",
+      desc: "EverNest Consultants offers complete support throughout your study journey:",
       points: [
         "Personalized university and course selection",
         "Scholarship and visa documentation",
@@ -648,7 +648,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
   },
   france: {
     name: "France",
-    heroDesc: "France has become a preferred choice for Pakistani students who want an affordable European degree with real career opportunities. The country is home to top-ranked universities, an easy admission process, and a welcoming environment for international learners. Evernest Consultants works alongside licensed experts to make your entire journey—admission, visa, and post-arrival—smooth and transparent.",
+    heroDesc: "France has become a preferred choice for Pakistani students who want an affordable European degree with real career opportunities. The country is home to top-ranked universities, an easy admission process, and a welcoming environment for international learners. EverNest Consultants works alongside licensed experts to make your entire journey—admission, visa, and post-arrival—smooth and transparent.",
     benefits: [
       {
         title: "Affordable Education",
@@ -728,8 +728,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     workDuringStudies: "Students may work 20 hours per week during semesters and full-time during breaks. Average pay ranges between €9 and €12 per hour, helping students manage daily expenses.",
     postStudy: "Graduates can stay for up to two years after completing their degree to work and gain experience. Continuous residence for five years can lead to Permanent Residency, followed by eligibility for citizenship.",
     whyEvernest: {
-      title: "Why Choose Evernest Consultants?",
-      desc: "Evernest Consultants provides a complete one-window service:",
+      title: "Why Choose EverNest Consultants?",
+      desc: "EverNest Consultants provides a complete one-window service:",
       points: [
         "University and course selection",
         "Scholarship and visa documentation",
@@ -740,7 +740,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
   },
   ireland: {
     name: "Ireland",
-    heroDesc: "For Pakistani students, Ireland is a prime choice to pursue their education, build their careers, and experience life outside the country. Studying in Ireland for Pakistani students means getting internationally accepted qualifications, having the chance to work after studies, and benefiting from one of the fastest-growing economies in Europe. Ireland has ranked and reputable universities, and the country has a friendly attitude and a welcoming environment with an education system in English. Evernest Consultants collaborates with accredited professionals to assist you in the admissions process, visa application, and Ireland's pre-arrival and post-arrival services.",
+    heroDesc: "For Pakistani students, Ireland is a prime choice to pursue their education, build their careers, and experience life outside the country. Studying in Ireland for Pakistani students means getting internationally accepted qualifications, having the chance to work after studies, and benefiting from one of the fastest-growing economies in Europe. Ireland has ranked and reputable universities, and the country has a friendly attitude and a welcoming environment with an education system in English. EverNest Consultants collaborates with accredited professionals to assist you in the admissions process, visa application, and Ireland's pre-arrival and post-arrival services.",
     benefits: [
       {
         title: "Top Universities",
@@ -818,8 +818,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     workDuringStudies: "During term time in Ireland, students may work 20 hours per week and work full time during the holidays.",
     postStudy: "After graduation, international students can stay for 2 years to gain the work experience they need through the Post-Study Work Visa (Third Level Graduate Scheme). Students can apply for Permanent Residency in Ireland after 5 years of legal stay.",
     whyEvernest: {
-      title: "Why Choose Evernest Consultants?",
-      desc: "Evernest Consultants offers full support for your study journey, including:",
+      title: "Why Choose EverNest Consultants?",
+      desc: "EverNest Consultants offers full support for your study journey, including:",
       points: [
         "Personalized university selection & application filing",
         "Scholarship guidance & documentation",
@@ -830,7 +830,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
   },
   malta: {
     name: "Malta",
-    heroDesc: "Malta has become one of the most sought after countries in Europe for its quality and reasonably priced tuition along with its Mediterranean lifestyle. Maltese visa 2025 provides the chance for Pakistani students to obtain a sought after European degree in a safe English-speaking country. Evernest Consultants provides personalized admission guidance as well as visa assistance and support after arrival to ensure the students have a seamless experience in Malta.",
+    heroDesc: "Malta has become one of the most sought after countries in Europe for its quality and reasonably priced tuition along with its Mediterranean lifestyle. Maltese visa 2025 provides the chance for Pakistani students to obtain a sought after European degree in a safe English-speaking country. EverNest Consultants provides personalized admission guidance as well as visa assistance and support after arrival to ensure the students have a seamless experience in Malta.",
     benefits: [
       {
         title: "Accredited Institutions",
@@ -907,8 +907,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     workDuringStudies: "Students in Malta are allowed to work up to 20 hours a week during the school term and full-time during the holidays.",
     postStudy: "International students on a Malta post-study work visa get an additional 12 months to work. Students can apply for citizenship or Permanent Residency after residing for 5 years (including studying and working).",
     whyEvernest: {
-      title: "What Makes Evernest Consultants Special?",
-      desc: "Evernest Consultants helps you in every step of obtaining a study visa for malta, such as:",
+      title: "What Makes EverNest Consultants Special?",
+      desc: "EverNest Consultants helps you in every step of obtaining a study visa for malta, such as:",
       points: [
         "Assisting in the selection of a university, visa profile",
         "Support in funding and scholarship applications",
@@ -919,7 +919,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
   },
   uzbekistan: {
     name: "Uzbekistan",
-    heroDesc: "Uzbekistan has become one of the most affordable country options for Pakistani students in Medicine, Engineering, and Business, and is gaining international recognition. Studying in Uzbekistan for Pakistani students, you earn a degree that is both affordable and recognized globally, and the admission process is relatively hassle-free. Enjoying the combination of quality education and affordable living, students can benefit from English-taught courses as well as a safe and comfortable atmosphere. Evernest Consultants provides admission and visa services, along with post-arrival services, to ensure transparency.",
+    heroDesc: "Uzbekistan has become one of the most affordable country options for Pakistani students in Medicine, Engineering, and Business, and is gaining international recognition. Studying in Uzbekistan for Pakistani students, you earn a degree that is both affordable and recognized globally, and the admission process is relatively hassle-free. Enjoying the combination of quality education and affordable living, students can benefit from English-taught courses as well as a safe and comfortable atmosphere. EverNest Consultants provides admission and visa services, along with post-arrival services, to ensure transparency.",
     benefits: [
       {
         title: "World-recognized degrees",
@@ -995,8 +995,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     workDuringStudies: "Students can have part-time jobs or internships while studying, depending on the policies of the university.",
     postStudy: "After graduation, students can work or continue their studies in Central Asia, Turkey, or Europe.",
     whyEvernest: {
-      title: "Why Choose Evernest Consultants?",
-      desc: "Evernest Consultants provides complete support for your study abroad journey, including:",
+      title: "Why Choose EverNest Consultants?",
+      desc: "EverNest Consultants provides complete support for your study abroad journey, including:",
       points: [
         "University selection & admission support",
         "Scholarship application guidance and filing",
@@ -1065,8 +1065,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     workDuringStudies: "Australia's Student Visa (subclass 500) holders can apply for Australia’s work visa, often staying and working for years after their graduation.",
     postStudy: "Australia boasts some of the highest wages in the world. Holders of the subclass 500 visa can transition to robust work-visa pathways.",
     whyEvernest: {
-      title: "Why Evernest?",
-      desc: "Evernest Consultants is your go-to trusted consultant to guide you throughout the entire process."
+      title: "Why EverNest?",
+      desc: "EverNest Consultants is your go-to trusted consultant to guide you throughout the entire process."
     }
   },
   malaysia: {
@@ -1135,8 +1135,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
       }
     ],
     whyEvernest: {
-      title: "Why Choose Evernest?",
-      desc: "At Evernest, we partner with leading universities in Malaysia to guide you through your application, secure your admission, and make your relocation as smooth as possible. We’ll help you choose the right intake, gather all your documents, and make sure you arrive in Malaysia ready for an amazing academic journey."
+      title: "Why Choose EverNest?",
+      desc: "At EverNest, we partner with leading universities in Malaysia to guide you through your application, secure your admission, and make your relocation as smooth as possible. We’ll help you choose the right intake, gather all your documents, and make sure you arrive in Malaysia ready for an amazing academic journey."
     }
   },
   spain: {
@@ -1212,7 +1212,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
       "MAEC-AECID (Spanish Government Scholarships)",
       "Erasmus+ Joint Master’s Programmes",
       "University-specific scholarships (IE Business School, ESADE, University of Barcelona)",
-      "Evernest’s scholarship guidance helps maximize your chances of selection."
+      "EverNest’s scholarship guidance helps maximize your chances of selection."
     ],
     visaProcessTitle: "Visa Process",
     visaProcessSteps: [
@@ -1233,8 +1233,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     workDuringStudies: "Students can work up to 20 hours per week during classes and full-time during holidays. Average wage: €8–€12 per hour, depending on city and job type.",
     postStudy: "Graduates can extend their stay for up to one year to search for jobs. Once employed, they may apply for a work residence card. After five years of continuous residence, students can qualify for long-term residency in Spain.",
     whyEvernest: {
-      title: "Why Choose Evernest Consultants?",
-      desc: "Evernest Consultants offers full support for your study journey, including:",
+      title: "Why Choose EverNest Consultants?",
+      desc: "EverNest Consultants offers full support for your study journey, including:",
       points: [
         "Personalized university selection & application filing",
         "Scholarship guidance & documentation",
@@ -1299,8 +1299,8 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
       "Summer Intake (June/July) – Limited programs, often short courses or diplomas."
     ],
     whyEvernest: {
-      title: "Why Evernest?",
-      desc: "Once your admission is confirmed, Evernest will guide you step-by-step with your student visa process, ensuring smooth arrival and settlement in Cyprus."
+      title: "Why EverNest?",
+      desc: "Once your admission is confirmed, EverNest will guide you step-by-step with your student visa process, ensuring smooth arrival and settlement in Cyprus."
     }
   },
   usa: {
