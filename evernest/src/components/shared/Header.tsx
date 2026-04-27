@@ -92,17 +92,19 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border-subtle bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image 
-              src="/brand/evernest-logo.png" 
-              alt="EverNest Consultants" 
-              width={617} 
-              height={537}
-              className="h-9 w-auto object-contain md:h-10 lg:h-11"
-              sizes="(max-width: 768px) 96px, 120px"
-              priority
-            />
+        <div className="flex h-22 items-center justify-between md:h-24">
+          <Link href="/" className="flex shrink-0 items-center overflow-visible py-2">
+            <div className="relative flex h-14 w-[150px] items-center overflow-visible md:h-16 md:w-[176px] lg:w-[192px]">
+              <Image
+                src="/brand/evernest-logo.png"
+                alt="EverNest Consultants"
+                width={617}
+                height={537}
+                className="h-full w-full object-contain object-left"
+                sizes="(max-width: 768px) 150px, (max-width: 1024px) 176px, 192px"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop Nav */}
