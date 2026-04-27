@@ -4,7 +4,6 @@ import Link from "next/link"
 import { CheckCircle2, Briefcase, Globe, FileText, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
-import { GalleryStrip } from "@/components/sections/GalleryStrip"
 import { immigrationData } from "@/data/immigration-countries"
 import type { FaqItem, ImmigrationCountryData, ImmigrationProgramData } from "@/data/types"
 import { buildMetadata, getFirstSentence } from "@/lib/metadata"
@@ -271,9 +270,6 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
           </div>
         </div>
       </section>
-
-      <GalleryStrip />
-
       <FinalCTA />
     </>
   )

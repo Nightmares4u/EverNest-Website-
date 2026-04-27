@@ -4,7 +4,6 @@ import Link from "next/link"
 import { CheckCircle2, GraduationCap, Calendar, BookOpen, Globe, FileText, ArrowRight, DollarSign, Briefcase } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
-import { GalleryStrip } from "@/components/sections/GalleryStrip"
 import { studyVisasData } from "@/data/study-visas"
 import type { StudyVisaCountryData } from "@/data/types"
 import { buildMetadata, getFirstSentence } from "@/lib/metadata"
@@ -416,9 +415,6 @@ export default function StudyVisaCountryPage({ params }: { params: Promise<{ cou
           </div>
         </div>
       </section>
-
-      <GalleryStrip />
-
       <FinalCTA />
     </>
   )

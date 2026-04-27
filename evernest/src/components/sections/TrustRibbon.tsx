@@ -13,6 +13,39 @@ const icons = {
   "Registered Since": ShieldCheck,
 }
 
+const statDisplay: Record<string, { value: string; title: string; detail: string }> = {
+  Experience: {
+    value: "13+",
+    title: "Years",
+    detail: "of guidance",
+  },
+  "Countries Served": {
+    value: "18+",
+    title: "Countries",
+    detail: "study pathways",
+  },
+  Offices: {
+    value: "2",
+    title: "Offices",
+    detail: "Pakistan",
+  },
+  "Regional Desks": {
+    value: "2",
+    title: "Regional Desks",
+    detail: "North America & Europe",
+  },
+  "Cases Processed": {
+    value: "Thousands",
+    title: "Cases Processed",
+    detail: "student and mobility profiles",
+  },
+  "Registered Since": {
+    value: "2013",
+    title: "Registered",
+    detail: "EN Consultants (Pvt) Ltd.",
+  },
+}
+
 export function TrustRibbon() {
   return (
     <section className="relative z-20 -mt-12 mx-4 md:mx-auto container max-w-6xl">
@@ -42,9 +75,15 @@ export function TrustRibbon() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {siteConfig.stats.map((stat, i) => {
               const Icon = icons[stat.label as keyof typeof icons] || ShieldCheck
+              const display = statDisplay[stat.label] ?? {
+                value: stat.value,
+                title: stat.label,
+                detail: "EverNest Consultants",
+              }
+
               return (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -52,16 +91,19 @@ export function TrustRibbon() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
                   key={stat.label} 
-                  className="group rounded-[1.5rem] border border-brand-blue/8 bg-white/80 p-5 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-card"
+                  className="group flex h-full min-h-[196px] flex-col rounded-[1.5rem] border border-brand-blue/8 bg-white/80 p-5 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-card"
                 >
                   <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-brand-blue/8 bg-brand-ice group-hover:border-brand-red/20 group-hover:bg-brand-red/10 transition-colors">
                     <Icon className="h-6 w-6 text-brand-red group-hover:scale-110 transition-transform" />
                   </div>
-                  <span className="mb-2 text-3xl font-display font-bold text-brand-blue">
-                    {stat.value}
+                  <span className="text-[clamp(1.9rem,4vw,2.75rem)] font-display font-bold leading-none text-brand-blue">
+                    {display.value}
                   </span>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-blue/55">
-                    {stat.label}
+                  <span className="mt-3 text-sm font-bold uppercase tracking-[0.18em] text-brand-blue">
+                    {display.title}
+                  </span>
+                  <span className="mt-2 text-sm leading-relaxed text-foreground/60">
+                    {display.detail}
                   </span>
                 </motion.div>
               )

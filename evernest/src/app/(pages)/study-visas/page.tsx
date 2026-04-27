@@ -11,7 +11,6 @@ import {
   GraduationCap,
 } from "lucide-react"
 import { FinalCTA } from "@/components/sections/FinalCTA"
-import { GalleryStrip } from "@/components/sections/GalleryStrip"
 import { studyVisasData } from "@/data/study-visas"
 import { buildMetadata } from "@/lib/metadata"
 
@@ -297,9 +296,6 @@ export default function StudyVisasIndexPage() {
           </div>
         </div>
       </section>
-
-      <GalleryStrip />
-
       <FinalCTA />
     </>
   )

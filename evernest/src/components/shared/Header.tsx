@@ -99,8 +99,8 @@ export function Header() {
               alt="EverNest Consultants" 
               width={617} 
               height={537}
-              className="h-14 w-auto object-contain"
-              sizes="(max-width: 768px) 64px, 72px"
+              className="h-9 w-auto object-contain md:h-10 lg:h-11"
+              sizes="(max-width: 768px) 96px, 120px"
               priority
             />
           </Link>
