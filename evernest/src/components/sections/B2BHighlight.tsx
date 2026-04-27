@@ -21,6 +21,9 @@ export function B2BHighlight() {
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blush text-brand-red mb-6">
                 <Briefcase className="h-6 w-6" />
               </div>
+              <div className="text-sm font-bold uppercase tracking-[0.22em] text-brand-blue/45 mb-4">
+                Institutional Growth
+              </div>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-blue mb-4">
                 B2B Partnerships
               </h2>
@@ -46,7 +49,7 @@ export function B2BHighlight() {
               <div>
                 <Button asChild size="lg" className="rounded-full group">
                   <Link href="/b2b-partnerships">
-                    Become a Partner
+                    Partner With EN Consultants
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
@@ -75,6 +78,22 @@ export function B2BHighlight() {
                 <div className="group">
                   <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">Professional</div>
                   <div className="text-sm text-brand-ice/80 font-medium">Partner-ready operations</div>
+                </div>
+              </div>
+
+              <div className="relative z-10 mt-10 rounded-[1.5rem] border border-white/10 bg-white/8 p-5 backdrop-blur-sm">
+                <div className="text-xs font-bold uppercase tracking-[0.22em] text-white/45">
+                  Regional contact desks
+                </div>
+                <div className="mt-3 grid gap-4 text-sm text-brand-ice/80 sm:grid-cols-2">
+                  <div>
+                    <div className="font-semibold text-white">North America</div>
+                    <div>Syed Yashal</div>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white">Europe</div>
+                    <div>Mehdi Jiwani</div>
+                  </div>
                 </div>
               </div>
             </div>

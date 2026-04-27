@@ -7,7 +7,6 @@ import { buildInquiryMessage, buildWhatsAppHref } from "@/lib/contact"
 import { siteConfig } from "@/data/site"
 
 export function PartnershipInquiryForm() {
-  const formRef = React.useRef<HTMLFormElement | null>(null)
   const [firstName, setFirstName] = React.useState("")
   const [lastName, setLastName] = React.useState("")
   const [company, setCompany] = React.useState("")
@@ -52,7 +51,7 @@ export function PartnershipInquiryForm() {
         not submit data directly yet.
       </p>
 
-      <form ref={formRef} className="space-y-4" onSubmit={handleSubmit}>
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <label

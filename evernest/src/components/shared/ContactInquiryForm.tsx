@@ -13,7 +13,6 @@ const services = [
 ] as const
 
 export function ContactInquiryForm() {
-  const formRef = React.useRef<HTMLFormElement | null>(null)
   const [firstName, setFirstName] = React.useState("")
   const [lastName, setLastName] = React.useState("")
   const [email, setEmail] = React.useState("")
@@ -56,7 +55,7 @@ export function ContactInquiryForm() {
         not submit data directly yet.
       </p>
 
-      <form ref={formRef} className="space-y-4" onSubmit={handleSubmit}>
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <label

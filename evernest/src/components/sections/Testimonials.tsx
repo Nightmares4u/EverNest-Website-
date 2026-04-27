@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { PlayCircle, Star } from "lucide-react"
+import { ArrowRight, Quote } from "lucide-react"
 import { motion } from "framer-motion"
 
 const testimonials = [
@@ -9,19 +9,19 @@ const testimonials = [
     name: "Ahmed Raza",
     destination: "Masters in Italy",
     quote: "EverNest made my study visa process incredibly smooth. Their team guided me through every documentation step, ensuring my admission to a top Italian university.",
-    type: "video" // Placeholder for future video implementation
+    type: "study"
   },
   {
     name: "Fatima & Family",
     destination: "Canada PR (Express Entry)",
     quote: "After months of confusion, the experts at EverNest provided a clear strategy for our Canada PR. We just received our ITA and couldn't be happier.",
-    type: "text"
+    type: "immigration"
   },
   {
     name: "Usman Ali",
     destination: "USA EB-2 NIW",
     quote: "The level of professionalism here is unmatched. They handled my complex EB-2 NIW case with complete transparency and diligence.",
-    type: "text"
+    type: "immigration"
   }
 ]
 
@@ -36,11 +36,14 @@ export function Testimonials() {
             viewport={{ once: true }}
             className="max-w-2xl"
           >
+            <div className="text-sm font-bold uppercase tracking-[0.22em] text-brand-blue/45">
+              Selected Stories
+            </div>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-brand-blue mb-6">
-              Hundreds of <span className="text-brand-red">Success Stories</span>
+              Selected <span className="text-brand-red">Success Stories</span>
             </h2>
             <p className="text-xl text-foreground/70 leading-relaxed">
-              Don&rsquo;t just take our word for it. Hear from the individuals and families whose lives have been transformed through our pathways.
+              A more grounded look at the kinds of student and immigration outcomes clients come to us for.
             </p>
           </motion.div>
           <motion.div
@@ -52,7 +55,8 @@ export function Testimonials() {
               href="/success-stories" 
               className="inline-flex items-center justify-center px-6 py-3 bg-brand-red/10 text-brand-red font-bold rounded-full hover:bg-brand-red hover:text-white transition-colors whitespace-nowrap duration-300"
             >
-              View All Success Stories &rarr;
+              View All Success Stories
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </motion.div>
         </div>
@@ -65,27 +69,20 @@ export function Testimonials() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               key={i} 
-              className="flex flex-col bg-white shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(11,27,58,0.1)] rounded-3xl p-8 border border-border-subtle relative overflow-hidden group transition-all duration-300 hover:-translate-y-2"
+              className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-border-subtle bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_24px_50px_-18px_rgba(11,27,58,0.16)]"
             >
-              {testimonial.type === 'video' && (
-                <div className="absolute inset-0 bg-brand-blue/10 backdrop-blur-[2px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer z-10">
-                  <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-[0_10px_20px_rgba(225,29,46,0.3)] text-brand-red transform scale-75 group-hover:scale-100 transition-transform duration-500">
-                    <PlayCircle className="h-8 w-8" />
-                  </div>
-                </div>
-              )}
-              
-              <div className="flex text-brand-red mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-current" />
-                ))}
+              <div className="flex items-start justify-between gap-4">
+                <span className="rounded-full bg-brand-blue/8 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-brand-blue/70">
+                  {testimonial.type === "study" ? "Study Visa" : "Immigration"}
+                </span>
+                <Quote className="h-8 w-8 text-brand-red/30 transition-transform group-hover:scale-110" />
               </div>
-              
-              <p className="text-foreground/80 italic mb-8 flex-grow">
+
+              <p className="mt-6 flex-grow text-foreground/80 italic">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
               
-              <div className="mt-auto">
+              <div className="mt-8 border-t border-border-subtle pt-5">
                 <div className="font-bold text-brand-blue">{testimonial.name}</div>
                 <div className="text-sm text-foreground/60">{testimonial.destination}</div>
               </div>

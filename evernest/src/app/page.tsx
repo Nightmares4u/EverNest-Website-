@@ -12,7 +12,6 @@ import { B2BHighlight } from "@/components/sections/B2BHighlight"
 import { Testimonials } from "@/components/sections/Testimonials"
 import { PartnerStrip } from "@/components/sections/PartnerStrip"
 import { FinalCTA } from "@/components/sections/FinalCTA"
-import { GalleryStrip } from "@/components/sections/GalleryStrip"
 import { buildMetadata } from "@/lib/metadata"
 
 export const metadata: Metadata = buildMetadata({
@@ -33,13 +32,12 @@ export default function Home() {
     <>
       <Hero />
       <TrustRibbon />
-      <GalleryStrip />
       <CoreServices />
-      <SplitSection />
       <FeaturedDestinations />
+      <SplitSection />
       <FeaturedImmigration />
-      <ProcessSteps />
       <WhyEvernest />
+      <ProcessSteps />
       <B2BHighlight />
       <Testimonials />
       <PartnerStrip />

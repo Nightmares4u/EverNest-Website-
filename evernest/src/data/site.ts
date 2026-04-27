@@ -52,7 +52,8 @@ export const siteConfig = {
   stats: [
     { label: "Experience", value: "13+ Years" },
     { label: "Countries Served", value: "18+" },
-    { label: "Branches", value: "2" },
+    { label: "Offices", value: "2" },
+    { label: "Regional Desks", value: "2" },
     { label: "Cases Processed", value: "Thousands" },
     { label: "Registered Since", value: "2013" },
   ],

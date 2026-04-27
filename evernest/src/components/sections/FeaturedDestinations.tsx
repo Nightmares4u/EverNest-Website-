@@ -1,9 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowRight, GraduationCap } from "lucide-react"
 import { motion } from "framer-motion"
+import { LocationVisual } from "@/components/shared/LocationVisual"
 
 const destinations = [
   { name: "Italy", code: "IT", slug: "italy", desc: "Top-tier education with rich cultural heritage.", image: "/images/destinations/italy.svg" },
@@ -16,18 +16,25 @@ const destinations = [
 
 export function FeaturedDestinations() {
   return (
-    <section className="py-24 bg-brand-ice/50 relative overflow-hidden">
-      {/* Decorative background element */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-[80%] bg-gradient-to-b from-transparent via-white to-transparent opacity-60"></div>
+    <section className="relative overflow-hidden bg-brand-ice/50 py-24">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(11,27,58,0.05),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(225,29,46,0.07),transparent_32%)]" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-sm font-bold uppercase tracking-[0.22em] text-brand-blue/45"
+            >
+              Study Destinations
+            </motion.p>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-display font-bold text-brand-blue mb-6"
+              className="mt-4 text-4xl md:text-5xl font-display font-bold text-brand-blue mb-6"
             >
               Featured Study <span className="text-brand-red">Destinations</span>
             </motion.h2>
@@ -49,9 +56,9 @@ export function FeaturedDestinations() {
           >
             <Link 
               href="/study-visas" 
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-brand-blue text-brand-blue font-bold rounded-full hover:bg-brand-blue hover:text-white transition-colors whitespace-nowrap shadow-[0_0_0_0_rgba(11,27,58,0)] hover:shadow-[0_10px_20px_-10px_rgba(11,27,58,0.5)] hover:-translate-y-1 duration-300"
+              className="inline-flex items-center justify-center rounded-full border-2 border-brand-blue px-8 py-4 font-bold text-brand-blue transition-colors whitespace-nowrap shadow-[0_0_0_0_rgba(11,27,58,0)] duration-300 hover:-translate-y-1 hover:bg-brand-blue hover:text-white hover:shadow-[0_10px_20px_-10px_rgba(11,27,58,0.5)]"
             >
-              View All Destinations
+              Explore Study Destinations
             </Link>
           </motion.div>
         </div>
@@ -67,28 +74,24 @@ export function FeaturedDestinations() {
             >
               <Link 
                 href={`/study-visas/${dest.slug}`}
-                className="group flex flex-col bg-white rounded-3xl border border-border-subtle shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(11,27,58,0.1)] hover:border-brand-blue/20 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                className="group flex h-full flex-col rounded-[2rem] border border-border-subtle bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-brand-blue/20 hover:shadow-[0_24px_50px_-18px_rgba(11,27,58,0.18)]"
               >
-                <div className="relative h-48 w-full overflow-hidden">
-                  <Image 
-                    src={dest.image} 
-                    alt={dest.name} 
-                    fill 
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute top-4 left-4 h-12 w-12 rounded-2xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white text-xl font-bold font-display">
-                    {dest.code}
-                  </div>
-                  <div className="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white group-hover:bg-brand-red group-hover:border-transparent transition-all duration-300 group-hover:scale-110">
-                    <ArrowUpRight className="h-5 w-5" />
-                  </div>
-                </div>
-                <div className="p-8 flex flex-col flex-grow">
+                <LocationVisual
+                  title={dest.name}
+                  code={dest.code}
+                  image={dest.image}
+                  badge="Study Visa"
+                  icon={GraduationCap}
+                />
+                <div className="flex flex-grow flex-col px-2 pb-3 pt-6">
                   <h3 className="text-2xl font-bold text-brand-blue mb-3">{dest.name}</h3>
-                  <p className="text-foreground/70 text-base leading-relaxed group-hover:text-foreground/90 transition-colors flex-grow">
+                  <p className="flex-grow text-base leading-relaxed text-foreground/70 transition-colors group-hover:text-foreground/90">
                     {dest.desc}
                   </p>
+                  <div className="mt-6 inline-flex items-center text-sm font-bold text-brand-red transition-colors group-hover:text-brand-blue">
+                    Explore Study Destinations
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </div>
               </Link>
             </motion.div>

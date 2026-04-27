@@ -1,90 +1,104 @@
 "use client"
 
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, Landmark, ShieldCheck, Waypoints } from "lucide-react"
 import { motion } from "framer-motion"
+import { siteConfig } from "@/data/site"
 
 const reasons = [
   {
-    title: "Personalized Advisory",
-    desc: "EverNest Consultants, being study abroad consultants in Karachi and study visa consultants in Karachi, provide systematized, profile-based guidance to students and professionals for overseas education and visa options."
+    icon: ShieldCheck,
+    title: "Profile-based planning",
+    desc: "Guidance starts with your academic, financial, and long-term objectives rather than a one-size-fits-all country pitch.",
   },
   {
-    title: "End-to-End Immigration Support",
-    desc: "We offer immigration services from Karachi, handling everything from documentation to process management and compliance concerning study immigration, work permits, and permanent settlement visas. As trusted immigration consultants, we manage each case with due diligence and compliance to the prevailing laws and regulations."
-  }
-]
+    icon: CheckCircle2,
+    title: "Structured documentation",
+    desc: "Each case is organized around document readiness, consistency, and clear next steps to reduce avoidable confusion.",
+  },
+  {
+    icon: Landmark,
+    title: "Pakistan-rooted support",
+    desc: "Karachi and Lahore serve as the core public offices for counseling, follow-up, and client-facing coordination.",
+  },
+  {
+    icon: Waypoints,
+    title: "Regional desk access",
+    desc: `North America support through ${siteConfig.satelliteContacts[0].manager} and Europe support through ${siteConfig.satelliteContacts[1].manager}.`,
+  },
+] as const
 
 export function WhyEvernest() {
   return (
-    <section className="py-24 bg-brand-blue text-white overflow-hidden">
+    <section className="overflow-hidden bg-brand-blue py-24 text-white">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
+        <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_1.2fr] lg:gap-16">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.55 }}
           >
-            <div className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold text-white mb-6 backdrop-blur-sm border border-white/20 tracking-wide uppercase">
-              Why Choose Us
+            <div className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-[0.22em] text-brand-ice backdrop-blur-sm">
+              Why EverNest
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-5xl font-display font-bold mb-12">
-              EverNest Consultants - Trusted Support to <span className="text-brand-red">Move Abroad</span>
+            <h2 className="mt-6 text-4xl font-display font-bold md:text-5xl">
+              A premium advisory experience built on
+              {" "}
+              <span className="text-brand-red">clarity, process, and reach</span>
             </h2>
-            
-            <div className="grid sm:grid-cols-1 gap-x-8 gap-y-10">
-              {reasons.map((reason, i) => (
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  key={reason.title} 
-                  className="group"
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-ice/76">
+              The strongest consultancy brands do not just promise outcomes. They
+              make the process easier to understand, the documentation easier to
+              manage, and the decision-making easier to trust.
+            </p>
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {[
+                { label: "Registered", value: siteConfig.registeredYear },
+                { label: "Pakistan Offices", value: "2" },
+                { label: "Regional Desks", value: "2" },
+                { label: "Public Contact", value: siteConfig.contact.whatsappDisplay },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-[1.5rem] border border-white/10 bg-white/8 p-5 backdrop-blur-sm"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="h-8 w-8 rounded-full bg-brand-red/10 flex items-center justify-center group-hover:bg-brand-red transition-colors">
-                      <CheckCircle2 className="h-5 w-5 text-brand-red group-hover:text-white transition-colors" />
-                    </div>
-                    <h3 className="font-bold text-lg">{reason.title}</h3>
+                  <div className="text-xs font-bold uppercase tracking-[0.22em] text-white/45">
+                    {item.label}
                   </div>
-                  <p className="text-sm text-brand-ice/70 leading-relaxed pl-11">
-                    {reason.desc}
-                  </p>
-                </motion.div>
+                  <div className="mt-2 text-2xl font-display font-bold text-white">
+                    {item.value}
+                  </div>
+                </div>
               ))}
             </div>
           </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            {/* Abstract decorative element representing growth/global reach */}
-            <div className="aspect-square rounded-full border border-white/10 p-8 relative">
-              <div className="absolute inset-0 border border-white/5 rounded-full animate-[spin_20s_linear_infinite]"></div>
-              <div className="w-full h-full rounded-full border border-white/20 p-8 relative">
-                <div className="absolute inset-0 border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-                <div className="w-full h-full rounded-full bg-gradient-to-tr from-brand-red to-brand-red/20 opacity-90 blur-3xl animate-pulse"></div>
-              </div>
-            </div>
-            
-            {/* Overlay stats box */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="absolute bottom-10 left-0 bg-white text-brand-blue p-8 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] max-w-xs border border-white/10 backdrop-blur-md"
-            >
-              <div className="text-5xl font-display font-bold text-brand-red mb-2">13+</div>
-              <div className="font-bold text-lg mb-2">Years of Experience</div>
-              <div className="text-sm text-foreground/70 leading-relaxed">Registered in 2013, supporting study, immigration, and partner cases with a structured process.</div>
-            </motion.div>
-          </motion.div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            {reasons.map((reason, index) => {
+              const Icon = reason.icon
+              return (
+                <motion.article
+                  key={reason.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  className="rounded-[1.9rem] border border-white/10 bg-white/8 p-6 backdrop-blur-sm shadow-[0_24px_60px_-30px_rgba(0,0,0,0.45)]"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-red/15 text-brand-red">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-5 text-2xl font-display font-bold text-white">
+                    {reason.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-brand-ice/76">
+                    {reason.desc}
+                  </p>
+                </motion.article>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
