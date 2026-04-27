@@ -37,4 +37,19 @@ export const successStories: SuccessStory[] = [
     featured: true,
     privacyMode: "full",
   },
+  {
+    id: "hazique-hina-family-canada",
+    clientName: "Hazique & Hina Zaheer",
+    serviceType: "Canada Immigration",
+    destinationCountry: "Canada",
+    outcomeLabel: "Process Success",
+    rating: 5,
+    reviewSource: "google",
+    testimonialQuote:
+      "Having our process done with Evernest has been a great experience. Their staff members are really helpful and most importantly friendly and available to help whenever needed. Raza sir has been amazing with all his knowledge and expertise in guiding us through every single path. I would suggest anyone planning to go abroad to go for Evernest.",
+    imagePath: "/images/success-stories/hazique-hina-family.jpg",
+    imageAlt: "Hazique Zaheer and Hina Khan Family - Canada Immigration Success",
+    featured: true,
+    privacyMode: "full",
+  },
 ];
