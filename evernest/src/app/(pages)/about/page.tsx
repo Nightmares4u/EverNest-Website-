@@ -103,7 +103,7 @@ export default function AboutPage() {
                 <span className="text-2xl font-bold text-brand-red">02</span>
               </div>
               <h3 className="font-bold text-lg mb-2">Expertise</h3>
-              <p className="text-sm text-brand-ice/70">A team with deep domain expertise capable to guarantee desired results.</p>
+              <p className="text-sm text-brand-ice/70">A team with deep domain expertise focused on clear guidance, compliant processes, and responsible next-step planning.</p>
             </div>
             <div className="text-center">
               <div className="h-16 w-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-4">

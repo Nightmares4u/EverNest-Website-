@@ -18,7 +18,7 @@ const services = [
     desc: "Profile-based counseling, university selection, applications, and visa documentation support—built around your goals and timelines.",
     icon: GraduationCap,
     href: "/study-visas",
-    cta: "Explore destinations",
+    cta: "Explore Study Destinations",
   },
   {
     title: "Immigration & Work Permits",
@@ -32,7 +32,7 @@ const services = [
     desc: "Institutional and consultant partnerships with a professional process, clear coordination, and partner-focused support.",
     icon: Handshake,
     href: "/b2b-partnerships",
-    cta: "Partner with EN Consultants",
+    cta: "Partner With EN Consultants",
   },
   {
     title: "University Recruitment",
@@ -46,7 +46,7 @@ const services = [
     desc: "Guidance on course, country, and intake strategy—aligned with financial planning and long-term pathways.",
     icon: Users,
     href: "/contact",
-    cta: "Book a consultation",
+    cta: "Book Free Consultation",
   },
   {
     title: "Global Mobility Consulting",
@@ -148,4 +148,3 @@ export function CoreServices() {
     </section>
   )
 }
-

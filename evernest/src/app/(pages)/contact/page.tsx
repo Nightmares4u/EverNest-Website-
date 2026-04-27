@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react"
 import { siteConfig } from "@/data/site"
-import { Button } from "@/components/ui/button"
+import { ContactInquiryForm } from "@/components/shared/ContactInquiryForm"
 import { buildMetadata } from "@/lib/metadata"
 
 export const metadata: Metadata = buildMetadata({
@@ -36,6 +36,11 @@ export default function ContactPage() {
             <div className="space-y-12">
               <div>
                 <h2 className="text-2xl font-display font-bold text-brand-blue mb-6">Get in Touch</h2>
+                <p className="text-foreground/70 mb-6 max-w-xl leading-relaxed">
+                  Choose the contact method that works best for you. Share your
+                  details and our team will guide you through the next step with
+                  clear, profile-based advice.
+                </p>
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="h-12 w-12 rounded-full bg-brand-neutral flex items-center justify-center text-brand-red mr-4 flex-shrink-0">
@@ -102,54 +107,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white rounded-3xl p-8 md:p-10 border border-border-subtle shadow-card h-fit">
-              <h3 className="text-2xl font-display font-bold text-brand-blue mb-2">Send us a message</h3>
-              <p className="text-foreground/60 mb-8">Fill out the form below and we&apos;ll get back to you shortly.</p>
-              
-              <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground/80">First Name *</label>
-                    <input required type="text" className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground/80">Last Name *</label>
-                    <input required type="text" className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all" />
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground/80">Email *</label>
-                    <input required type="email" className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground/80">Phone *</label>
-                    <input required type="tel" className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all" />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground/80">Service Interested In *</label>
-                  <select required className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all appearance-none">
-                    <option value="">Select a service</option>
-                    <option value="study-visa">Study Visa</option>
-                    <option value="immigration">Immigration</option>
-                    <option value="b2b">B2B Partnership</option>
-                    <option value="other">Other Inquiry</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground/80">Message</label>
-                  <textarea rows={4} className="w-full p-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all resize-none"></textarea>
-                </div>
-
-                <div className="pt-4">
-                  <Button type="button" className="w-full h-12 text-base">Send Message</Button>
-                </div>
-              </form>
-            </div>
+            <ContactInquiryForm />
 
           </div>
         </div>

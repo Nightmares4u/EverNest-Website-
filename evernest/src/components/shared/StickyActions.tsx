@@ -7,23 +7,21 @@ import { MessageCircle, FileText } from "lucide-react"
 
 export function StickyActions() {
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-      {/* Apply Now Button */}
+    <div className="fixed inset-x-4 bottom-4 z-50 flex items-center justify-end gap-3 sm:inset-x-auto sm:bottom-6 sm:right-6 sm:flex-col">
       <Link
         href="/contact"
-        className="flex h-14 items-center justify-center gap-2 rounded-full bg-brand-red px-6 text-white shadow-lg shadow-brand-red/20 transition-all hover:scale-105 hover:bg-brand-red/90 focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2"
-        aria-label="Apply Now"
+        className="flex h-12 items-center justify-center gap-2 rounded-full bg-brand-red px-5 text-white shadow-lg shadow-brand-red/20 transition-all hover:scale-105 hover:bg-brand-red/90 focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2 sm:h-14 sm:px-6"
+        aria-label="Book Free Consultation"
       >
         <FileText className="h-5 w-5" />
-        <span className="font-bold hidden sm:inline">Apply Now</span>
+        <span className="font-bold text-sm sm:text-base">Book Free Consultation</span>
       </Link>
 
-      {/* WhatsApp Button */}
       <a
         href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/\+/g, "")}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex h-14 w-14 sm:w-auto items-center justify-center gap-2 rounded-full bg-[#25D366] sm:px-6 text-white shadow-lg transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
+        className="flex h-12 w-12 items-center justify-center gap-2 rounded-full bg-[#25D366] text-white shadow-lg transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 sm:h-14 sm:w-auto sm:px-6"
         aria-label="Contact us on WhatsApp"
       >
         <MessageCircle className="h-6 w-6" />

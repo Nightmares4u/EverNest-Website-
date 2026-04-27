@@ -19,25 +19,26 @@ const studyDestinations = [
 const immigrationPathways = [
   { 
     name: "U.S. Immigration", 
-    slug: "united-states",
+    href: "/immigration/united-states",
     programs: [
-      { name: "USA Work Permit", slug: "usa-work-permit" },
-      { name: "H-1B Visa", slug: "h1b" },
-      { name: "J-1 Visa", slug: "j1" }
+      { name: "USA Work Permit", href: "/immigration/usa-work-permit" },
+      { name: "H-1B Visa", href: "/immigration/h1b" },
+      { name: "J-1 Visa", href: "/immigration/j1" }
     ] 
   },
   { 
     name: "Canada Immigration", 
-    slug: "canada",
+    href: "/immigration/canada",
     programs: [
-      { name: "Express Entry", slug: "express-entry" }
+      { name: "Express Entry", href: "/immigration/express-entry" },
+      { name: "Provincial Nominee Program", href: "/immigration/canada/pnp" }
     ] 
   },
   { 
-    name: "UK Immigration", 
-    slug: "united-kingdom",
+    name: "Australia Immigration", 
+    href: "/immigration/australia",
     programs: [
-      { name: "Skilled Worker", slug: "united-kingdom" } // Pointing to country page as per previous batches
+      { name: "Skilled Migration", href: "/immigration/australia/skilled-visas" }
     ] 
   },
 ]
@@ -52,12 +53,42 @@ export function Header() {
   const [isOpen, setIsOpen] = React.useState(false)
   const [activeMegaMenu, setActiveMegaMenu] = React.useState<string | null>(null)
   const pathname = usePathname()
+  const desktopNavRef = React.useRef<HTMLDivElement | null>(null)
 
   // Close mobile menu on route change
   React.useEffect(() => {
     setIsOpen(false)
     setActiveMegaMenu(null)
   }, [pathname])
+
+  React.useEffect(() => {
+    const handlePointerDown = (event: MouseEvent) => {
+      if (
+        desktopNavRef.current &&
+        !desktopNavRef.current.contains(event.target as Node)
+      ) {
+        setActiveMegaMenu(null)
+      }
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveMegaMenu(null)
+      }
+    }
+
+    document.addEventListener("mousedown", handlePointerDown)
+    document.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown)
+      document.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [])
+
+  const toggleMegaMenu = (menu: string) => {
+    setActiveMegaMenu((currentMenu) => (currentMenu === menu ? null : menu))
+  }
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border-subtle bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
@@ -75,7 +106,8 @@ export function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <div ref={desktopNavRef} className="hidden md:flex items-center gap-8">
+          <nav className="flex items-center space-x-8">
             <Link 
               href="/" 
               className={cn(
@@ -91,16 +123,31 @@ export function Header() {
               className="relative group"
               onMouseEnter={() => setActiveMegaMenu("study")}
               onMouseLeave={() => setActiveMegaMenu(null)}
+              onFocusCapture={() => setActiveMegaMenu("study")}
+              onBlurCapture={(event) => {
+                const nextFocused = event.relatedTarget as Node | null
+                if (!event.currentTarget.contains(nextFocused)) {
+                  setActiveMegaMenu(null)
+                }
+              }}
             >
-              <button className={cn(
-                "flex items-center gap-1 text-sm font-medium transition-colors hover:text-brand-red py-2",
-                pathname.startsWith("/study-visas") ? "text-brand-red" : "text-foreground/80"
-              )}>
+              <button
+                type="button"
+                aria-expanded={activeMegaMenu === "study"}
+                aria-controls="desktop-study-menu"
+                className={cn(
+                  "flex items-center gap-1 text-sm font-medium transition-colors hover:text-brand-red py-2",
+                  pathname.startsWith("/study-visas") ? "text-brand-red" : "text-foreground/80"
+                )}
+                onClick={() => toggleMegaMenu("study")}
+              >
                 Study Visas <ChevronDown className="h-4 w-4" />
               </button>
               
               {/* Study Mega Menu Dropdown */}
-              <div className={cn(
+              <div
+                id="desktop-study-menu"
+                className={cn(
                 "absolute left-1/2 -translate-x-1/2 top-full w-[600px] bg-white shadow-card rounded-xl border border-border-subtle p-6 transition-all duration-200",
                 activeMegaMenu === "study" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2"
               )}>
@@ -109,6 +156,7 @@ export function Header() {
                     <Link 
                       key={country} 
                       href={`/study-visas/${country.toLowerCase().replace(" ", "-")}`}
+                      onClick={() => setActiveMegaMenu(null)}
                       className="text-sm text-foreground/70 hover:text-brand-red hover:bg-brand-blush px-3 py-2 rounded-md transition-colors"
                     >
                       {country}
@@ -116,8 +164,8 @@ export function Header() {
                   ))}
                 </div>
                 <div className="mt-6 pt-4 border-t border-border-subtle">
-                  <Link href="/study-visas" className="text-sm font-semibold text-brand-blue hover:text-brand-red transition-colors flex items-center gap-1">
-                    View all study destinations &rarr;
+                  <Link href="/study-visas" onClick={() => setActiveMegaMenu(null)} className="text-sm font-semibold text-brand-blue hover:text-brand-red transition-colors flex items-center gap-1">
+                    Explore Study Destinations &rarr;
                   </Link>
                 </div>
               </div>
@@ -128,30 +176,46 @@ export function Header() {
               className="relative group"
               onMouseEnter={() => setActiveMegaMenu("immigration")}
               onMouseLeave={() => setActiveMegaMenu(null)}
+              onFocusCapture={() => setActiveMegaMenu("immigration")}
+              onBlurCapture={(event) => {
+                const nextFocused = event.relatedTarget as Node | null
+                if (!event.currentTarget.contains(nextFocused)) {
+                  setActiveMegaMenu(null)
+                }
+              }}
             >
-              <button className={cn(
-                "flex items-center gap-1 text-sm font-medium transition-colors hover:text-brand-red py-2",
-                pathname.startsWith("/immigration") ? "text-brand-red" : "text-foreground/80"
-              )}>
+              <button
+                type="button"
+                aria-expanded={activeMegaMenu === "immigration"}
+                aria-controls="desktop-immigration-menu"
+                className={cn(
+                  "flex items-center gap-1 text-sm font-medium transition-colors hover:text-brand-red py-2",
+                  pathname.startsWith("/immigration") ? "text-brand-red" : "text-foreground/80"
+                )}
+                onClick={() => toggleMegaMenu("immigration")}
+              >
                 Immigration <ChevronDown className="h-4 w-4" />
               </button>
               
               {/* Immigration Mega Menu Dropdown */}
-              <div className={cn(
+              <div
+                id="desktop-immigration-menu"
+                className={cn(
                 "absolute left-1/2 -translate-x-1/2 top-full w-[600px] bg-white shadow-card rounded-xl border border-border-subtle p-6 transition-all duration-200",
                 activeMegaMenu === "immigration" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2"
               )}>
                 <div className="grid grid-cols-3 gap-8">
                   {immigrationPathways.map((pathway) => (
                     <div key={pathway.name}>
-                      <Link href={`/immigration/${pathway.slug}`} className="font-semibold text-brand-blue mb-3 block hover:text-brand-red transition-colors">
+                      <Link href={pathway.href} onClick={() => setActiveMegaMenu(null)} className="font-semibold text-brand-blue mb-3 block hover:text-brand-red transition-colors">
                         {pathway.name}
                       </Link>
                       <ul className="space-y-2">
                         {pathway.programs.map(program => (
                           <li key={program.name}>
                             <Link 
-                              href={`/immigration/${program.slug}`}
+                              href={program.href}
+                              onClick={() => setActiveMegaMenu(null)}
                               className="text-sm text-foreground/70 hover:text-brand-red transition-colors"
                             >
                               {program.name}
@@ -163,8 +227,8 @@ export function Header() {
                   ))}
                 </div>
                 <div className="mt-6 pt-4 border-t border-border-subtle">
-                  <Link href="/immigration" className="text-sm font-semibold text-brand-blue hover:text-brand-red transition-colors flex items-center gap-1">
-                    View all immigration pathways &rarr;
+                  <Link href="/immigration" onClick={() => setActiveMegaMenu(null)} className="text-sm font-semibold text-brand-blue hover:text-brand-red transition-colors flex items-center gap-1">
+                    Explore Immigration Pathways &rarr;
                   </Link>
                 </div>
               </div>
@@ -195,16 +259,31 @@ export function Header() {
               className="relative group"
               onMouseEnter={() => setActiveMegaMenu("resources")}
               onMouseLeave={() => setActiveMegaMenu(null)}
+              onFocusCapture={() => setActiveMegaMenu("resources")}
+              onBlurCapture={(event) => {
+                const nextFocused = event.relatedTarget as Node | null
+                if (!event.currentTarget.contains(nextFocused)) {
+                  setActiveMegaMenu(null)
+                }
+              }}
             >
-              <button className={cn(
-                "flex items-center gap-1 text-sm font-medium transition-colors hover:text-brand-red py-2",
-                pathname.startsWith("/resources") ? "text-brand-red" : "text-foreground/80"
-              )}>
+              <button
+                type="button"
+                aria-expanded={activeMegaMenu === "resources"}
+                aria-controls="desktop-resources-menu"
+                className={cn(
+                  "flex items-center gap-1 text-sm font-medium transition-colors hover:text-brand-red py-2",
+                  pathname.startsWith("/resources") ? "text-brand-red" : "text-foreground/80"
+                )}
+                onClick={() => toggleMegaMenu("resources")}
+              >
                 Resources <ChevronDown className="h-4 w-4" />
               </button>
               
               {/* Resources Dropdown */}
-              <div className={cn(
+              <div
+                id="desktop-resources-menu"
+                className={cn(
                 "absolute left-1/2 -translate-x-1/2 top-full w-[250px] bg-white shadow-card rounded-xl border border-border-subtle p-4 transition-all duration-200",
                 activeMegaMenu === "resources" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2"
               )}>
@@ -213,6 +292,7 @@ export function Header() {
                     <Link 
                       key={link.slug} 
                       href={`/resources/${link.slug}`}
+                      onClick={() => setActiveMegaMenu(null)}
                       className="text-sm text-foreground/70 hover:text-brand-red hover:bg-brand-blush px-3 py-2 rounded-md transition-colors"
                     >
                       {link.name}
@@ -220,7 +300,7 @@ export function Header() {
                   ))}
                 </div>
                 <div className="mt-4 pt-3 border-t border-border-subtle">
-                  <Link href="/resources" className="text-sm font-semibold text-brand-blue hover:text-brand-red transition-colors flex items-center gap-1 px-2">
+                  <Link href="/resources" onClick={() => setActiveMegaMenu(null)} className="text-sm font-semibold text-brand-blue hover:text-brand-red transition-colors flex items-center gap-1 px-2">
                     View all resources &rarr;
                   </Link>
                 </div>
@@ -248,13 +328,13 @@ export function Header() {
             </Link>
           </nav>
 
-          <div className="hidden md:flex">
+          <div className="flex">
             <Button asChild variant="default" className="rounded-full px-6">
-              <Link href="/contact">Free Consultation</Link>
+              <Link href="/contact">Book Free Consultation</Link>
             </Button>
           </div>
+          </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="flex items-center justify-center p-2 md:hidden text-foreground"
             onClick={() => setIsOpen(!isOpen)}
@@ -283,7 +363,7 @@ export function Header() {
                     {country}
                   </Link>
                 ))}
-                <Link href="/study-visas" className="text-sm text-brand-red font-medium">View All</Link>
+                <Link href="/study-visas" className="text-sm text-brand-red font-medium">Explore Study Destinations</Link>
               </div>
             </div>
 
@@ -292,10 +372,10 @@ export function Header() {
               <div className="grid gap-4 pl-4">
                 {immigrationPathways.map((pathway) => (
                   <div key={pathway.name}>
-                    <Link href={`/immigration/${pathway.slug}`} className="text-sm font-medium mb-2 block hover:text-brand-red">{pathway.name}</Link>
+                    <Link href={pathway.href} className="text-sm font-medium mb-2 block hover:text-brand-red">{pathway.name}</Link>
                     <div className="flex flex-wrap gap-2">
                       {pathway.programs.map(program => (
-                        <Link key={program.name} href={`/immigration/${program.slug}`} className="text-xs bg-brand-ice px-2 py-1 rounded hover:bg-brand-red hover:text-white transition-colors">
+                        <Link key={program.name} href={program.href} className="text-xs bg-brand-ice px-2 py-1 rounded hover:bg-brand-red hover:text-white transition-colors">
                           {program.name}
                         </Link>
                       ))}
@@ -328,7 +408,7 @@ export function Header() {
             
             <div className="pt-6 mt-6 border-t border-border-subtle">
               <Button asChild variant="default" className="w-full rounded-full h-12 text-base">
-                <Link href="/contact">Free Consultation</Link>
+                <Link href="/contact">Book Free Consultation</Link>
               </Button>
             </div>
           </div>

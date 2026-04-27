@@ -24,13 +24,13 @@ export function FinalCTA() {
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
             Ready to shape your <span className="text-brand-red">future?</span>
           </h2>
-          <p className="text-xl text-brand-ice/80 mb-12 leading-relaxed">
-            Connect with our experts today for a free evaluation of your study or immigration profile. Let&rsquo;s make your global aspirations a reality.
-          </p>
+            <p className="text-xl text-brand-ice/80 mb-12 leading-relaxed">
+              Connect with our experts today for a free evaluation of your study or immigration profile. Let&rsquo;s make your global aspirations a reality.
+            </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="default" className="rounded-full text-base h-14 px-8 shadow-lg shadow-brand-red/20 transition-transform hover:scale-105">
-              <Link href="/contact">Get Free Consultation</Link>
+              <Link href="/contact">Book Free Consultation</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full text-base h-14 px-8 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white hover:text-brand-blue transition-all hover:scale-105">
               <a href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/\+/g, "")}`} target="_blank" rel="noopener noreferrer">

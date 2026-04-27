@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ChevronDown, CheckCircle2, AlertCircle, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { siteConfig } from "@/data/site"
 import { buildMetadata } from "@/lib/metadata"
 
 const pageData = {
@@ -143,11 +144,11 @@ const pageData = {
     title: "Contact EverNest Consultants:",
     desc: "EverNest Consultants provides professional visa interview preparation and study visa guidance for Pakistani students.",
     contactDetails: [
-      "WhatsApp: +92 302 290 7411",
-      "Email: info@evernestconsultants.com",
+      `WhatsApp: ${siteConfig.contact.whatsappDisplay}`,
+      `Email: ${siteConfig.contact.email}`,
       "Website: www.evernestconsultants.com",
-      "Karachi: Office #912, Portway Trade Center (PTC) – SMCHS, Shahrah-e-Faisal",
-      "Islamabad: Office #41, 153-M Civic Center, Phase-IV, Bahria Town"
+      `Head Office: ${siteConfig.pakistanOffice.city}, ${siteConfig.pakistanOffice.country} - ${siteConfig.pakistanOffice.address}`,
+      `Satellite Offices: ${siteConfig.offices.map((office) => `${office.city}, ${office.country}`).join(" and ")}`
     ]
   }
 }
