@@ -58,4 +58,5 @@ export const siteConfig = {
     { label: "Registered Since", value: "2013" },
   ],
   social: [],
+  googleReviewsUrl: "",
 }

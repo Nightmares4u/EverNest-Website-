@@ -9,7 +9,8 @@ import { FeaturedImmigration } from "@/components/sections/FeaturedImmigration"
 import { ProcessSteps } from "@/components/sections/ProcessSteps"
 import { WhyEvernest } from "@/components/sections/WhyEvernest"
 import { B2BHighlight } from "@/components/sections/B2BHighlight"
-import { Testimonials } from "@/components/sections/Testimonials"
+import { SuccessStoriesGrid } from "@/components/sections/SuccessStoriesGrid"
+import { GoogleReviewsCTA } from "@/components/sections/GoogleReviewsCTA"
 import { PartnerStrip } from "@/components/sections/PartnerStrip"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { buildMetadata } from "@/lib/metadata"
@@ -39,7 +40,8 @@ export default function Home() {
       <WhyEvernest />
       <ProcessSteps />
       <B2BHighlight />
-      <Testimonials />
+      <SuccessStoriesGrid />
+      <GoogleReviewsCTA />
       <PartnerStrip />
       <FinalCTA />
     </>
