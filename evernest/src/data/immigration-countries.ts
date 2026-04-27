@@ -1,4 +1,6 @@
-export const immigrationData: Record<string, any> = {
+import type { ImmigrationCountryData } from "@/data/types";
+
+export const immigrationData: Record<string, ImmigrationCountryData> = {
   australia: {
     name: "Australia",
     heroTitle: "Australian Immigration Consultants in Pakistan",

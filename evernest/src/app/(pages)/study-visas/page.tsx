@@ -1,10 +1,16 @@
 import Link from "next/link"
-import { ArrowRight, GraduationCap, ArrowUpRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Image from "next/image"
+import {
+  ArrowUpRight,
+  BookOpen,
+  Briefcase,
+  CheckCircle2,
+  ChevronDown,
+  Compass,
+  GraduationCap,
+} from "lucide-react"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { GalleryStrip } from "@/components/sections/GalleryStrip"
-
-import Image from "next/image"
 import { studyVisasData } from "@/data/study-visas"
 
 const destinations = Object.entries(studyVisasData).map(([slug, data]) => ({
@@ -15,8 +21,6 @@ const destinations = Object.entries(studyVisasData).map(([slug, data]) => ({
   desc: data.heroDesc.split(".")[0] + ".",
   cost: data.costs?.[0]?.desc || "Varies by program"
 }))
-
-import { CheckCircle2, ChevronDown, BookOpen, Globe, Compass, GraduationCap as GraduationCapIcon, Briefcase } from "lucide-react"
 
 export default function StudyVisasIndexPage() {
   return (

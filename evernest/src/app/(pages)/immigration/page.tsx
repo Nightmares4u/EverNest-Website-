@@ -1,10 +1,11 @@
 import Link from "next/link"
-import { ArrowRight, Plane, ArrowUpRight } from "lucide-react"
+import { ArrowRight, Plane } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 
 import Image from "next/image"
 import { immigrationData } from "@/data/immigration-countries"
+import type { ImmigrationProgramData } from "@/data/types"
 
 const countryImages: Record<string, string> = {
   australia: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=600&auto=format&fit=crop",
@@ -64,7 +65,7 @@ export default function ImmigrationIndexPage() {
                   <p className="text-foreground/70 mb-8 flex-grow">{pathway.desc}</p>
                   
                   <div className="space-y-3 mb-8">
-                    {pathway.programs.map((program: any, i: number) => (
+                    {pathway.programs.map((program: ImmigrationProgramData, i: number) => (
                       <div 
                         key={i}
                         className="flex items-center justify-between p-3 rounded-xl bg-brand-neutral border border-transparent"

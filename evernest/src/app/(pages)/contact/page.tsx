@@ -9,10 +9,10 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-brand-blue mb-6">
-              Let's map out your <span className="text-brand-red">future.</span>
+              Let&apos;s map out your <span className="text-brand-red">future.</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/70 mb-10 leading-relaxed max-w-2xl">
-              Whether you're looking to study abroad, immigrate, or partner with us, our experts are ready to assist you.
+              Whether you&apos;re looking to study abroad, immigrate, or partner with us, our experts are ready to assist you.
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="bg-white rounded-3xl p-8 md:p-10 border border-border-subtle shadow-card h-fit">
               <h3 className="text-2xl font-display font-bold text-brand-blue mb-2">Send us a message</h3>
-              <p className="text-foreground/60 mb-8">Fill out the form below and we'll get back to you shortly.</p>
+              <p className="text-foreground/60 mb-8">Fill out the form below and we&apos;ll get back to you shortly.</p>
               
               <form className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">

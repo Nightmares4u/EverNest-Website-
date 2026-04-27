@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, ChevronDown, CheckCircle2 } from "lucide-react"
+import { CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 

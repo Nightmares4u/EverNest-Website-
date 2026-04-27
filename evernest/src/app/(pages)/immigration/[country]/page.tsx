@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { CheckCircle2, MapPin, Briefcase, Globe, FileText, ArrowRight, ChevronDown } from "lucide-react"
+import { CheckCircle2, Briefcase, Globe, FileText, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { GalleryStrip } from "@/components/sections/GalleryStrip"
 import { immigrationData } from "@/data/immigration-countries"
+import type { FaqItem, ImmigrationCountryData, ImmigrationProgramData } from "@/data/types"
 import { use } from "react"
 
 import Image from "next/image"
@@ -20,7 +21,7 @@ const countryImages: Record<string, string> = {
 export default function ImmigrationCountryPage({ params }: { params: Promise<{ country: string }> }) {
   const resolvedParams = use(params)
   const countryKey = resolvedParams.country.toLowerCase()
-  const pageData = immigrationData[countryKey]
+  const pageData: ImmigrationCountryData | undefined = immigrationData[countryKey]
 
   if (!pageData) {
     notFound()
@@ -103,7 +104,7 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
                   )}
                   
                   <div className="space-y-6">
-                    {pageData.programs.map((program: any, i: number) => (
+                    {pageData.programs.map((program: ImmigrationProgramData, i: number) => (
                       <details key={i} className="group bg-white rounded-2xl border border-border-subtle shadow-sm overflow-hidden open:shadow-md transition-all">
                         <summary className="flex items-center justify-between p-6 cursor-pointer bg-white group-hover:bg-brand-ice/30 transition-colors list-none">
                           <div>
@@ -126,7 +127,7 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
                             <div>
                               <h4 className="font-bold text-brand-blue mb-4">Requirements</h4>
                               <ul className="space-y-2">
-                                {program.requirements.map((req: string, j: number) => (
+                                {(program.requirements ?? []).map((req: string, j: number) => (
                                   <li key={j} className="flex items-start text-sm">
                                     <div className="h-4 w-4 rounded-full bg-brand-blue/10 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                                       <div className="h-1.5 w-1.5 rounded-full bg-brand-blue"></div>
@@ -139,7 +140,7 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
                             <div>
                               <h4 className="font-bold text-brand-blue mb-4">Benefits</h4>
                               <ul className="space-y-2">
-                                {program.benefits.map((benefit: string, j: number) => (
+                                {(program.benefits ?? []).map((benefit: string, j: number) => (
                                   <li key={j} className="flex items-start text-sm">
                                     <CheckCircle2 className="h-4 w-4 text-brand-red mr-2 mt-0.5 flex-shrink-0" />
                                     <span className="text-foreground/70 leading-relaxed">{benefit}</span>
@@ -206,7 +207,7 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
                 <div>
                   <h2 className="text-3xl font-display font-bold text-brand-blue mb-8">Frequently Asked Questions</h2>
                   <div className="space-y-4">
-                    {pageData.faq.map((faq: any, i: number) => (
+                    {pageData.faq.map((faq: FaqItem, i: number) => (
                       <details key={i} className="group bg-white rounded-xl border border-border-subtle overflow-hidden">
                         <summary className="flex items-center justify-between p-5 cursor-pointer bg-white hover:bg-brand-ice/30 transition-colors list-none font-bold text-brand-blue">
                           {faq.q}

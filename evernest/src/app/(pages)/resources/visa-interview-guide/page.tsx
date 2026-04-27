@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, ChevronDown, CheckCircle2, AlertCircle, FileText, Globe, BookOpen } from "lucide-react"
+import { ChevronDown, CheckCircle2, AlertCircle, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 
@@ -230,7 +230,7 @@ export default function VisaInterviewGuidePage() {
                     </ul>
                   </div>
                   <div className="bg-white p-6 rounded-xl border border-brand-red/20 shadow-sm">
-                    <h3 className="font-bold text-brand-red mb-4">DON'Ts</h3>
+                    <h3 className="font-bold text-brand-red mb-4">Don&apos;ts</h3>
                     <ul className="space-y-3">
                       {pageData.bodyLanguage.donts.map((item, i) => (
                         <li key={i} className="flex items-start text-sm">

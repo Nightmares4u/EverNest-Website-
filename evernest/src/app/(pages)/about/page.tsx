@@ -1,5 +1,5 @@
-import Image from "next/image"
-import { CheckCircle2, Target, Eye, Users } from "lucide-react"
+import type { SVGProps } from "react"
+import { Eye, Target } from "lucide-react"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { siteConfig } from "@/data/site"
 
@@ -118,7 +118,7 @@ export default function AboutPage() {
   )
 }
 
-function Globe2Icon(props: any) {
+function Globe2Icon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

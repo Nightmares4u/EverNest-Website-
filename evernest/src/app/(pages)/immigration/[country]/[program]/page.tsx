@@ -1,9 +1,24 @@
 import Link from "next/link"
-import { ArrowRight, CheckCircle2, GraduationCap, MapPin, Calendar, BookOpen, Briefcase } from "lucide-react"
+import { CheckCircle2, BookOpen, Briefcase } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 
-const programsData: Record<string, Record<string, any>> = {
+interface ProgramStat {
+  label: string;
+  value: string;
+}
+
+interface ProgramPageData {
+  name: string;
+  country: string;
+  heroDesc: string;
+  stats: ProgramStat[];
+  benefits: string[];
+  requirements: string[];
+  process: string[];
+}
+
+const programsData: Record<string, Record<string, ProgramPageData>> = {
   us: {
     "eb-2": {
       name: "EB-2 NIW",
@@ -145,7 +160,7 @@ export default function ImmigrationProgramPage({ params }: { params: Promise<{ c
   
   // Try to find the specific program data, fallback to generic
   const countryData = programsData[resolvedParams.country] || {}
-  const programData = countryData[resolvedParams.program] || {
+  const fallbackProgramData: ProgramPageData = {
     name: resolvedParams.program.toUpperCase().replace("-", " "),
     country: resolvedParams.country.charAt(0).toUpperCase() + resolvedParams.country.slice(1).replace("-", " "),
     heroDesc: "Expert guidance for securing your residency and global mobility.",
@@ -175,6 +190,7 @@ export default function ImmigrationProgramPage({ params }: { params: Promise<{ c
       "Visa Approval"
     ]
   }
+  const programData = countryData[resolvedParams.program] || fallbackProgramData
 
   return (
     <>
@@ -196,7 +212,7 @@ export default function ImmigrationProgramPage({ params }: { params: Promise<{ c
               {programData.heroDesc}
             </p>
             <div className="flex flex-wrap gap-6">
-              {programData.stats.map((stat: any, i: number) => (
+              {programData.stats.map((stat, i: number) => (
                 <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 min-w-[120px]">
                   <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
                   <div className="text-sm text-brand-ice/70">{stat.label}</div>

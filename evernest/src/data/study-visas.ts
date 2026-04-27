@@ -1,4 +1,6 @@
-export const studyVisasData: Record<string, any> = {
+import type { StudyVisaCountryData } from "@/data/types";
+
+export const studyVisasData: Record<string, StudyVisaCountryData> = {
   italy: {
     name: "Italy",
     heroDesc: "Italy has been one of the leading academic destinations in Europe. The country possesses deep-rooted educational traditions combined with modern teaching and research efficiency. Italy is home to the world's oldest universities. Italy offers internationally acknowledged degrees, competitively priced tuition, and it is teaching programs in English, making it a preferred option for students across the world. When students are planning for a study abroad in Italy, they will realize the academic, cultural, and lifestyle balance the country offers. Italy is home to many ancient educational institutes and progressive polytechnic universities. It's an enviable study destination.",

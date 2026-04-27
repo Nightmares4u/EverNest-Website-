@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, ChevronDown, CheckCircle2, Globe, TrendingUp, PiggyBank, Briefcase, BookOpen } from "lucide-react"
+import { ChevronDown, CheckCircle2, Globe, PiggyBank, Briefcase, BookOpen, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 

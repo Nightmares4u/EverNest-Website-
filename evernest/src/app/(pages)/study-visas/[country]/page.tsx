@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { GalleryStrip } from "@/components/sections/GalleryStrip"
 import { studyVisasData } from "@/data/study-visas"
+import type { StudyVisaCountryData } from "@/data/types"
 import { use } from "react"
 
 import Image from "next/image"
@@ -32,7 +33,7 @@ const countryImages: Record<string, string> = {
 export default function StudyVisaCountryPage({ params }: { params: Promise<{ country: string }> }) {
   const resolvedParams = use(params)
   const countryKey = resolvedParams.country.toLowerCase()
-  const pageData = studyVisasData[countryKey]
+  const pageData: StudyVisaCountryData | undefined = studyVisasData[countryKey]
 
   if (!pageData) {
     notFound()
@@ -89,7 +90,7 @@ export default function StudyVisaCountryPage({ params }: { params: Promise<{ cou
                     <h2 className="text-3xl font-display font-bold text-brand-blue">Benefits of Studying in {pageData.name}</h2>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-6">
-                    {pageData.benefits.map((benefit: any, i: number) => (
+                    {pageData.benefits.map((benefit, i: number) => (
                       <div key={i} className="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col hover:shadow-md transition-shadow">
                         <h3 className="font-bold text-brand-blue mb-3 text-lg">{benefit.title}</h3>
                         <p className="text-foreground/70 text-sm leading-relaxed">{benefit.desc}</p>
@@ -124,7 +125,7 @@ export default function StudyVisaCountryPage({ params }: { params: Promise<{ cou
                     )}
                     {pageData.admissionRequirements.master && (
                       <div>
-                        <h3 className="text-xl font-bold text-brand-blue mb-4">Master's Programs</h3>
+                        <h3 className="text-xl font-bold text-brand-blue mb-4">Master&apos;s Programs</h3>
                         <ul className="space-y-3">
                           {pageData.admissionRequirements.master.map((req: string, i: number) => (
                             <li key={i} className="flex items-start">
@@ -226,7 +227,7 @@ export default function StudyVisaCountryPage({ params }: { params: Promise<{ cou
                     <h2 className="text-3xl font-display font-bold text-brand-blue">Tuition & Living Costs</h2>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-6">
-                    {pageData.costs.map((cost: any, i: number) => (
+                    {pageData.costs.map((cost, i: number) => (
                       <div key={i} className="bg-brand-ice/30 p-6 rounded-xl border border-brand-blue/10">
                         <h3 className="font-bold text-brand-blue mb-3 text-lg">{cost.title}</h3>
                         <p className="text-foreground/70 text-sm leading-relaxed">{cost.desc}</p>

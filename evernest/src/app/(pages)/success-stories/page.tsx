@@ -93,7 +93,7 @@ export default function SuccessStoriesPage() {
                 <Quote className="h-8 w-8 text-brand-ice mb-4 rotate-180" />
                 
                 <p className="text-foreground/80 italic mb-8 flex-grow leading-relaxed relative z-0">
-                  "{story.quote}"
+                  &ldquo;{story.quote}&rdquo;
                 </p>
                 
                 <div className="mt-auto pt-6 border-t border-border-subtle flex items-center justify-between">
