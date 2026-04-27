@@ -69,7 +69,7 @@ const pageData = {
       "Employer files a petition (Form I‑129) with USCIS.",
       "After approval (I‑797 notice), schedule a US visa appointment time.",
       "Prepare mandatory documents and complete the DS‑160 form.",
-      "Attend the interview at the US Embassy in Islamabad or Consulate in Karachi.",
+      "Attend the interview at the relevant US visa processing post in Pakistan.",
       "Receive your visa decision."
     ]
   },
@@ -87,7 +87,7 @@ const pageData = {
 
   whyEvernest: {
     title: "Why Choose EverNest Consultants?",
-    desc: "EverNest Consultants is a trusted USA Work Permit Consultant assisting applicants across Karachi, Islamabad, and worldwide. We offer:",
+    desc: "EverNest Consultants is a trusted USA Work Permit Consultant assisting applicants across Pakistan and worldwide. We offer:",
     points: [
       "Complete profile evaluation",
       "Employer‑based visa guidance",
@@ -95,7 +95,7 @@ const pageData = {
       "DS‑160 preparation & interview coaching",
       "End‑to‑end processing for Skilled Worker Visa USA applicants"
     ],
-    footer: "We also help you prepare strategically through experienced Work Visa Consultants in Karachi and USA Visa Consultants in Islamabad."
+    footer: "We also help you prepare strategically through experienced work visa guidance, interview preparation, and document review support."
   },
 
   faq: [

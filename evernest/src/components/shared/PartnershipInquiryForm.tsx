@@ -3,54 +3,42 @@
 import * as React from "react"
 
 import { Button } from "@/components/ui/button"
-import { buildInquiryMessage, buildMailtoHref, buildWhatsAppHref } from "@/lib/contact"
+import { buildInquiryMessage, buildWhatsAppHref } from "@/lib/contact"
+import { siteConfig } from "@/data/site"
 
 export function PartnershipInquiryForm() {
+  const formRef = React.useRef<HTMLFormElement | null>(null)
   const [firstName, setFirstName] = React.useState("")
   const [lastName, setLastName] = React.useState("")
   const [company, setCompany] = React.useState("")
   const [email, setEmail] = React.useState("")
   const [phone, setPhone] = React.useState("")
   const [location, setLocation] = React.useState("")
+  const [partnershipInterest, setPartnershipInterest] = React.useState("")
   const [message, setMessage] = React.useState("")
 
   const fullName = [firstName.trim(), lastName.trim()].filter(Boolean).join(" ")
-  const isReady = Boolean(
-    fullName &&
-      company.trim() &&
-      email.trim() &&
-      phone.trim() &&
-      location.trim(),
-  )
-
   const inquiryMessage = buildInquiryMessage({
-    intro:
-      "Hello EN Consultants (Pvt) Ltd., I would like to discuss a B2B partnership with EverNest Consultants.",
-    fullName,
-    email: email.trim(),
-    phone: phone.trim(),
-    company: company.trim(),
-    location: location.trim(),
-    message: message.trim(),
+    lines: [
+      "Source: Website B2B Partnership Form",
+      `Name: ${fullName}`,
+      `Company/Agency: ${company.trim()}`,
+      `Phone: ${phone.trim()}`,
+      `Email: ${email.trim()}`,
+      `City/Country: ${location.trim()}`,
+      `Partnership interest: ${partnershipInterest.trim()}`,
+      `Message: ${message.trim() || "Not provided"}`,
+    ],
   })
 
-  const handleWhatsAppInquiry = () => {
-    if (!isReady) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    if (!event.currentTarget.reportValidity()) {
       return
     }
 
     window.open(buildWhatsAppHref(inquiryMessage), "_blank", "noopener,noreferrer")
-  }
-
-  const handleEmailInquiry = () => {
-    if (!isReady) {
-      return
-    }
-
-    window.location.href = buildMailtoHref(
-      `B2B partnership inquiry - ${company.trim()}`,
-      inquiryMessage,
-    )
   }
 
   return (
@@ -60,11 +48,11 @@ export function PartnershipInquiryForm() {
       </h2>
       <p className="text-foreground/60 mb-6 leading-relaxed">
         Share your details and our team will guide you through the next step.
-        This page opens WhatsApp or email with your partnership brief and does
+        This page opens WhatsApp with your partnership brief and does
         not submit data directly yet.
       </p>
 
-      <form className="space-y-4" onSubmit={(event) => event.preventDefault()}>
+      <form ref={formRef} className="space-y-4" onSubmit={handleSubmit}>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <label
@@ -184,6 +172,24 @@ export function PartnershipInquiryForm() {
 
         <div className="space-y-2">
           <label
+            htmlFor="partner-interest"
+            className="text-sm font-medium text-foreground/80"
+          >
+            Partnership Interest *
+          </label>
+          <input
+            id="partner-interest"
+            type="text"
+            required
+            value={partnershipInterest}
+            onChange={(event) => setPartnershipInterest(event.target.value)}
+            className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all"
+            placeholder="Student recruitment, sub-agent collaboration, or institutional outreach"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label
             htmlFor="partner-message"
             className="text-sm font-medium text-foreground/80"
           >
@@ -201,25 +207,21 @@ export function PartnershipInquiryForm() {
 
         <div className="space-y-3 pt-2">
           <Button
-            type="button"
+            type="submit"
             className="w-full h-12 text-base"
-            disabled={!isReady}
-            onClick={handleWhatsAppInquiry}
           >
-            Partner With EN Consultants
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            className="w-full h-12 text-base"
-            disabled={!isReady}
-            onClick={handleEmailInquiry}
-          >
-            Email Partnership Brief
+            Partner With EN Consultants on WhatsApp
           </Button>
           <p className="text-xs text-center text-foreground/50">
-            Your partnership brief opens in WhatsApp or email for review before
-            it is sent.
+            Prefer email first? Reach us directly at
+            {" "}
+            <a
+              href={`mailto:${siteConfig.contact.email}`}
+              className="font-medium text-brand-blue hover:text-brand-red"
+            >
+              {siteConfig.contact.email}
+            </a>
+            .
           </p>
         </div>
       </form>

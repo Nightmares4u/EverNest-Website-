@@ -630,7 +630,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     visaProcessSteps: [
       "Receive Admission Offer: Once you have received your admission offer, confirm your place at the university and pay the first tuition fee installment.",
       "Prepare Visa Documents: Your visa documents should comprise your passport, your invitation letter, your bank statement, and proof of accommodation.",
-      "Apply for Visa: Your documents can be submitted to the Azerbaijan Embassy located in Islamabad.",
+      "Apply for Visa: Your documents can be submitted through the relevant Azerbaijan visa processing channel in Pakistan.",
       "Visa Approval: The visa decisions take about 3 to 5 weeks."
     ],
     workDuringStudies: "During the academic year, students can work for 20 hours a week and full-time during the academic breaks. Working part-time in retail, tourism, and university offices helps cover living expenses.",
@@ -1218,7 +1218,7 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
     visaProcessSteps: [
       "Receive offer letter and pay initial tuition.",
       "Prepare documents for the Spanish Type D Student Visa.",
-      "Schedule an appointment at the Spanish Embassy (Islamabad) or Consulate (Karachi).",
+      "Schedule an appointment with the relevant Spanish visa processing office in Pakistan.",
       "Submit your visa application with biometrics and financial proof.",
       "Visa decision typically takes 4–8 weeks."
     ],

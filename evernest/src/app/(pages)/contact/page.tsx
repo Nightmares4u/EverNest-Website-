@@ -47,8 +47,8 @@ export default function ContactPage() {
                       <Phone className="h-5 w-5" />
                     </div>
                     <div>
-                      <div className="font-bold text-brand-blue">Phone</div>
-                      <a href={`tel:${siteConfig.contact.phone.replace(/ /g, '')}`} className="text-foreground/70 hover:text-brand-red transition-colors">
+                      <div className="font-bold text-brand-blue">Pakistan Main Number</div>
+                      <a href={`tel:${siteConfig.contact.phoneHref}`} className="text-foreground/70 hover:text-brand-red transition-colors">
                         {siteConfig.contact.phone}
                       </a>
                     </div>
@@ -59,10 +59,40 @@ export default function ContactPage() {
                       <MessageCircle className="h-5 w-5" />
                     </div>
                     <div>
-                      <div className="font-bold text-brand-blue">WhatsApp</div>
-                      <a href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/\+/g, "")}`} className="text-foreground/70 hover:text-brand-red transition-colors">
+                      <div className="font-bold text-brand-blue">WhatsApp Inquiries</div>
+                      <a href={`https://wa.me/${siteConfig.contact.whatsapp}`} className="text-foreground/70 hover:text-brand-red transition-colors">
                         {siteConfig.contact.whatsappDisplay}
                       </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="h-12 w-12 rounded-full bg-brand-neutral flex items-center justify-center text-brand-red mr-4 flex-shrink-0">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-brand-blue">{siteConfig.satelliteContacts[0].label}</div>
+                      <a href={`tel:${siteConfig.contact.northAmericaPhoneHref}`} className="text-foreground/70 hover:text-brand-red transition-colors">
+                        {siteConfig.contact.northAmericaPhone}
+                      </a>
+                      <p className="text-sm text-foreground/60 mt-1">
+                        {siteConfig.satelliteContacts[0].manager} - {siteConfig.satelliteContacts[0].managerTitle}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="h-12 w-12 rounded-full bg-brand-neutral flex items-center justify-center text-brand-red mr-4 flex-shrink-0">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-brand-blue">{siteConfig.satelliteContacts[1].label}</div>
+                      <a href={`tel:${siteConfig.contact.europePhoneHref}`} className="text-foreground/70 hover:text-brand-red transition-colors">
+                        {siteConfig.contact.europePhone}
+                      </a>
+                      <p className="text-sm text-foreground/60 mt-1">
+                        {siteConfig.satelliteContacts[1].manager} - {siteConfig.satelliteContacts[1].managerTitle}
+                      </p>
                     </div>
                   </div>
 
@@ -104,6 +134,7 @@ export default function ContactPage() {
                   ))}
                 </div>
               </div>
+
             </div>
 
             {/* Contact Form */}

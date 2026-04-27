@@ -93,7 +93,7 @@ export default function B2BPartnershipsPage() {
               </div>
               <h3 className="text-xl font-bold text-brand-blue mb-3">Brand Credibility</h3>
               <p className="text-foreground/70 text-sm leading-relaxed">
-                Leverage our established market presence since 2013 and our satellite offices in Italy and Canada.
+                Leverage our established market presence since 2013 and a professional process built around clear communication and responsible partner support.
               </p>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function B2BPartnershipsPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-brand-blue mb-2">Submit Application</h3>
-                    <p className="text-foreground/70">Share your business details through the partnership inquiry form and open a draft message in WhatsApp or email.</p>
+                    <p className="text-foreground/70">Share your business details through the partnership inquiry form and open a draft message in WhatsApp for review before you send it.</p>
                   </div>
                 </div>
                 

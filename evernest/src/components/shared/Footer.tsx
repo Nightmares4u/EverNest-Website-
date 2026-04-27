@@ -3,8 +3,6 @@ import Image from "next/image"
 import { siteConfig } from "@/data/site"
 
 export function Footer() {
-  const socialLinks = siteConfig.social.filter((social) => social.href && social.href !== "#")
-
   return (
     <footer className="bg-brand-blue text-white pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
@@ -51,26 +49,41 @@ export function Footer() {
             <h3 className="font-display text-xl font-semibold mb-4 text-white">Contact</h3>
             <ul className="space-y-3 text-brand-ice/80 text-sm">
               <li><a href={`mailto:${siteConfig.contact.email}`} className="hover:text-white transition-colors">{siteConfig.contact.email}</a></li>
-              <li><a href={`tel:${siteConfig.contact.phone.replace(/ /g, '')}`} className="hover:text-white transition-colors">{siteConfig.contact.phone}</a></li>
+              <li><a href={`tel:${siteConfig.contact.phoneHref}`} className="hover:text-white transition-colors">{siteConfig.contact.phone}</a></li>
+              <li>
+                <strong>{siteConfig.satelliteContacts[0].label}:</strong><br />
+                <a href={`tel:${siteConfig.satelliteContacts[0].phoneHref}`} className="hover:text-white transition-colors">
+                  {siteConfig.satelliteContacts[0].phone}
+                </a>
+                <div className="mt-1 text-brand-ice/60">
+                  {siteConfig.satelliteContacts[0].manager} - {siteConfig.satelliteContacts[0].managerTitle}
+                </div>
+              </li>
+              <li>
+                <strong>{siteConfig.satelliteContacts[1].label}:</strong><br />
+                <a href={`tel:${siteConfig.satelliteContacts[1].phoneHref}`} className="hover:text-white transition-colors">
+                  {siteConfig.satelliteContacts[1].phone}
+                </a>
+                <div className="mt-1 text-brand-ice/60">
+                  {siteConfig.satelliteContacts[1].manager} - {siteConfig.satelliteContacts[1].managerTitle}
+                </div>
+              </li>
               <li className="pt-4">
                 <strong>{siteConfig.pakistanOffice.label}:</strong><br />
                 {siteConfig.pakistanOffice.address}
               </li>
+              {siteConfig.offices.map((office) => (
+                <li key={office.label}>
+                  <strong>{office.label}:</strong><br />
+                  {office.address}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-brand-ice/60">
           <p>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p>
-          {socialLinks.length > 0 && (
-            <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a key={social.label} href={social.href} className="hover:text-white transition-colors">
-                  {social.label}
-                </a>
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </footer>

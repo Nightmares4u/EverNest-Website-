@@ -124,7 +124,7 @@ const pageData = {
       "Guidance for scholarships and financial planning",
       "Complete visa file preparation",
       "Assistance with accommodation and pre‑departure",
-      "Support from our Karachi head office and international satellite offices"
+      "Support from our Karachi and Lahore offices"
     ]
   },
 
@@ -132,9 +132,8 @@ const pageData = {
     title: "CTA & CONTACT",
     desc: "EverNest Consultants provides expert guidance for students in Karachi planning their study abroad journey. For admissions, scholarships, and visa filing support, contact our team today.",
     contactDetails: [
-      `Head Office: ${siteConfig.pakistanOffice.city}, ${siteConfig.pakistanOffice.country} - ${siteConfig.pakistanOffice.address}`,
-      `Satellite Office: ${siteConfig.offices[0].city}, ${siteConfig.offices[0].country}`,
-      `Satellite Office: ${siteConfig.offices[1].city}, ${siteConfig.offices[1].country}`,
+      `${siteConfig.pakistanOffice.label}: ${siteConfig.pakistanOffice.address}`,
+      `${siteConfig.offices[0].label}: ${siteConfig.offices[0].address}`,
       "Website: www.evernestconsultants.com",
       `WhatsApp: ${siteConfig.contact.whatsappDisplay}`,
       `Email: ${siteConfig.contact.email}`

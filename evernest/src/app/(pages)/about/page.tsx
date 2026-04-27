@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/metadata"
 export const metadata: Metadata = buildMetadata({
   title: "About EverNest Consultants",
   description:
-    "Learn more about EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd., including the firm’s background, mission, and global presence.",
+    "Learn more about EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd., including the firm’s background, mission, and client-focused approach.",
   path: "/about",
   keywords: ["About EverNest Consultants", siteConfig.legalName, "study visa consultants in Pakistan"],
 })
@@ -23,7 +23,7 @@ export default function AboutPage() {
               About <span className="text-brand-red">EverNest</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/70 mb-10 leading-relaxed max-w-2xl">
-              Founded in {siteConfig.registeredYear}, EverNest Consultants is a leading business, education, and immigration consultancy firm with a global footprint.
+              Founded in {siteConfig.registeredYear}, EverNest Consultants is a leading business, education, and immigration consultancy firm serving students, professionals, and partners from Pakistan.
             </p>
           </div>
         </div>
@@ -70,8 +70,8 @@ export default function AboutPage() {
                   <Globe2Icon className="w-full h-full text-white" />
                 </div>
                 <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-white">
-                  <div className="text-2xl font-display font-bold mb-2">Global Presence</div>
-                  <p className="text-brand-ice/80 text-sm">Headquartered in Pakistan, with active satellite offices in Naples, Italy and Edmonton, Canada.</p>
+                  <div className="text-2xl font-display font-bold mb-2">Pakistan Offices</div>
+                  <p className="text-brand-ice/80 text-sm">EverNest Consultants serves clients through its Karachi and Lahore offices with structured guidance across study, immigration, and partnership services.</p>
                 </div>
               </div>
             </div>

@@ -18,7 +18,7 @@ export function StickyActions() {
       </Link>
 
       <a
-        href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/\+/g, "")}`}
+        href={`https://wa.me/${siteConfig.contact.whatsapp}`}
         target="_blank"
         rel="noopener noreferrer"
         className="flex h-12 w-12 items-center justify-center gap-2 rounded-full bg-[#25D366] text-white shadow-lg transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 sm:h-14 sm:w-auto sm:px-6"

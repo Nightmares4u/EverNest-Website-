@@ -147,8 +147,8 @@ const pageData = {
       `WhatsApp: ${siteConfig.contact.whatsappDisplay}`,
       `Email: ${siteConfig.contact.email}`,
       "Website: www.evernestconsultants.com",
-      `Head Office: ${siteConfig.pakistanOffice.city}, ${siteConfig.pakistanOffice.country} - ${siteConfig.pakistanOffice.address}`,
-      `Satellite Offices: ${siteConfig.offices.map((office) => `${office.city}, ${office.country}`).join(" and ")}`
+      `${siteConfig.pakistanOffice.label}: ${siteConfig.pakistanOffice.address}`,
+      `${siteConfig.offices[0].label}: ${siteConfig.offices[0].address}`
     ]
   }
 }

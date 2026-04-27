@@ -3,7 +3,7 @@
 import * as React from "react"
 
 import { Button } from "@/components/ui/button"
-import { buildInquiryMessage, buildMailtoHref, buildWhatsAppHref } from "@/lib/contact"
+import { buildInquiryMessage, buildWhatsAppHref } from "@/lib/contact"
 
 const services = [
   { value: "Study Visa", label: "Study Visa" },
@@ -13,43 +13,36 @@ const services = [
 ] as const
 
 export function ContactInquiryForm() {
+  const formRef = React.useRef<HTMLFormElement | null>(null)
   const [firstName, setFirstName] = React.useState("")
   const [lastName, setLastName] = React.useState("")
   const [email, setEmail] = React.useState("")
   const [phone, setPhone] = React.useState("")
   const [service, setService] = React.useState("")
+  const [destination, setDestination] = React.useState("")
   const [message, setMessage] = React.useState("")
 
   const fullName = [firstName.trim(), lastName.trim()].filter(Boolean).join(" ")
-  const isReady = Boolean(fullName && email.trim() && phone.trim() && service)
-
   const inquiryMessage = buildInquiryMessage({
-    intro:
-      "Hello EverNest Consultants, I would like guidance on the next step for my inquiry.",
-    fullName,
-    email: email.trim(),
-    phone: phone.trim(),
-    service,
-    message: message.trim(),
+    lines: [
+      "Source: Website Contact Form",
+      `Name: ${fullName}`,
+      `Phone: ${phone.trim()}`,
+      `Email: ${email.trim()}`,
+      `Interested service: ${service}`,
+      `Interested country/destination: ${destination.trim()}`,
+      `Message: ${message.trim() || "Not provided"}`,
+    ],
   })
 
-  const handleWhatsAppInquiry = () => {
-    if (!isReady) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    if (!event.currentTarget.reportValidity()) {
       return
     }
 
     window.open(buildWhatsAppHref(inquiryMessage), "_blank", "noopener,noreferrer")
-  }
-
-  const handleEmailInquiry = () => {
-    if (!isReady) {
-      return
-    }
-
-    window.location.href = buildMailtoHref(
-      `Consultation inquiry - ${service}`,
-      inquiryMessage,
-    )
   }
 
   return (
@@ -59,11 +52,11 @@ export function ContactInquiryForm() {
       </h2>
       <p className="text-foreground/60 mb-6 leading-relaxed">
         Share your details and our team will guide you through the next step.
-        This website opens WhatsApp or email with your inquiry details and does
+        This website opens WhatsApp with your inquiry details and does
         not submit data directly yet.
       </p>
 
-      <form className="space-y-4" onSubmit={(event) => event.preventDefault()}>
+      <form ref={formRef} className="space-y-4" onSubmit={handleSubmit}>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <label
@@ -163,6 +156,24 @@ export function ContactInquiryForm() {
 
         <div className="space-y-2">
           <label
+            htmlFor="contact-destination"
+            className="text-sm font-medium text-foreground/80"
+          >
+            Interested Country / Destination *
+          </label>
+          <input
+            id="contact-destination"
+            required
+            type="text"
+            value={destination}
+            onChange={(event) => setDestination(event.target.value)}
+            className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all"
+            placeholder="Canada, Italy, Australia, or another destination"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label
             htmlFor="contact-message"
             className="text-sm font-medium text-foreground/80"
           >
@@ -174,31 +185,21 @@ export function ContactInquiryForm() {
             value={message}
             onChange={(event) => setMessage(event.target.value)}
             className="w-full p-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all resize-none"
+            placeholder="Tell us about your goals, timeline, or questions."
           />
         </div>
 
         <div className="pt-2 space-y-3">
           <Button
-            type="button"
+            type="submit"
             className="w-full h-12 text-base"
-            disabled={!isReady}
-            onClick={handleWhatsAppInquiry}
           >
-            Chat on WhatsApp
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            className="w-full h-12 text-base"
-            disabled={!isReady}
-            onClick={handleEmailInquiry}
-          >
-            Send by Email
+            Continue on WhatsApp
           </Button>
           <p className="text-xs text-center text-foreground/50">
-            Use either option to open your inquiry in WhatsApp or email. A
-            direct submission form can be added later without changing this
-            page.
+            Your message will open in WhatsApp to
+            <span className="font-medium"> +92 310 1076201</span> for review
+            before you send it.
           </p>
         </div>
       </form>

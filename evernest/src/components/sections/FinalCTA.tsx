@@ -33,7 +33,7 @@ export function FinalCTA() {
               <Link href="/contact">Book Free Consultation</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full text-base h-14 px-8 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white hover:text-brand-blue transition-all hover:scale-105">
-              <a href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/\+/g, "")}`} target="_blank" rel="noopener noreferrer">
+              <a href={`https://wa.me/${siteConfig.contact.whatsapp}`} target="_blank" rel="noopener noreferrer">
                 Chat on WhatsApp
               </a>
             </Button>

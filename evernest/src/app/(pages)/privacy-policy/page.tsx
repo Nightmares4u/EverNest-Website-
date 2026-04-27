@@ -78,7 +78,7 @@ export default function PrivacyPolicyPage() {
               </a>{" "}
               or by phone at{" "}
               <a
-                href={`tel:${siteConfig.contact.phone.replace(/ /g, "")}`}
+                href={`tel:${siteConfig.contact.phoneHref}`}
                 className="text-brand-blue underline decoration-brand-red/40 underline-offset-4"
               >
                 {siteConfig.contact.phone}
