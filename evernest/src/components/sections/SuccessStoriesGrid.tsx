@@ -23,7 +23,7 @@ export function SuccessStoriesGrid() {
               key={story.id}
               className="group relative bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden"
             >
-              <div className="relative h-64 w-full overflow-hidden bg-slate-100">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-100">
                 {story.imagePath ? (
                   <Image
                     src={story.imagePath}
