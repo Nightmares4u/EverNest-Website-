@@ -25,7 +25,7 @@ export function FinalCTA() {
             Ready to shape your <span className="text-brand-red">future?</span>
           </h2>
           <p className="text-xl text-brand-ice/80 mb-12 leading-relaxed">
-            Connect with our experts today for a free evaluation of your study or immigration profile. Let's make your global aspirations a reality.
+            Connect with our experts today for a free evaluation of your study or immigration profile. Let&rsquo;s make your global aspirations a reality.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

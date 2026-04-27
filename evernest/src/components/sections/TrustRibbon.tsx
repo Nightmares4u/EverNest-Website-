@@ -1,15 +1,15 @@
 "use client"
 
 import { siteConfig } from "@/data/site"
-import { ShieldCheck, Users, Globe2, Briefcase, MapPin } from "lucide-react"
+import { ShieldCheck, Users, Globe2, Briefcase, Building2 } from "lucide-react"
 import { motion } from "framer-motion"
 
 const icons = {
-  "Registered Since": ShieldCheck,
+  "Experience": Briefcase,
+  "Countries Served": Globe2,
+  "Branches": Building2,
   "Cases Processed": Users,
-  "Success Stories": Briefcase,
-  "Official Partnerships": Globe2,
-  "Satellite Offices": MapPin,
+  "Registered Since": ShieldCheck,
 }
 
 export function TrustRibbon() {

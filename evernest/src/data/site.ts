@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Evernest Consultants",
-  legalName: "EN Consultants Pvt. Ltd.",
+  legalName: "EN Consultants (Pvt) Ltd.",
   tagline: "Global study and immigration pathways, built around outcomes.",
   registeredYear: "2013",
   description:
@@ -33,11 +33,11 @@ export const siteConfig = {
   },
   affiliations: ["IELTS", "British Council", "University of Cambridge"],
   stats: [
-    { label: "Registered Since", value: "2013" },
+    { label: "Experience", value: "13+ Years" },
+    { label: "Countries Served", value: "18+" },
+    { label: "Branches", value: "3" },
     { label: "Cases Processed", value: "Thousands" },
-    { label: "Success Stories", value: "Hundreds" },
-    { label: "Official Partnerships", value: "Global" },
-    { label: "Satellite Offices", value: "Italy & Canada" },
+    { label: "Registered Since", value: "2013" },
   ],
   social: [
     { label: "LinkedIn", href: "#" },

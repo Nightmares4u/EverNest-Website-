@@ -1,6 +1,11 @@
-import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from "next"
+import { Manrope, Playfair_Display } from "next/font/google"
+
+import { Footer } from "@/components/shared/Footer"
+import { Header } from "@/components/shared/Header"
+import { StickyActions } from "@/components/shared/StickyActions"
+
+import "./globals.css"
 
 const manrope = Manrope({
   variable: "--font-sans",
@@ -15,14 +20,42 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Evernest Consultants | Study Visas, Immigration & Partnerships",
+  title: {
+    default: "EverNest Consultants | Study Visas, Immigration & Partnerships",
+    template: "%s | EverNest Consultants",
+  },
   description:
-    "Premium study visa, immigration, and B2B partnership consulting with global reach. Registered in 2013 with thousands of cases and a trusted international network.",
-};
-
-import { Header } from "@/components/shared/Header"
-import { Footer } from "@/components/shared/Footer"
-import { StickyActions } from "@/components/shared/StickyActions"
+    "EverNest Consultants (trading name of EN Consultants (Pvt) Ltd.) provides premium study visa, immigration, and B2B partnership consulting. Registered since 2013 with global reach across 18+ countries.",
+  applicationName: "EverNest Consultants",
+  metadataBase: new URL("https://evernestconsultants.com"),
+  openGraph: {
+    title: "EverNest Consultants",
+    description:
+      "Premium study visa, immigration, and B2B partnership consulting. Registered since 2013 with global reach across 18+ countries.",
+    siteName: "EverNest Consultants",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EverNest Consultants",
+    description:
+      "Premium study visa, immigration, and B2B partnership consulting. Registered since 2013 with global reach across 18+ countries.",
+  },
+  alternates: {
+    canonical: "/",
+  },
+  keywords: [
+    "EverNest Consultants",
+    "EN Consultants (Pvt) Ltd.",
+    "study visas",
+    "immigration",
+    "work permits",
+    "student counseling",
+    "B2B partnerships",
+    "university recruitment",
+    "global mobility consulting",
+  ],
+}
 
 export default function RootLayout({
   children,

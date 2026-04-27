@@ -40,7 +40,7 @@ export function Testimonials() {
               Hundreds of <span className="text-brand-red">Success Stories</span>
             </h2>
             <p className="text-xl text-foreground/70 leading-relaxed">
-              Don't just take our word for it. Hear from the individuals and families whose lives have been transformed through our pathways.
+              Don&rsquo;t just take our word for it. Hear from the individuals and families whose lives have been transformed through our pathways.
             </p>
           </motion.div>
           <motion.div
@@ -82,7 +82,7 @@ export function Testimonials() {
               </div>
               
               <p className="text-foreground/80 italic mb-8 flex-grow">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </p>
               
               <div className="mt-auto">

@@ -80,9 +80,9 @@ export function WhyEvernest() {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="absolute bottom-10 left-0 bg-white text-brand-blue p-8 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] max-w-xs border border-white/10 backdrop-blur-md"
             >
-              <div className="text-5xl font-display font-bold text-brand-red mb-2">10+</div>
-              <div className="font-bold text-lg mb-2">Years of Excellence</div>
-              <div className="text-sm text-foreground/70 leading-relaxed">Building a reliable bond with clients through successful processing since 2013.</div>
+              <div className="text-5xl font-display font-bold text-brand-red mb-2">13+</div>
+              <div className="font-bold text-lg mb-2">Years of Experience</div>
+              <div className="text-sm text-foreground/70 leading-relaxed">Registered in 2013, supporting study, immigration, and partner cases with a structured process.</div>
             </motion.div>
           </motion.div>
         </div>

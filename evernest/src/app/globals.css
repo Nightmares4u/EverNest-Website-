@@ -3,25 +3,32 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
-  --brand-blue: #0b1b3a;
-  --brand-red: #e11d2e;
-  --brand-ice: #f1f5ff;
+  --brand-blue: #0b1b3a; /* deep navy */
+  --brand-blue-2: #07122a; /* darker anchor */
+  --brand-red: #e11d2e; /* controlled CTA */
+  --brand-red-2: #c81625; /* hover/active */
+  --brand-ice: #f1f5ff; /* light blue wash */
   --brand-blush: #fff1f2;
   --brand-neutral: #f8fafc;
   --border-subtle: #e2e8f0;
+  --ring: rgba(11, 27, 58, 0.22);
   --shadow-soft: 0 30px 80px rgba(15, 23, 42, 0.08);
   --shadow-card: 0 16px 40px rgba(15, 23, 42, 0.08);
+  --shadow-glow: 0 24px 60px rgba(225, 29, 46, 0.14);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-2: var(--brand-blue-2);
   --color-brand-red: var(--brand-red);
+  --color-brand-red-2: var(--brand-red-2);
   --color-brand-ice: var(--brand-ice);
   --color-brand-blush: var(--brand-blush);
   --color-brand-neutral: var(--brand-neutral);
   --color-border-subtle: var(--border-subtle);
+  --color-ring: var(--ring);
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
 }
@@ -39,6 +46,21 @@ body {
 img {
   max-width: 100%;
   height: auto;
+}
+
+@layer base {
+  ::selection {
+    background: rgba(225, 29, 46, 0.16);
+  }
+
+  a {
+    text-underline-offset: 4px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 }
 
 @keyframes fade-up {
@@ -70,11 +92,21 @@ img {
     box-shadow: var(--shadow-card);
   }
 
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
   .animate-fade-up {
     animation: fade-up 0.7s ease-out both;
   }
 
   .animate-marquee {
     animation: marquee 28s linear infinite;
+  }
+
+  .bg-grid-soft {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(11, 27, 58, 0.08) 1px, transparent 0);
+    background-size: 28px 28px;
   }
 }

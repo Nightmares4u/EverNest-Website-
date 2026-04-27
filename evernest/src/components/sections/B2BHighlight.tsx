@@ -25,21 +25,21 @@ export function B2BHighlight() {
                 B2B Partnerships
               </h2>
               <p className="text-lg text-foreground/70 mb-8 leading-relaxed">
-                Expand your consultancy's reach by partnering with our international network. Access exclusive institutional tie-ups, priority processing, and higher commission structures.
+                Expand your consultancy’s reach with a structured partner program designed for consultants, sub‑agents, and institutional teams. Access a professional process, coordinated support, and a stronger global offering.
               </p>
               
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center text-foreground/80">
                   <div className="h-2 w-2 rounded-full bg-brand-red mr-3"></div>
-                  Sub-agent commission splits
+                  Clear partner coordination & documentation flow
                 </li>
                 <li className="flex items-center text-foreground/80">
                   <div className="h-2 w-2 rounded-full bg-brand-red mr-3"></div>
-                  Dedicated application manager
+                  Partner-focused case updates & follow-ups
                 </li>
                 <li className="flex items-center text-foreground/80">
                   <div className="h-2 w-2 rounded-full bg-brand-red mr-3"></div>
-                  Access to 500+ global institutions
+                  Institutional and global network access
                 </li>
               </ul>
 
@@ -61,20 +61,20 @@ export function B2BHighlight() {
               
               <div className="grid grid-cols-2 gap-x-8 gap-y-10 relative z-10">
                 <div className="group">
-                  <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">100%</div>
-                  <div className="text-sm text-brand-ice/80 font-medium">Transparency in processing</div>
+                  <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">Transparent</div>
+                  <div className="text-sm text-brand-ice/80 font-medium">Structured, client-safe process</div>
                 </div>
                 <div className="group">
-                  <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">24/7</div>
-                  <div className="text-sm text-brand-ice/80 font-medium">Partner support portal</div>
+                  <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">Responsive</div>
+                  <div className="text-sm text-brand-ice/80 font-medium">Partner communication & updates</div>
                 </div>
                 <div className="group">
-                  <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">15+</div>
-                  <div className="text-sm text-brand-ice/80 font-medium">Countries covered</div>
+                  <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">18+</div>
+                  <div className="text-sm text-brand-ice/80 font-medium">Countries served</div>
                 </div>
                 <div className="group">
-                  <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">Fast</div>
-                  <div className="text-sm text-brand-ice/80 font-medium">Commission payouts</div>
+                  <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">Professional</div>
+                  <div className="text-sm text-brand-ice/80 font-medium">Partner-ready operations</div>
                 </div>
               </div>
             </div>

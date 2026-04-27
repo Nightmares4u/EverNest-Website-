@@ -20,6 +20,9 @@ export function Footer() {
             <p className="text-brand-ice/80 text-sm mt-4 leading-relaxed max-w-xs">
               {siteConfig.description}
             </p>
+            <p className="text-brand-ice/60 text-xs leading-relaxed max-w-xs">
+              EverNest Consultants is the trading name of {siteConfig.legalName}.
+            </p>
           </div>
 
           <div>

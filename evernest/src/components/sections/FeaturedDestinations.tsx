@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 const destinations = [
   { name: "Italy", code: "IT", slug: "italy", desc: "Top-tier education with rich cultural heritage.", image: "/images/destinations/italy.svg" },
   { name: "France", code: "FR", slug: "france", desc: "World-class universities and vibrant student life.", image: "/images/destinations/france.svg" },
-  { name: "Germany", code: "DE", slug: "germany", desc: "Tuition-free engineering and tech programs.", image: "/images/destinations/germany.svg" },
+  { name: "UAE", code: "AE", slug: "uae", desc: "Modern campuses with strong regional opportunity.", image: "/images/destinations/uae.svg" },
   { name: "USA", code: "US", slug: "usa", desc: "Leading global universities and diverse opportunities.", image: "/images/destinations/usa.svg" },
   { name: "Canada", code: "CA", slug: "canada", desc: "High quality of life and post-study work options.", image: "/images/destinations/canada.svg" },
   { name: "UK", code: "GB", slug: "united-kingdom", desc: "Prestigious institutions with a global reputation.", image: "/images/destinations/united-kingdom.svg" },
@@ -38,7 +38,7 @@ export function FeaturedDestinations() {
               transition={{ delay: 0.1 }}
               className="text-xl text-foreground/70 leading-relaxed"
             >
-              We provide end-to-end admission and visa support for the world's most sought-after educational hubs.
+              We provide end-to-end admission and visa support for the world&rsquo;s most sought-after educational hubs.
             </motion.p>
           </div>
           <motion.div
