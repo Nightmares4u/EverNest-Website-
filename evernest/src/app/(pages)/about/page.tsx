@@ -1,7 +1,19 @@
-import Image from "next/image"
-import { CheckCircle2, Target, Eye, Users } from "lucide-react"
+import type { Metadata } from "next"
+import { Eye, Target } from "lucide-react"
+import { OfficeMediaCarousel } from "@/components/shared/OfficeMediaCarousel"
+import { LeadershipProfile } from "@/components/sections/LeadershipProfile"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { TrustPartnershipsSection } from "@/components/sections/TrustPartnershipsSection"
 import { siteConfig } from "@/data/site"
+import { buildMetadata } from "@/lib/metadata"
+
+export const metadata: Metadata = buildMetadata({
+  title: "About",
+  description:
+    "Learn more about EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd., including the firm’s background, mission, and client-focused approach.",
+  path: "/about",
+  keywords: ["About EverNest Consultants", siteConfig.legalName, "study visa consultants in Pakistan"],
+})
 
 export default function AboutPage() {
   return (
@@ -10,10 +22,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-brand-blue mb-6">
-              About <span className="text-brand-red">Evernest</span>
+              About <span className="text-brand-red">EverNest</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/70 mb-10 leading-relaxed max-w-2xl">
-              Founded in {siteConfig.registeredYear}, EverNest Consultants is a leading business, education, and immigration consultancy firm with a global footprint.
+              Founded in {siteConfig.registeredYear}, EverNest Consultants is a leading business, education, and immigration consultancy firm serving students, professionals, and partners from Pakistan.
             </p>
           </div>
         </div>
@@ -54,16 +66,7 @@ export default function AboutPage() {
             </div>
 
             <div className="relative">
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-brand-blue relative">
-                {/* Abstract graphic representing global connection */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                  <Globe2Icon className="w-full h-full text-white" />
-                </div>
-                <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-white">
-                  <div className="text-2xl font-display font-bold mb-2">Global Presence</div>
-                  <p className="text-brand-ice/80 text-sm">Headquartered in Pakistan, with active satellite offices in Naples, Italy and Edmonton, Canada.</p>
-                </div>
-              </div>
+              <OfficeMediaCarousel />
             </div>
           </div>
         </div>
@@ -93,7 +96,7 @@ export default function AboutPage() {
                 <span className="text-2xl font-bold text-brand-red">02</span>
               </div>
               <h3 className="font-bold text-lg mb-2">Expertise</h3>
-              <p className="text-sm text-brand-ice/70">A team with deep domain expertise capable to guarantee desired results.</p>
+              <p className="text-sm text-brand-ice/70">A team with deep domain expertise focused on clear guidance, compliant processes, and responsible next-step planning.</p>
             </div>
             <div className="text-center">
               <div className="h-16 w-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-4">
@@ -113,28 +116,10 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <LeadershipProfile />
+      <TrustPartnershipsSection />
+
       <FinalCTA />
     </>
-  )
-}
-
-function Globe2Icon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-      <path d="M2 12h20" />
-    </svg>
   )
 }

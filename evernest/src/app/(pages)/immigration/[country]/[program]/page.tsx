@@ -1,179 +1,47 @@
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
 import Link from "next/link"
-import { ArrowRight, CheckCircle2, GraduationCap, MapPin, Calendar, BookOpen, Briefcase } from "lucide-react"
+import { CheckCircle2, BookOpen, Briefcase } from "lucide-react"
+import { use } from "react"
+
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { immigrationProgramsData } from "@/data/immigration-programs"
+import { buildMetadata, getFirstSentence } from "@/lib/metadata"
 
-const programsData: Record<string, Record<string, any>> = {
-  us: {
-    "eb-2": {
-      name: "EB-2 NIW",
-      country: "United States",
-      heroDesc: "A direct pathway to a U.S. Green Card for professionals with advanced degrees or exceptional abilities.",
-      stats: [
-        { label: "Processing Time", value: "Varies" },
-        { label: "Sponsor Needed", value: "No" },
-        { label: "Path to PR", value: "Direct" },
-      ],
-      benefits: [
-        "No employer sponsorship or labor certification (PERM) required",
-        "Self-petition allowed",
-        "Includes spouse and unmarried children under 21",
-        "Faster processing compared to regular EB-2",
-        "Direct pathway to Permanent Residency (Green Card)"
-      ],
-      requirements: [
-        "Advanced Degree (Master's or higher) OR Exceptional Ability in sciences, arts, or business",
-        "Proposed endeavor has substantial merit and national importance",
-        "Applicant is well-positioned to advance the endeavor",
-        "Beneficial to waive the job offer and labor certification requirements"
-      ],
-      process: [
-        "Initial Profile Assessment",
-        "Document Gathering & Case Strategy",
-        "Drafting of Support Letters & Business Plan (if applicable)",
-        "I-140 Petition Filing with USCIS",
-        "Adjustment of Status or Consular Processing",
-        "Green Card Approval"
-      ]
-    }
-  },
-  canada: {
-    "express-entry": {
-      name: "Express Entry",
-      country: "Canada",
-      heroDesc: "The fastest and most popular pathway to Canadian Permanent Residency for skilled workers globally.",
-      stats: [
-        { label: "Processing Time", value: "6 Months" },
-        { label: "System", value: "Points-based" },
-        { label: "Path to PR", value: "Direct" },
-      ],
-      benefits: [
-        "Fast processing time (typically 6 months from ITA)",
-        "Freedom to live and work anywhere in Canada (outside Quebec)",
-        "Includes spouse and dependent children",
-        "Access to universal healthcare and free public education",
-        "Pathway to Canadian Citizenship"
-      ],
-      requirements: [
-        "Minimum 1 year of continuous skilled work experience",
-        "Language proficiency in English and/or French (IELTS/CELPIP/TEF)",
-        "Educational Credential Assessment (ECA)",
-        "Proof of funds to support yourself and family",
-        "Meet the minimum CRS score cutoff in a draw"
-      ],
-      process: [
-        "ECA and Language Testing",
-        "Profile Creation & Pool Entry",
-        "Receive Invitation to Apply (ITA)",
-        "Submit Complete PR Application (eAPR)",
-        "Medical Exam & Biometrics",
-        "Passport Request (PPR) & PR Confirmation"
-      ]
-    },
-    "pnp": {
-      name: "Provincial Nominee Program",
-      country: "Canada",
-      heroDesc: "A pathway for workers who have the skills, education and work experience to contribute to the economy of a specific Canadian province.",
-      stats: [
-        { label: "Processing Time", value: "11-18 Months" },
-        { label: "Sponsor Needed", value: "Sometimes" },
-        { label: "Path to PR", value: "Yes" },
-      ],
-      benefits: [
-        "Direct pathway to Permanent Residency",
-        "Option to apply even with lower CRS scores via Express Entry streams",
-        "Targeted towards specific in-demand occupations",
-        "Provincial support and community integration",
-        "Includes family members"
-      ],
-      requirements: [
-        "Meet the specific requirements of the chosen province/territory",
-        "Intention to live in that specific province",
-        "Relevant work experience and language proficiency",
-        "May require a job offer from an employer in the province"
-      ],
-      process: [
-        "Assess Eligibility for Provincial Streams",
-        "Submit Expression of Interest (EOI) to Province",
-        "Receive Provincial Nomination",
-        "Submit PR Application to IRCC (Express Entry or Non-Express Entry)",
-        "Medical & Background Checks",
-        "PR Confirmation"
-      ]
-    }
-  },
-  australia: {
-    "skilled-visas": {
-      name: "Skilled Migration",
-      country: "Australia",
-      heroDesc: "The General Skilled Migration program is for skilled workers who want to live and work in Australia.",
-      stats: [
-        { label: "Visas", value: "189, 190, 491" },
-        { label: "System", value: "Points-based" },
-        { label: "Path to PR", value: "Yes" },
-      ],
-      benefits: [
-        "Permanent residency pathways available (Subclass 189 & 190)",
-        "Access to Medicare (Australia's public healthcare system)",
-        "Sponsor eligible relatives for permanent residence",
-        "Travel to and from Australia for 5 years",
-        "Pathway to Australian Citizenship"
-      ],
-      requirements: [
-        "Occupation must be on the relevant skilled occupation list",
-        "Positive skills assessment for the nominated occupation",
-        "Competent English (IELTS/PTE)",
-        "Must score at least 65 points on the points test",
-        "Under 45 years of age at the time of invitation"
-      ],
-      process: [
-        "Skills Assessment & English Testing",
-        "Submit Expression of Interest (SkillSelect)",
-        "Receive Invitation to Apply (ITA)",
-        "Gather Documents & Submit Visa Application",
-        "Health & Character Checks",
-        "Visa Grant"
-      ]
-    }
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ country: string; program: string }>
+}): Promise<Metadata> {
+  const resolvedParams = await params
+  const programData =
+    immigrationProgramsData[resolvedParams.country]?.[resolvedParams.program]
+
+  if (!programData) {
+    return buildMetadata({
+      title: "Immigration Program",
+      description: "Explore structured immigration program guidance from EverNest Consultants.",
+      path: `/immigration/${resolvedParams.country}/${resolvedParams.program}`,
+      keywords: ["Immigration program", "EverNest Consultants"],
+    })
   }
-}
 
-import { use } from "react"
+  return buildMetadata({
+    title: `${programData.name} Program`,
+    description: getFirstSentence(programData.heroDesc),
+    path: `/immigration/${resolvedParams.country}/${resolvedParams.program}`,
+    keywords: [programData.name, `${programData.country} immigration`, "EverNest Consultants"],
+  })
+}
 
 export default function ImmigrationProgramPage({ params }: { params: Promise<{ country: string, program: string }> }) {
   const resolvedParams = use(params)
-  
-  // Try to find the specific program data, fallback to generic
-  const countryData = programsData[resolvedParams.country] || {}
-  const programData = countryData[resolvedParams.program] || {
-    name: resolvedParams.program.toUpperCase().replace("-", " "),
-    country: resolvedParams.country.charAt(0).toUpperCase() + resolvedParams.country.slice(1).replace("-", " "),
-    heroDesc: "Expert guidance for securing your residency and global mobility.",
-    stats: [
-      { label: "Consultation", value: "Free" },
-      { label: "Support", value: "End-to-end" },
-      { label: "Success", value: "High" },
-    ],
-    benefits: [
-      "Permanent residency opportunities",
-      "Family inclusion options",
-      "High quality of life and healthcare",
-      "Excellent education systems",
-      "Pathways to citizenship"
-    ],
-    requirements: [
-      "Valid passport and travel documents",
-      "Relevant work experience or investment funds",
-      "Language proficiency (if applicable)",
-      "Clear criminal record and medical history"
-    ],
-    process: [
-      "Initial Consultation & Profile Assessment",
-      "Document Preparation",
-      "Application Submission",
-      "Interview Preparation (if required)",
-      "Visa Approval"
-    ]
+  const programData =
+    immigrationProgramsData[resolvedParams.country]?.[resolvedParams.program]
+
+  if (!programData) {
+    notFound()
   }
 
   return (
@@ -196,7 +64,7 @@ export default function ImmigrationProgramPage({ params }: { params: Promise<{ c
               {programData.heroDesc}
             </p>
             <div className="flex flex-wrap gap-6">
-              {programData.stats.map((stat: any, i: number) => (
+              {programData.stats.map((stat, i: number) => (
                 <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 min-w-[120px]">
                   <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
                   <div className="text-sm text-brand-ice/70">{stat.label}</div>

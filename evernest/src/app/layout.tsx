@@ -1,6 +1,12 @@
-import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from "next"
+import { Manrope, Playfair_Display } from "next/font/google"
+
+import { Footer } from "@/components/shared/Footer"
+import { Header } from "@/components/shared/Header"
+import { StickyActions } from "@/components/shared/StickyActions"
+import { siteConfig } from "@/data/site"
+
+import "./globals.css"
 
 const manrope = Manrope({
   variable: "--font-sans",
@@ -15,14 +21,43 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Evernest Consultants | Study Visas, Immigration & Partnerships",
+  title: {
+    default: "Study Visas, Immigration & Partnerships",
+    template: "%s | EverNest Consultants",
+  },
   description:
-    "Premium study visa, immigration, and B2B partnership consulting with global reach. Registered in 2013 with thousands of cases and a trusted international network.",
-};
-
-import { Header } from "@/components/shared/Header"
-import { Footer } from "@/components/shared/Footer"
-import { StickyActions } from "@/components/shared/StickyActions"
+    "EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd., provides study visa, immigration, and B2B partnership consulting with a Pakistan-rooted and internationally connected team.",
+  applicationName: siteConfig.name,
+  metadataBase: new URL("https://evernestconsultants.com"),
+  authors: [{ name: siteConfig.legalName }],
+  creator: siteConfig.name,
+  publisher: siteConfig.legalName,
+  openGraph: {
+    title: siteConfig.name,
+    description:
+      "Study visa, immigration, and B2B partnership consulting from EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd.",
+    siteName: siteConfig.name,
+    type: "website",
+    url: "https://evernestconsultants.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description:
+      "Study visa, immigration, and B2B partnership consulting from EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd.",
+  },
+  keywords: [
+    siteConfig.name,
+    "EN Consultants (Pvt) Ltd.",
+    "study visas",
+    "immigration",
+    "work permits",
+    "student counseling",
+    "B2B partnerships",
+    "university recruitment",
+    "global mobility consulting",
+  ],
+}
 
 export default function RootLayout({
   children,

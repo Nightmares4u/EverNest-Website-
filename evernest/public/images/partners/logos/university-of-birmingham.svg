@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="240" viewBox="0 0 640 240" role="img" aria-labelledby="title desc">
+  <title id="title">University of Birmingham</title>
+  <desc id="desc">Clean text placeholder for University of Birmingham logo.</desc>
+  <rect width="640" height="240" fill="#ffffff"/>
+  <rect x="28" y="40" width="112" height="112" rx="24" fill="#0b1b3a"/>
+  <text x="84" y="110" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" fill="#ffffff">UB</text>
+  <text x="170" y="98" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" fill="#0b1b3a">University of</text>
+  <text x="170" y="148" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#e11d2e">Birmingham</text>
+</svg>

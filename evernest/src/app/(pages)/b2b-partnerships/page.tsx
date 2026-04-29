@@ -1,8 +1,19 @@
+import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, CheckCircle2, ShieldCheck, Globe2, Banknote, Clock } from "lucide-react"
+import { ShieldCheck, Globe2, Banknote, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { PartnershipInquiryForm } from "@/components/shared/PartnershipInquiryForm"
 import { siteConfig } from "@/data/site"
+import { buildMetadata } from "@/lib/metadata"
+
+export const metadata: Metadata = buildMetadata({
+  title: "B2B Partnerships",
+  description:
+    "Explore B2B partnerships with EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd., for institutional collaboration and recruitment support.",
+  path: "/b2b-partnerships",
+  keywords: ["B2B partnerships", siteConfig.legalName, "student recruitment partnerships", "education consultancy partnerships"],
+})
 
 export default function B2BPartnershipsPage() {
   return (
@@ -26,7 +37,7 @@ export default function B2BPartnershipsPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="rounded-full">
-                <Link href="#apply">Apply Now</Link>
+                <Link href="#apply">Partner With EN Consultants</Link>
               </Button>
             </div>
           </div>
@@ -38,7 +49,7 @@ export default function B2BPartnershipsPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-blue mb-4">
-              Why Partner With Evernest?
+              Why Partner With EverNest?
             </h2>
             <p className="text-lg text-foreground/70">
               We empower local agents and consultants to offer premium international services without the overhead of direct affiliations.
@@ -82,7 +93,7 @@ export default function B2BPartnershipsPage() {
               </div>
               <h3 className="text-xl font-bold text-brand-blue mb-3">Brand Credibility</h3>
               <p className="text-foreground/70 text-sm leading-relaxed">
-                Leverage our established market presence since 2013 and our satellite offices in Italy and Canada.
+                Leverage our established market presence since 2013 and a professional process built around clear communication and responsible partner support.
               </p>
             </div>
           </div>
@@ -90,7 +101,7 @@ export default function B2BPartnershipsPage() {
       </section>
 
       {/* Process & Application */}
-      <section className="py-20" id="apply">
+      <section className="py-20 scroll-mt-28" id="apply">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             
@@ -105,7 +116,7 @@ export default function B2BPartnershipsPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-brand-blue mb-2">Submit Application</h3>
-                    <p className="text-foreground/70">Fill out the partnership inquiry form with your business details and current volume.</p>
+                    <p className="text-foreground/70">Share your business details through the partnership inquiry form and open a draft message in WhatsApp for review before you send it.</p>
                   </div>
                 </div>
                 
@@ -135,55 +146,14 @@ export default function B2BPartnershipsPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-brand-blue mb-2">Start Processing</h3>
-                    <p className="text-foreground/70">Get access to our portal and dedicated manager to start routing applications immediately.</p>
+                    <p className="text-foreground/70">Once aligned, our team will map out the documentation, coordination process, and next operational step with you.</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Application Form */}
-            <div className="bg-white rounded-3xl p-8 md:p-10 border border-border-subtle shadow-card">
-              <h3 className="text-2xl font-display font-bold text-brand-blue mb-6">Apply for Partnership</h3>
-              <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground/80">First Name</label>
-                    <input type="text" className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all" placeholder="John" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground/80">Last Name</label>
-                    <input type="text" className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all" placeholder="Doe" />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground/80">Company Name</label>
-                  <input type="text" className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all" placeholder="Your Consultancy Ltd." />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground/80">Email Address</label>
-                  <input type="email" className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all" placeholder="john@company.com" />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground/80">Phone / WhatsApp</label>
-                  <input type="tel" className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all" placeholder="+92 300 0000000" />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground/80">City / Country</label>
-                  <input type="text" className="w-full h-12 px-4 rounded-xl border border-border-subtle bg-brand-neutral focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all" placeholder="Karachi, Pakistan" />
-                </div>
-
-                <div className="space-y-2 pt-2">
-                  <Button type="button" className="w-full h-12 text-base">Submit Application</Button>
-                  <p className="text-xs text-center text-foreground/50 mt-4">
-                    Our B2B manager will contact you within 24-48 business hours.
-                  </p>
-                </div>
-              </form>
-            </div>
+            <PartnershipInquiryForm />
 
           </div>
         </div>

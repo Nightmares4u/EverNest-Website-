@@ -3,25 +3,34 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
-  --brand-blue: #0b1b3a;
-  --brand-red: #e11d2e;
-  --brand-ice: #f1f5ff;
+  --brand-blue: #0b1b3a; /* deep navy */
+  --brand-blue-2: #07122a; /* darker anchor */
+  --brand-blue-light: #1a3a6e; /* lighter navy for overlays */
+  --brand-red: #e11d2e; /* controlled CTA */
+  --brand-red-2: #c81625; /* hover/active */
+  --brand-ice: #f1f5ff; /* light blue wash */
   --brand-blush: #fff1f2;
   --brand-neutral: #f8fafc;
   --border-subtle: #e2e8f0;
+  --ring: rgba(11, 27, 58, 0.22);
   --shadow-soft: 0 30px 80px rgba(15, 23, 42, 0.08);
-  --shadow-card: 0 16px 40px rgba(15, 23, 42, 0.08);
+  --shadow-card: 0 1px 0 rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.05), 0 24px 48px -16px rgba(15,23,42,0.12);
+  --shadow-glow: 0 1px 0 rgba(225,29,46,0.10), 0 8px 24px -8px rgba(225,29,46,0.30), 0 24px 60px -20px rgba(225,29,46,0.20);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-2: var(--brand-blue-2);
+  --color-brand-blue-light: var(--brand-blue-light);
   --color-brand-red: var(--brand-red);
+  --color-brand-red-2: var(--brand-red-2);
   --color-brand-ice: var(--brand-ice);
   --color-brand-blush: var(--brand-blush);
   --color-brand-neutral: var(--brand-neutral);
   --color-border-subtle: var(--border-subtle);
+  --color-ring: var(--ring);
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
 }
@@ -41,40 +50,187 @@ img {
   height: auto;
 }
 
+@layer base {
+  ::selection {
+    background: rgba(225, 29, 46, 0.16);
+  }
+
+  a {
+    text-underline-offset: 4px;
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(11,27,58,0.18), 0 0 0 1px var(--brand-blue);
+    border-radius: 4px;
+  }
+}
+
+/* ── Animations ─────────────────────────────────────────── */
+
 @keyframes fade-up {
-  0% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
+@keyframes mesh-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-2%, 1.5%) scale(1.04); }
+  66%       { transform: translate(1.5%, -2%) scale(1.03); }
+}
+
+@keyframes orb-float-1 {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-22px) scale(1.04); }
+}
+
+@keyframes orb-float-2 {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-14px) scale(1.03); }
+}
+
+@keyframes scroll-dot {
+  0%   { transform: translateY(0); opacity: 1; }
+  80%  { transform: translateY(18px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+@keyframes ping-ring {
+  0%   { transform: scale(1); opacity: 0.9; }
+  70%  { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* ── Utilities ──────────────────────────────────────────── */
+
 @layer utilities {
-  .shadow-soft {
-    box-shadow: var(--shadow-soft);
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+
+  .animate-fade-up   { animation: fade-up 0.7s ease-out both; }
+  .animate-marquee   { animation: marquee 28s linear infinite; }
+  .animate-orb-1     { animation: orb-float-1 9s ease-in-out infinite; }
+  .animate-orb-2     { animation: orb-float-2 11s ease-in-out infinite; }
+  .animate-scroll-dot { animation: scroll-dot 2s ease-in-out infinite; }
+  .animate-ping-ring { animation: ping-ring 2.2s ease-out infinite; }
+
+  .bg-grid-soft {
+    background-image: radial-gradient(circle at 1px 1px, rgba(11, 27, 58, 0.08) 1px, transparent 0);
+    background-size: 28px 28px;
   }
 
-  .shadow-card {
-    box-shadow: var(--shadow-card);
+  /* Hero animated mesh background */
+  .bg-hero-mesh {
+    background:
+      radial-gradient(40% 60% at 18% 12%, rgba(11,27,58,0.13), transparent 60%),
+      radial-gradient(35% 55% at 82% 8%,  rgba(225,29,46,0.09), transparent 60%),
+      radial-gradient(60% 80% at 50% 100%, rgba(241,245,255,1), transparent 70%),
+      linear-gradient(180deg, #f5f9ff 0%, #eff5ff 52%, #ffffff 100%);
+    position: relative;
   }
 
-  .animate-fade-up {
-    animation: fade-up 0.7s ease-out both;
+  /* Noise texture overlay for dark sections */
+  .bg-noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+    opacity: 0.6;
+    border-radius: inherit;
   }
 
-  .animate-marquee {
-    animation: marquee 28s linear infinite;
+  /* Spotlight card — cursor-tracked radial glow */
+  .spotlight-card {
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+      220px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(225, 29, 46, 0.09),
+      transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+  }
+  .spotlight-card > * { position: relative; z-index: 1; }
+
+  /* Animated link underline (Stripe style) */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1.5px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Scroll indicator cue */
+  .scroll-cue-dot { animation: scroll-dot 2s ease-in-out infinite; }
+
+  /* Service card — hover border + shadow ring (CSS-only, no Framer conflict) */
+  .service-card {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .service-card:hover {
+      border-color: rgba(11, 27, 58, 0.14);
+      box-shadow:
+        inset 0 0 0 1.5px rgba(225, 29, 46, 0.2),
+        0 1px 0 rgba(15, 23, 42, 0.04),
+        0 4px 12px rgba(15, 23, 42, 0.05),
+        0 24px 48px -16px rgba(15, 23, 42, 0.12);
+    }
+
+    /* Icon container glow on card hover */
+    .service-card:hover .service-icon {
+      box-shadow:
+        0 0 0 3px rgba(225, 29, 46, 0.12),
+        0 0 18px rgba(225, 29, 46, 0.14);
+    }
+
+    /* Spotlight guard — only fine pointers */
+    .spotlight-card:hover::before { opacity: 1; }
+  }
+
+  /* Reduce motion overrides */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-orb-1,
+    .animate-orb-2,
+    .animate-marquee,
+    .animate-ping-ring,
+    .animate-scroll-dot,
+    .scroll-cue-dot {
+      animation: none;
+    }
+    .bg-hero-mesh {
+      background: linear-gradient(180deg, #f5f9ff 0%, #eff5ff 52%, #ffffff 100%);
+    }
   }
 }

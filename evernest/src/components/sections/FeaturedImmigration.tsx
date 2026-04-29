@@ -1,31 +1,34 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { ArrowRight, BriefcaseBusiness, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-
-import Image from "next/image"
+import { LocationVisual } from "@/components/shared/LocationVisual"
+import { studyVisasData } from "@/data/study-visas"
 
 const pathways = [
   {
     country: "United States",
+    code: "US",
     slug: "united-states",
-    image: "/images/destinations/usa.svg",
+    studySlug: "usa",
     programs: ["H-1B Work Visa", "EB-3 Green Card", "B1/B2 Visitor Visa"],
     desc: "Investment and employment-based green card opportunities for professionals and investors."
   },
   {
     country: "United Kingdom",
+    code: "GB",
     slug: "united-kingdom",
-    image: "/images/destinations/united-kingdom.svg",
+    studySlug: "united-kingdom",
     programs: ["Skilled Worker", "Global Talent", "Graduate Route"],
     desc: "Points-based immigration and talent programs for skilled workers."
   },
   {
     country: "Australia",
+    code: "AU",
     slug: "australia",
-    image: "/images/destinations/australia.svg",
+    studySlug: "australia",
     programs: ["Subclass 189", "Subclass 190", "Subclass 491"],
     desc: "Pathways for highly skilled professionals and business investors seeking permanent residency."
   }
@@ -44,6 +47,9 @@ export function FeaturedImmigration() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
+          <div className="text-sm font-bold uppercase tracking-[0.22em] text-brand-blue/45">
+            Immigration
+          </div>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-brand-blue mb-6">
             Featured Immigration <span className="text-brand-red">Pathways</span>
           </h2>
@@ -53,27 +59,29 @@ export function FeaturedImmigration() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {pathways.map((pathway, i) => (
+          {pathways.map((pathway, i) => {
+            const imageData = studyVisasData[pathway.studySlug]
+
+            return (
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
               key={pathway.country} 
-              className="flex flex-col bg-white rounded-3xl border border-border-subtle shadow-sm hover:shadow-card hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden"
+              className="group relative flex flex-col rounded-[2rem] border border-border-subtle bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-card"
             >
-              <div className="relative h-48 w-full overflow-hidden">
-                <Image 
-                  src={pathway.image} 
-                  alt={pathway.country} 
-                  fill 
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <h3 className="absolute bottom-4 left-6 text-3xl font-display font-bold text-white mb-0">{pathway.country}</h3>
-              </div>
+              <LocationVisual
+                title={pathway.country}
+                code={pathway.code}
+                image={imageData?.homepageImage}
+                imageAlt={imageData?.imageAlt}
+                badge="Immigration"
+                icon={BriefcaseBusiness}
+              />
               
-              <div className="p-8 flex flex-col flex-grow">
+              <div className="p-4 md:p-5 flex flex-col flex-grow">
+                <h3 className="text-2xl font-display font-bold text-brand-blue">{pathway.country}</h3>
                 <p className="text-foreground/70 mb-8 flex-grow text-base leading-relaxed">{pathway.desc}</p>
                 
                 <ul className="space-y-3 mb-8">
@@ -93,7 +101,8 @@ export function FeaturedImmigration() {
                 </Button>
               </div>
             </motion.div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

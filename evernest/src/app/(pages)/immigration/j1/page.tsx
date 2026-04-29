@@ -1,7 +1,9 @@
+import type { Metadata } from "next"
 import Link from "next/link"
-import { CheckCircle2, Briefcase, FileText, Globe, ArrowRight, ChevronDown, BookOpen, Layers } from "lucide-react"
+import { CheckCircle2, Globe, BookOpen, Layers } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { buildMetadata } from "@/lib/metadata"
 
 const pageData = {
   heroTitle: "J-1 Visa",
@@ -45,6 +47,14 @@ const pageData = {
     desc: "Get in touch with EverNest. You start packing your bags, and we’ll initiate your visa process."
   }
 }
+
+export const metadata: Metadata = buildMetadata({
+  title: "J-1 Visa",
+  description:
+    "Review J-1 visa program basics, application steps, and comparison points for exchange visitor pathways with EverNest Consultants.",
+  path: "/immigration/j1",
+  keywords: ["J-1 visa", "exchange visitor visa", "EverNest Consultants", "U.S. visa guidance"],
+})
 
 export default function J1VisaPage() {
   return (

@@ -1,7 +1,17 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight, BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { buildMetadata } from "@/lib/metadata"
+
+export const metadata: Metadata = buildMetadata({
+  title: "Resources",
+  description:
+    "Read study abroad, visa interview, and country comparison resources from EverNest Consultants.",
+  path: "/resources",
+  keywords: ["study abroad guides", "visa interview guide", "country comparison", "EverNest Consultants resources"],
+})
 
 const resources = [
   {

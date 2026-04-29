@@ -1,47 +1,85 @@
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { CheckCircle2, MapPin, Briefcase, Globe, FileText, ArrowRight, ChevronDown } from "lucide-react"
+import { CheckCircle2, Briefcase, Globe, FileText, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
-import { GalleryStrip } from "@/components/sections/GalleryStrip"
 import { immigrationData } from "@/data/immigration-countries"
+import { studyVisasData } from "@/data/study-visas"
+import type { FaqItem, ImmigrationCountryData, ImmigrationProgramData } from "@/data/types"
+import { buildMetadata, getFirstSentence } from "@/lib/metadata"
 import { use } from "react"
 
 import Image from "next/image"
 
-const countryImages: Record<string, string> = {
-  australia: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=2000&auto=format&fit=crop",
+const studyBackgroundMap: Record<string, keyof typeof studyVisasData> = {
+  australia: "australia",
+  "united-kingdom": "united-kingdom",
+  "united-states": "usa",
+}
+
+const fallbackCountryImages: Record<string, string> = {
   "european-union": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=2000&auto=format&fit=crop",
   "new-zealand": "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?q=80&w=2000&auto=format&fit=crop",
-  "united-kingdom": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2000&auto=format&fit=crop",
-  "united-states": "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2000&auto=format&fit=crop"
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ country: string }>
+}): Promise<Metadata> {
+  const resolvedParams = await params
+  const pageData = immigrationData[resolvedParams.country.toLowerCase()]
+
+  if (!pageData) {
+    return buildMetadata({
+      title: "Immigration Pathway",
+      description: "Explore country-specific immigration guidance from EverNest Consultants.",
+      path: `/immigration/${resolvedParams.country}`,
+      keywords: ["Immigration pathway", "EverNest Consultants"],
+    })
+  }
+
+  return buildMetadata({
+    title: pageData.heroTitle,
+    description: getFirstSentence(pageData.heroDesc),
+    path: `/immigration/${resolvedParams.country.toLowerCase()}`,
+    keywords: [pageData.name, `${pageData.name} immigration`, "EverNest Consultants"],
+  })
 }
 
 export default function ImmigrationCountryPage({ params }: { params: Promise<{ country: string }> }) {
   const resolvedParams = use(params)
   const countryKey = resolvedParams.country.toLowerCase()
-  const pageData = immigrationData[countryKey]
+  const pageData: ImmigrationCountryData | undefined = immigrationData[countryKey]
 
   if (!pageData) {
     notFound()
   }
 
-  const bgImage = countryImages[countryKey] || "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2000&auto=format&fit=crop"
+  const studyPageData = studyVisasData[studyBackgroundMap[countryKey]]
+  const bgImage =
+    studyPageData?.sectionBackgroundImage ||
+    fallbackCountryImages[countryKey] ||
+    "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2000&auto=format&fit=crop"
+  const bgAlt = studyPageData?.backgroundImageAlt || `${pageData.name} Immigration`
 
   return (
     <>
       {/* Hero */}
       <section className="pt-32 pb-24 md:pt-48 md:pb-32 text-white overflow-hidden relative">
         <div className="absolute inset-0 z-0">
-          <Image 
-            src={bgImage} 
-            alt={`${pageData.name} Immigration`}
+          <Image
+            src={bgImage}
+            alt={bgAlt}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-brand-blue/80 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,18,42,0.58)_0%,rgba(7,18,42,0.4)_34%,rgba(7,18,42,0.22)_68%,rgba(7,18,42,0.14)_100%)]"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,18,42,0.08)_0%,rgba(7,18,42,0.14)_34%,rgba(7,18,42,0.28)_100%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_22%),radial-gradient(circle_at_bottom_left,rgba(225,29,46,0.12),transparent_28%)]"></div>
         </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl">
@@ -103,7 +141,7 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
                   )}
                   
                   <div className="space-y-6">
-                    {pageData.programs.map((program: any, i: number) => (
+                    {pageData.programs.map((program: ImmigrationProgramData, i: number) => (
                       <details key={i} className="group bg-white rounded-2xl border border-border-subtle shadow-sm overflow-hidden open:shadow-md transition-all">
                         <summary className="flex items-center justify-between p-6 cursor-pointer bg-white group-hover:bg-brand-ice/30 transition-colors list-none">
                           <div>
@@ -126,7 +164,7 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
                             <div>
                               <h4 className="font-bold text-brand-blue mb-4">Requirements</h4>
                               <ul className="space-y-2">
-                                {program.requirements.map((req: string, j: number) => (
+                                {(program.requirements ?? []).map((req: string, j: number) => (
                                   <li key={j} className="flex items-start text-sm">
                                     <div className="h-4 w-4 rounded-full bg-brand-blue/10 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                                       <div className="h-1.5 w-1.5 rounded-full bg-brand-blue"></div>
@@ -139,7 +177,7 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
                             <div>
                               <h4 className="font-bold text-brand-blue mb-4">Benefits</h4>
                               <ul className="space-y-2">
-                                {program.benefits.map((benefit: string, j: number) => (
+                                {(program.benefits ?? []).map((benefit: string, j: number) => (
                                   <li key={j} className="flex items-start text-sm">
                                     <CheckCircle2 className="h-4 w-4 text-brand-red mr-2 mt-0.5 flex-shrink-0" />
                                     <span className="text-foreground/70 leading-relaxed">{benefit}</span>
@@ -155,7 +193,7 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
                 </div>
               )}
 
-              {/* Why Evernest */}
+              {/* Why EverNest */}
               {pageData.whyEvernest && (
                 <div>
                   <h2 className="text-3xl font-display font-bold text-brand-blue mb-6">{pageData.whyEvernest.title}</h2>
@@ -206,7 +244,7 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
                 <div>
                   <h2 className="text-3xl font-display font-bold text-brand-blue mb-8">Frequently Asked Questions</h2>
                   <div className="space-y-4">
-                    {pageData.faq.map((faq: any, i: number) => (
+                    {pageData.faq.map((faq: FaqItem, i: number) => (
                       <details key={i} className="group bg-white rounded-xl border border-border-subtle overflow-hidden">
                         <summary className="flex items-center justify-between p-5 cursor-pointer bg-white hover:bg-brand-ice/30 transition-colors list-none font-bold text-brand-blue">
                           {faq.q}
@@ -243,9 +281,6 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
           </div>
         </div>
       </section>
-
-      <GalleryStrip />
-
       <FinalCTA />
     </>
   )

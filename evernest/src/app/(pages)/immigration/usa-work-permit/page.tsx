@@ -1,11 +1,13 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { CheckCircle2, Briefcase, FileText, Globe, ArrowRight, ChevronDown, BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { buildMetadata } from "@/lib/metadata"
 
 const pageData = {
   heroTitle: "USA Work Permit for Pakistani Professionals",
-  heroDesc: "If you're planning to work in America, securing a work permit is the first step. This detailed guide explains visa types, requirements, eligibility, processing time, and how Evernest Consultants helps Pakistani professionals successfully apply for a Work Visa USA from Pakistan.",
+  heroDesc: "If you're planning to work in America, securing a work permit is the first step. This detailed guide explains visa types, requirements, eligibility, processing time, and how EverNest Consultants helps Pakistani professionals successfully apply for a Work Visa USA from Pakistan.",
   
   overview: {
     title: "Popular US Work Visas for Pakistani Applicants",
@@ -67,7 +69,7 @@ const pageData = {
       "Employer files a petition (Form I‑129) with USCIS.",
       "After approval (I‑797 notice), schedule a US visa appointment time.",
       "Prepare mandatory documents and complete the DS‑160 form.",
-      "Attend the interview at the US Embassy in Islamabad or Consulate in Karachi.",
+      "Attend the interview at the relevant US visa processing post in Pakistan.",
       "Receive your visa decision."
     ]
   },
@@ -84,8 +86,8 @@ const pageData = {
   },
 
   whyEvernest: {
-    title: "Why Choose Evernest Consultants?",
-    desc: "Evernest Consultants is a trusted USA Work Permit Consultant assisting applicants across Karachi, Islamabad, and worldwide. We offer:",
+    title: "Why Choose EverNest Consultants?",
+    desc: "EverNest Consultants is a trusted USA Work Permit Consultant assisting applicants across Pakistan and worldwide. We offer:",
     points: [
       "Complete profile evaluation",
       "Employer‑based visa guidance",
@@ -93,7 +95,7 @@ const pageData = {
       "DS‑160 preparation & interview coaching",
       "End‑to‑end processing for Skilled Worker Visa USA applicants"
     ],
-    footer: "We also help you prepare strategically through experienced Work Visa Consultants in Karachi and USA Visa Consultants in Islamabad."
+    footer: "We also help you prepare strategically through experienced work visa guidance, interview preparation, and document review support."
   },
 
   faq: [
@@ -116,8 +118,16 @@ const pageData = {
   ],
 
   ctaTitle: "Apply for a US Work Visa Today",
-  ctaDesc: "Start your US employment journey with expert support. Contact Evernest Consultants to Apply for US Work Visa and receive complete visa assistance."
+  ctaDesc: "Start your US employment journey with expert support. Contact EverNest Consultants to Apply for US Work Visa and receive complete visa assistance."
 }
+
+export const metadata: Metadata = buildMetadata({
+  title: "USA Work Permit",
+  description:
+    "Review USA work permit and employment visa guidance for Pakistani professionals, including eligibility, documents, and process steps.",
+  path: "/immigration/usa-work-permit",
+  keywords: ["USA work permit", "U.S. employment visa", "Pakistani professionals", "EverNest Consultants"],
+})
 
 export default function USAWorkPermitPage() {
   return (
@@ -278,7 +288,7 @@ export default function USAWorkPermitPage() {
                 </div>
               </div>
 
-              {/* Why Evernest */}
+              {/* Why EverNest */}
               <div>
                 <h2 className="text-3xl font-display font-bold text-brand-blue mb-6">{pageData.whyEvernest.title}</h2>
                 <div className="bg-brand-ice/50 rounded-2xl p-6 md:p-8 border border-border-subtle">

@@ -1,7 +1,10 @@
+import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, ChevronDown, CheckCircle2, AlertCircle, FileText, Globe, BookOpen } from "lucide-react"
+import { ChevronDown, CheckCircle2, AlertCircle, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { siteConfig } from "@/data/site"
+import { buildMetadata } from "@/lib/metadata"
 
 const pageData = {
   heroTitle: "Student Visa Interview Tips for Pakistani Students",
@@ -138,17 +141,26 @@ const pageData = {
   ],
 
   ctaBlock: {
-    title: "Contact Evernest Consultants:",
-    desc: "Evernest Consultants provides professional visa interview preparation and study visa guidance for Pakistani students.",
+    title: "Contact EverNest Consultants:",
+    desc: "EverNest Consultants provides professional visa interview preparation and study visa guidance for Pakistani students.",
     contactDetails: [
-      "WhatsApp: +92 302 290 7411",
-      "Email: info@evernestconsultants.com",
+      `WhatsApp: ${siteConfig.contact.whatsappDisplay}`,
+      `Email: ${siteConfig.contact.email}`,
       "Website: www.evernestconsultants.com",
-      "Karachi: Office #912, Portway Trade Center (PTC) – SMCHS, Shahrah-e-Faisal",
-      "Islamabad: Office #41, 153-M Civic Center, Phase-IV, Bahria Town"
+      `${siteConfig.pakistanOffice.label}: ${siteConfig.pakistanOffice.address}`,
+      `${siteConfig.offices[0].label}: ${siteConfig.offices[0].address}`
     ]
   }
 }
+
+export const metadata: Metadata = buildMetadata({
+  title: "Student Visa Interview Guide",
+  description:
+    "Prepare for a student visa interview with practical guidance on common refusal reasons, financial questions, and interview consistency.",
+  path: "/resources/visa-interview-guide",
+  keywords: ["student visa interview", "visa interview tips", "Pakistan student visa guide", "EverNest Consultants"],
+  type: "article",
+})
 
 export default function VisaInterviewGuidePage() {
   return (
@@ -230,7 +242,7 @@ export default function VisaInterviewGuidePage() {
                     </ul>
                   </div>
                   <div className="bg-white p-6 rounded-xl border border-brand-red/20 shadow-sm">
-                    <h3 className="font-bold text-brand-red mb-4">DON'Ts</h3>
+                    <h3 className="font-bold text-brand-red mb-4">Don&apos;ts</h3>
                     <ul className="space-y-3">
                       {pageData.bodyLanguage.donts.map((item, i) => (
                         <li key={i} className="flex items-start text-sm">

@@ -1,7 +1,10 @@
+import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, ChevronDown, CheckCircle2 } from "lucide-react"
+import { CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { siteConfig } from "@/data/site"
+import { buildMetadata } from "@/lib/metadata"
 
 const pageData = {
   heroTitle: "Study Abroad Consultants in Karachi",
@@ -121,22 +124,31 @@ const pageData = {
       "Guidance for scholarships and financial planning",
       "Complete visa file preparation",
       "Assistance with accommodation and pre‑departure",
-      "Offices in Karachi and Islamabad for convenient support"
+      "Support from our Karachi and Lahore offices"
     ]
   },
 
   ctaBlock: {
     title: "CTA & CONTACT",
-    desc: "Evernest Consultants provides expert guidance for students in Karachi planning their study abroad journey. For admissions, scholarships, and visa filing support, contact our team today.",
+    desc: "EverNest Consultants provides expert guidance for students in Karachi planning their study abroad journey. For admissions, scholarships, and visa filing support, contact our team today.",
     contactDetails: [
-      "Karachi Office: Office #912, Portway Trade Center (PTC), SMCHS, Shahrah‑e‑Faisal",
-      "Islamabad Office: #41, 153‑M Civic Center, Phase‑IV, Bahria Town",
+      `${siteConfig.pakistanOffice.label}: ${siteConfig.pakistanOffice.address}`,
+      `${siteConfig.offices[0].label}: ${siteConfig.offices[0].address}`,
       "Website: www.evernestconsultants.com",
-      "WhatsApp: +92 302 290 7411",
-      "Email: info@evernestconsultants.com"
+      `WhatsApp: ${siteConfig.contact.whatsappDisplay}`,
+      `Email: ${siteConfig.contact.email}`
     ]
   }
 }
+
+export const metadata: Metadata = buildMetadata({
+  title: "Study Abroad Guide for Karachi Students",
+  description:
+    "Follow a step-by-step study abroad guide for Karachi students covering destination selection, admissions, budgeting, and student visa planning.",
+  path: "/resources/study-abroad-guide",
+  keywords: ["study abroad guide", "Karachi students", "student visa planning", "EverNest Consultants"],
+  type: "article",
+})
 
 export default function StudyAbroadGuidePage() {
   return (
@@ -205,7 +217,7 @@ export default function StudyAbroadGuidePage() {
                 </div>
               </div>
 
-              {/* Why Evernest */}
+              {/* Why EverNest */}
               <div>
                 <h2 className="text-3xl font-display font-bold text-brand-blue mb-6">{pageData.whyEvernest.title}</h2>
                 <div className="bg-brand-ice/50 rounded-2xl p-8 border border-border-subtle">
