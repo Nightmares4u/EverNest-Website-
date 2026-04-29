@@ -13,9 +13,9 @@ export type MediaFeature = {
 };
 
 export const sirRazaMediaSection = {
-  heading: "In Conversation with Sir Raza",
+  heading: "In Conversation with Mr. Raza",
   subtitle:
-    "Watch selected podcasts and public sessions where Sir Raza discusses study abroad, immigration pathways, scholarships, visas, and global opportunities.",
+    "Watch selected podcasts and public sessions where Mr. Raza discusses study abroad, immigration pathways, scholarships, visas, and global opportunities.",
 };
 
 export const mediaFeatures: MediaFeature[] = [
@@ -23,7 +23,7 @@ export const mediaFeatures: MediaFeature[] = [
     id: "syed-raza-the-visa-expert",
     title: "Syed Raza: The Visa Expert",
     description:
-      "Sir Raza shares practical guidance on visas, international education, and global pathways.",
+      "Mr. Raza shares practical guidance on visas, international education, and global pathways.",
     platform: "youtube",
     label: "YouTube Feature",
     url: "https://youtu.be/aHTRGpQ85vE?si=rSAnINNPtinef3_W",
@@ -46,7 +46,7 @@ export const mediaFeatures: MediaFeature[] = [
     id: "how-to-get-canadian-pr",
     title: "How to Get Canadian PR",
     description:
-      "Sir Raza discusses Canadian PR pathways and practical immigration planning.",
+      "Mr. Raza discusses Canadian PR pathways and practical immigration planning.",
     platform: "youtube",
     label: "YouTube Podcast",
     url: "https://www.youtube.com/watch?v=TNCQAHXmipA",
@@ -57,7 +57,7 @@ export const mediaFeatures: MediaFeature[] = [
     id: "jinnah-polytechnic-seminar",
     title: "Seminar at Jinnah Polytechnic",
     description:
-      "A public seminar session by Sir Raza at Jinnah Polytechnic, highlighting education and immigration guidance for students.",
+      "A public seminar session by Mr. Raza at Jinnah Polytechnic, highlighting education and immigration guidance for students.",
     platform: "coming-soon",
     label: "Upcoming Session",
     ctaLabel: "Coming Soon",

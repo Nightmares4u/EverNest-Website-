@@ -44,15 +44,15 @@ export function TrustPartnershipsSection() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-12">
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-6 xl:grid-cols-8">
           {trustSignalCards.map((card) => (
             <article
               key={card.title}
               className={[
                 "group relative overflow-hidden rounded-[28px] border p-6 shadow-[0_18px_50px_rgba(15,23,42,0.07)] transition-transform duration-300 hover:-translate-y-1",
                 card.featured
-                  ? "border-brand-blue/10 bg-[linear-gradient(135deg,#07122a_0%,#102447_60%,#e11d2e_160%)] text-white md:col-span-2 xl:col-span-4"
-                  : "border-brand-blue/10 bg-white/92 backdrop-blur-sm xl:col-span-2",
+                  ? "border-brand-blue/10 bg-[linear-gradient(135deg,#07122a_0%,#102447_60%,#e11d2e_160%)] text-white md:col-span-2 lg:col-span-6 xl:col-span-4"
+                  : "border-brand-blue/10 bg-white/92 backdrop-blur-sm lg:col-span-3 xl:col-span-2",
               ].join(" ")}
             >
               <div
@@ -68,7 +68,7 @@ export function TrustPartnershipsSection() {
                 <div className="flex items-start justify-between gap-4">
                   <span
                     className={[
-                      "inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em]",
+                      "inline-flex max-w-[calc(100%-4rem)] rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em]",
                       card.featured
                         ? "border border-white/15 bg-white/10 text-red-100"
                         : "border border-brand-red/10 bg-brand-blush text-brand-red",
@@ -78,7 +78,7 @@ export function TrustPartnershipsSection() {
                   </span>
                   <div
                     className={[
-                      "flex h-12 w-12 items-center justify-center rounded-2xl",
+                      "flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl",
                       card.featured ? "bg-white/10 text-white" : "bg-brand-ice text-brand-blue",
                     ].join(" ")}
                   >
@@ -88,8 +88,8 @@ export function TrustPartnershipsSection() {
 
                 <h3
                   className={[
-                    "mt-8 font-display font-bold tracking-tight",
-                    card.featured ? "text-2xl md:text-[1.9rem]" : "text-xl text-brand-blue",
+                    "mt-8 max-w-[16ch] font-display font-bold tracking-tight",
+                    card.featured ? "text-2xl leading-tight md:text-[1.9rem]" : "text-[1.28rem] leading-[1.18] text-brand-blue",
                   ].join(" ")}
                 >
                   {card.title}

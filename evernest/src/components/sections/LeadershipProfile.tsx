@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import {
   ArrowUpRight,
@@ -69,6 +70,30 @@ export function LeadershipProfile() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-white/6 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.22)] backdrop-blur-sm">
+              {sirRazaProfile.portraitImage ? (
+                <div className="relative mb-6 overflow-hidden rounded-[24px] border border-white/10 bg-slate-950/20">
+                  <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5]">
+                    <Image
+                      src={sirRazaProfile.portraitImage.src}
+                      alt={sirRazaProfile.portraitImage.alt}
+                      fill
+                      priority
+                      className="object-cover object-top transition-transform duration-700 ease-out hover:scale-[1.025]"
+                      sizes="(max-width: 1024px) 100vw, 38vw"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,18,42,0.02)_0%,rgba(7,18,42,0.08)_56%,rgba(7,18,42,0.42)_100%)]" />
+                    <div className="absolute inset-x-0 bottom-0 p-5">
+                      <div className="inline-flex rounded-full border border-white/14 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/85 backdrop-blur-sm">
+                        Leadership
+                      </div>
+                      <p className="mt-3 text-sm font-medium text-slate-100/88">
+                        Mr. Raza representing EverNest Consultants in a corporate partnership setting.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+
               <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
                 {sirRazaProfile.credentials.map((credential) => (
                   <div

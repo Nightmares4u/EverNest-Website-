@@ -2,6 +2,10 @@ export type LeadershipProfile = {
   name: string;
   title: string;
   bio: string[];
+  portraitImage?: {
+    src: string;
+    alt: string;
+  };
   experienceSince: number;
   areasOfExpertise: string[];
   credentials: {
@@ -19,6 +23,10 @@ export type LeadershipProfile = {
 export const sirRazaProfile: LeadershipProfile = {
   name: "Syed Raza",
   title: "CEO & Senior Consultant",
+  portraitImage: {
+    src: "/images/leadership/sir-raza/sir-raza-portrait.png",
+    alt: "Mr. Raza at a corporate partnership event",
+  },
   bio: [
     "With over 25 years of experience across immigration consulting, corporate leadership, and financial management, Syed Raza leads EverNest Consultants with a global outlook and a strong commitment to ethical guidance.",
     "As a Certified International Student Coach and experienced immigration consultant, he has advised clients across study visas, skilled migration, business migration, investor pathways, and citizenship-by-investment programs.",

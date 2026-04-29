@@ -35,15 +35,15 @@ export const trustPartnershipSection = {
   subtitle:
     "From British Council recognition to university partnerships and in-house IELTS training, EN Consultants has built a credibility network that supports students with confidence, structure, and international reach.",
   paragraph:
-    "For over a decade, EN Consultants has built its reputation through ICEF certification, British Council recognition, IELTS-related engagement, institutional partnerships, and direct collaboration with international education networks. These relationships help our students receive informed counselling, stronger documentation support, and clearer guidance across study and immigration pathways.",
+    "For over a decade, EN Consultants has built its reputation through AEO Pakistan IELTS recognition, British Council recognition, IELTS-related engagement, institutional partnerships, and direct collaboration with international education networks. These relationships help our students receive informed counselling, stronger documentation support, and clearer guidance across study and immigration pathways.",
 }
 
 export const trustSignalCards: TrustSignalCard[] = [
   {
-    title: "ICEF Certified Agency",
+    title: "AEO / IELTS Certified Partner",
     category: "Certification",
     description:
-      "EN Consultants is an ICEF-certified agency, reflecting internationally recognized standards in student recruitment, ethical counselling, and global education advisory.",
+      "EN Consultants holds AEO Pakistan IELTS application collection center recognition, reinforcing structured test-registration support and credible student-facing IELTS guidance.",
     icon: "shield",
     featured: true,
   },
@@ -62,10 +62,10 @@ export const trustSignalCards: TrustSignalCard[] = [
     icon: "globe",
   },
   {
-    title: "University Partnership Network",
+    title: "Global Partnership Network",
     category: "Institutional Links",
     description:
-      "Partnership-led visibility across international education networks that helps students navigate admissions with clearer institutional context.",
+      "Institutional visibility across international education networks that helps students navigate admissions with clearer partnership context.",
     icon: "building",
   },
   {
@@ -82,7 +82,7 @@ export const featuredCredibilityGallery: CredibilityMediaItem[] = [
     title: "Recognized in the IELTS Partner Network",
     category: "Recognition",
     caption:
-      "Sir Raza representing EN Consultants at an annual IELTS partners gathering, reflecting the company’s long-standing role in international student guidance and English-language preparation.",
+      "Mr. Raza representing EN Consultants at an annual IELTS partners gathering, reflecting the company’s long-standing role in international student guidance and English-language preparation.",
     imagePath: "/images/trust/ielts/ielts-partner-network.jpg",
     assetSlot: "/images/trust/ielts/ielts-partner-network.jpg",
   },
@@ -106,11 +106,12 @@ export const featuredCredibilityGallery: CredibilityMediaItem[] = [
 
 export const certificationRecognitionItems: CredibilityMediaItem[] = [
   {
-    title: "ICEF-Certified Global Education Agency",
+    title: "AEO / IELTS Certified Collection Partner",
     category: "Certification",
     caption:
-      "ICEF certification reinforces EN Consultants’ commitment to professional student recruitment, transparent counselling, and internationally aligned education advisory practices.",
-    assetSlot: "/images/trust/icef/icef-certificate.jpg",
+      "This certificate confirms EN Consultants as an approved IELTS application collection center for AEO Pakistan, supporting practical IELTS registration guidance and structured student-facing support.",
+    imagePath: "/images/trust/certificates/aeo-ielts-certificate.png",
+    assetSlot: "/images/trust/certificates/aeo-ielts-certificate.png",
   },
   {
     title: "British Council UK Certified Agent",

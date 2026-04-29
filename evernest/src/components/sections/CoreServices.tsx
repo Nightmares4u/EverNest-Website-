@@ -198,7 +198,7 @@ function ServiceCard({ service, delay }: { service: Service; delay: number }) {
         e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`)
         e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`)
       }}
-      className="group spotlight-card service-card relative overflow-hidden rounded-3xl border border-border-subtle bg-white p-8 shadow-sm"
+      className="group spotlight-card service-card relative flex h-full overflow-hidden rounded-3xl border border-border-subtle bg-white p-8 shadow-sm"
     >
       {/* Subtle background SVG pattern */}
       <CardBg type={service.bgType} />
@@ -206,7 +206,7 @@ function ServiceCard({ service, delay }: { service: Service; delay: number }) {
       {/* Ambient colour blob */}
       <div className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-brand-blue/5 blur-2xl transition-colors duration-500 group-hover:bg-brand-red/5" />
 
-      <div className="relative">
+      <div className="relative flex h-full flex-1 flex-col">
         {/* Badge */}
         <span className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-brand-blue/12 bg-brand-ice/70 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.26em] text-brand-blue/55">
           <span className="h-1 w-1 rounded-full bg-brand-red/60" />
@@ -225,13 +225,13 @@ function ServiceCard({ service, delay }: { service: Service; delay: number }) {
         <h3 className="mt-6 text-2xl font-display font-bold tracking-[-0.01em] text-brand-blue">
           {service.title}
         </h3>
-        <p className="mt-3 text-sm text-foreground/70 leading-relaxed">
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/70">
           {service.desc}
         </p>
 
         <Link
           href={service.href}
-          className="link-underline inline-flex items-center mt-6 text-sm font-bold text-brand-red hover:text-brand-blue transition-colors"
+          className="link-underline mt-6 inline-flex items-center text-sm font-bold text-brand-red transition-colors hover:text-brand-blue"
         >
           {service.cta}
           <motion.span

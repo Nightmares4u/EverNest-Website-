@@ -4,8 +4,8 @@ import { PartnerGallery } from "@/components/sections/PartnerGallery"
 import { buildMetadata } from "@/lib/metadata"
 
 export const metadata: Metadata = buildMetadata({
-  title: "Sir Raza - CEO & Senior Consultant | EverNest Consultants",
-  description: "Learn about Sir Raza's 25+ years of experience in immigration consulting, international education guidance, and global mobility strategy.",
+  title: "Mr. Raza - CEO & Senior Consultant | EverNest Consultants",
+  description: "Learn about Mr. Raza's 25+ years of experience in immigration consulting, international education guidance, and global mobility strategy.",
   path: "/about/sir-raza",
 })
 
