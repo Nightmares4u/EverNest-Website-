@@ -8,7 +8,7 @@ import { siteConfig } from "@/data/site"
 import { buildMetadata } from "@/lib/metadata"
 
 export const metadata: Metadata = buildMetadata({
-  title: "About EverNest Consultants",
+  title: "About",
   description:
     "Learn more about EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd., including the firm’s background, mission, and client-focused approach.",
   path: "/about",

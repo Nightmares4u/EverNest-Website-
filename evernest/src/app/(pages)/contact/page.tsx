@@ -5,7 +5,7 @@ import { ContactInquiryForm } from "@/components/shared/ContactInquiryForm"
 import { buildMetadata } from "@/lib/metadata"
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact EverNest Consultants",
+  title: "Contact",
   description:
     "Contact EverNest Consultants for study visa, immigration, and partnership inquiries by phone, WhatsApp, email, or office visit.",
   path: "/contact",
