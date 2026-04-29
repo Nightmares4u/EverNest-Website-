@@ -1,8 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { CheckCircle2, Briefcase, Globe, ChevronDown } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { studyVisasData } from "@/data/study-visas"
 import { buildMetadata } from "@/lib/metadata"
 
 const pageData = {
@@ -83,10 +85,28 @@ export const metadata: Metadata = buildMetadata({
 })
 
 export default function ExpressEntryPage() {
+  const canadaStudyData = studyVisasData.canada
+
   return (
     <>
       <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-brand-blue text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('/globe.svg')] bg-center opacity-10 mix-blend-overlay"></div>
+        {canadaStudyData.sectionBackgroundImage ? (
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={canadaStudyData.sectionBackgroundImage}
+              alt={canadaStudyData.backgroundImageAlt || "Canada immigration background"}
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,18,42,0.58)_0%,rgba(7,18,42,0.4)_34%,rgba(7,18,42,0.22)_68%,rgba(7,18,42,0.14)_100%)]"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,18,42,0.08)_0%,rgba(7,18,42,0.14)_34%,rgba(7,18,42,0.28)_100%)]"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_22%),radial-gradient(circle_at_bottom_left,rgba(225,29,46,0.12),transparent_28%)]"></div>
+          </div>
+        ) : (
+          <div className="absolute inset-0 bg-[url('/globe.svg')] bg-center opacity-10 mix-blend-overlay"></div>
+        )}
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl">
             <Link href="/immigration" className="text-brand-ice/60 hover:text-white text-sm font-medium flex items-center mb-6 transition-colors">

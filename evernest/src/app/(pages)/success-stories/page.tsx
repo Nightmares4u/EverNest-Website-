@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
 import { SuccessStoriesGrid } from "@/components/sections/SuccessStoriesGrid"
-import { GoogleReviewsCTA } from "@/components/sections/GoogleReviewsCTA"
+import { GoogleReviewsShowcase } from "@/components/sections/GoogleReviewsShowcase"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { successStoriesGoogleReviews } from "@/data/google-reviews"
 import { buildMetadata } from "@/lib/metadata"
 
 export const metadata: Metadata = buildMetadata({
@@ -16,9 +17,8 @@ export default function SuccessStoriesPage() {
   return (
     <div className="pt-20">
       <SuccessStoriesGrid />
-      <GoogleReviewsCTA />
+      <GoogleReviewsShowcase reviews={successStoriesGoogleReviews} />
       <FinalCTA />
     </div>
   )
 }
-

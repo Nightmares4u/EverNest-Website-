@@ -5,18 +5,22 @@ import { CheckCircle2, Briefcase, Globe, FileText, ChevronDown } from "lucide-re
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { immigrationData } from "@/data/immigration-countries"
+import { studyVisasData } from "@/data/study-visas"
 import type { FaqItem, ImmigrationCountryData, ImmigrationProgramData } from "@/data/types"
 import { buildMetadata, getFirstSentence } from "@/lib/metadata"
 import { use } from "react"
 
 import Image from "next/image"
 
-const countryImages: Record<string, string> = {
-  australia: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=2000&auto=format&fit=crop",
+const studyBackgroundMap: Record<string, keyof typeof studyVisasData> = {
+  australia: "australia",
+  "united-kingdom": "united-kingdom",
+  "united-states": "usa",
+}
+
+const fallbackCountryImages: Record<string, string> = {
   "european-union": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=2000&auto=format&fit=crop",
   "new-zealand": "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?q=80&w=2000&auto=format&fit=crop",
-  "united-kingdom": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2000&auto=format&fit=crop",
-  "united-states": "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2000&auto=format&fit=crop"
 }
 
 export async function generateMetadata({
@@ -53,22 +57,29 @@ export default function ImmigrationCountryPage({ params }: { params: Promise<{ c
     notFound()
   }
 
-  const bgImage = countryImages[countryKey] || "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2000&auto=format&fit=crop"
+  const studyPageData = studyVisasData[studyBackgroundMap[countryKey]]
+  const bgImage =
+    studyPageData?.sectionBackgroundImage ||
+    fallbackCountryImages[countryKey] ||
+    "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2000&auto=format&fit=crop"
+  const bgAlt = studyPageData?.backgroundImageAlt || `${pageData.name} Immigration`
 
   return (
     <>
       {/* Hero */}
       <section className="pt-32 pb-24 md:pt-48 md:pb-32 text-white overflow-hidden relative">
         <div className="absolute inset-0 z-0">
-          <Image 
-            src={bgImage} 
-            alt={`${pageData.name} Immigration`}
+          <Image
+            src={bgImage}
+            alt={bgAlt}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-brand-blue/80 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,18,42,0.58)_0%,rgba(7,18,42,0.4)_34%,rgba(7,18,42,0.22)_68%,rgba(7,18,42,0.14)_100%)]"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,18,42,0.08)_0%,rgba(7,18,42,0.14)_34%,rgba(7,18,42,0.28)_100%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_22%),radial-gradient(circle_at_bottom_left,rgba(225,29,46,0.12),transparent_28%)]"></div>
         </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl">

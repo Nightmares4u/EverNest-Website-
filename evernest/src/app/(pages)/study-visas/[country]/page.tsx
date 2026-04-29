@@ -11,26 +11,6 @@ import { use } from "react"
 
 import Image from "next/image"
 
-const countryImages: Record<string, string> = {
-  italy: "https://images.unsplash.com/photo-1529260836202-8ae073493f01?q=80&w=2000&auto=format&fit=crop",
-  finland: "https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?q=80&w=2000&auto=format&fit=crop",
-  turkey: "https://images.unsplash.com/photo-1524231757912-21f4fe3a0837?q=80&w=2000&auto=format&fit=crop",
-  uae: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop",
-  canada: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?q=80&w=2000&auto=format&fit=crop",
-  georgia: "https://images.unsplash.com/photo-1565008576549-57569a49371d?q=80&w=2000&auto=format&fit=crop",
-  "united-kingdom": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2000&auto=format&fit=crop",
-  azerbaijan: "https://images.unsplash.com/photo-1582299882766-3d2b27076a05?q=80&w=2000&auto=format&fit=crop",
-  france: "https://images.unsplash.com/photo-1502602898657-3e9076006e89?q=80&w=2000&auto=format&fit=crop",
-  ireland: "https://images.unsplash.com/photo-1590089415225-401ed6f9b8cd?q=80&w=2000&auto=format&fit=crop",
-  malta: "https://images.unsplash.com/photo-1514222026135-231a44c5c2d9?q=80&w=2000&auto=format&fit=crop",
-  uzbekistan: "https://images.unsplash.com/photo-1616489569720-3b4f658095b9?q=80&w=2000&auto=format&fit=crop",
-  australia: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=2000&auto=format&fit=crop",
-  malaysia: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2000&auto=format&fit=crop",
-  spain: "https://images.unsplash.com/photo-1539037116277-4db2020280eb?q=80&w=2000&auto=format&fit=crop",
-  cyprus: "https://images.unsplash.com/photo-1555589139-25b4cb8ec042?q=80&w=2000&auto=format&fit=crop",
-  usa: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2000&auto=format&fit=crop"
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -65,23 +45,29 @@ export default function StudyVisaCountryPage({ params }: { params: Promise<{ cou
     notFound()
   }
 
-  const bgImage = countryImages[countryKey] || "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2000&auto=format&fit=crop"
+  const sectionBackgroundImage = pageData.sectionBackgroundImage
 
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-24 md:pt-48 md:pb-32 text-white overflow-hidden relative">
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src={bgImage} 
-            alt={`Study in ${pageData.name}`}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-brand-blue/80 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/50 to-transparent"></div>
-        </div>
+      <section className="pt-32 pb-24 md:pt-48 md:pb-32 text-white overflow-hidden relative bg-brand-blue">
+        {sectionBackgroundImage ? (
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src={sectionBackgroundImage} 
+              alt={pageData.backgroundImageAlt || `Study in ${pageData.name}`}
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,18,42,0.58)_0%,rgba(7,18,42,0.4)_34%,rgba(7,18,42,0.22)_68%,rgba(7,18,42,0.14)_100%)]"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,18,42,0.08)_0%,rgba(7,18,42,0.14)_34%,rgba(7,18,42,0.28)_100%)]"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_22%),radial-gradient(circle_at_bottom_left,rgba(225,29,46,0.12),transparent_28%)]"></div>
+          </div>
+        ) : (
+          <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(225,29,46,0.16),transparent_30%),linear-gradient(180deg,#07122a_0%,#0b1b3a_48%,#102447_100%)]"></div>
+        )}
         
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl">

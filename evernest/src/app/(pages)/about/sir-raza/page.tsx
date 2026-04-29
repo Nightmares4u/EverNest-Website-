@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/metadata"
 
 export const metadata: Metadata = buildMetadata({
   title: "Sir Raza - CEO & Senior Consultant | EverNest Consultants",
-  description: "Learn about Sir Raza's decade of experience in global education consulting, immigration advisory, and institutional partnerships.",
+  description: "Learn about Sir Raza's 25+ years of experience in immigration consulting, international education guidance, and global mobility strategy.",
   path: "/about/sir-raza",
 })
 

@@ -99,6 +99,7 @@ export const featuredCredibilityGallery: CredibilityMediaItem[] = [
     category: "Training",
     caption:
       "Our team regularly participates in training sessions to stay aligned with admission standards, visa expectations, documentation quality, and student counselling best practices.",
+    imagePath: "/images/trust/training/team-training-session.jpg",
     assetSlot: "/images/trust/training/team-training-session.jpg",
   },
 ]
@@ -126,20 +127,6 @@ export const certificationRecognitionItems: CredibilityMediaItem[] = [
       "IELTS-related recognition reinforces EN Consultants’ active role in English-language pathway awareness and preparation-focused student support.",
     imagePath: "/images/trust/certificates/ielts-recognition-certificate.png",
     assetSlot: "/images/trust/certificates/ielts-recognition-certificate.png",
-  },
-  {
-    title: "University Partnership Certificates",
-    category: "Institutional Recognition",
-    caption:
-      "Institutional certificates and representative materials help demonstrate active engagement with international education networks and admissions ecosystems.",
-    assetSlot: "/images/trust/certificates/university-partnership-certificates.jpg",
-  },
-  {
-    title: "Training & Professional Development Certificates",
-    category: "Training",
-    caption:
-      "Ongoing professional development reflects a practical commitment to stronger counselling standards, updated process awareness, and student-facing consistency.",
-    assetSlot: "/images/trust/training/professional-development-certificates.jpg",
   },
 ]
 

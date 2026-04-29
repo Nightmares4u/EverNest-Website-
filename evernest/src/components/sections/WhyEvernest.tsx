@@ -3,6 +3,7 @@
 import { CheckCircle2, Landmark, ShieldCheck, Waypoints } from "lucide-react"
 import { motion } from "framer-motion"
 import { siteConfig } from "@/data/site"
+import { Counter } from "@/components/ui/Counter"
 
 const reasons = [
   {
@@ -27,10 +28,17 @@ const reasons = [
   },
 ] as const
 
+const stats = [
+  { label: "Registered", value: 2013, suffix: "", prefix: "" },
+  { label: "Pakistan Offices", value: 2, suffix: "", prefix: "" },
+  { label: "Regional Desks", value: 2, suffix: "", prefix: "" },
+  { label: "Countries Served", value: 18, suffix: "+", prefix: "" },
+]
+
 export function WhyEvernest() {
   return (
-    <section className="overflow-hidden bg-brand-blue py-24 text-white">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="relative overflow-hidden bg-noise py-24 text-white" style={{ background: "radial-gradient(120% 120% at 0% 0%, #1a3a6e 0%, #0b1b3a 45%, #07122a 100%)" }}>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_1.2fr] lg:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
@@ -38,12 +46,12 @@ export function WhyEvernest() {
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
           >
-            <div className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm font-bold uppercase tracking-[0.22em] text-brand-ice backdrop-blur-sm">
+            <div className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.32em] text-brand-ice backdrop-blur-sm flex items-center gap-3">
+              <span className="inline-block w-6 h-px bg-brand-red" />
               Why EverNest
             </div>
-            <h2 className="mt-6 text-4xl font-display font-bold md:text-5xl">
-              A premium advisory experience built on
-              {" "}
+            <h2 className="mt-6 text-4xl font-display font-bold tracking-[-0.02em] md:text-5xl">
+              A premium advisory experience built on{" "}
               <span className="text-brand-red">clarity, process, and reach</span>
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-ice/76">
@@ -53,21 +61,16 @@ export function WhyEvernest() {
             </p>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
-              {[
-                { label: "Registered", value: siteConfig.registeredYear },
-                { label: "Pakistan Offices", value: "2" },
-                { label: "Regional Desks", value: "2" },
-                { label: "Public Contact", value: siteConfig.contact.whatsappDisplay },
-              ].map((item) => (
+              {stats.map((item) => (
                 <div
                   key={item.label}
                   className="rounded-[1.5rem] border border-white/10 bg-white/8 p-5 backdrop-blur-sm"
                 >
-                  <div className="text-xs font-bold uppercase tracking-[0.22em] text-white/45">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.32em] text-white/45">
                     {item.label}
                   </div>
-                  <div className="mt-2 text-2xl font-display font-bold text-white">
-                    {item.value}
+                  <div className="mt-2 text-4xl font-display font-bold text-white leading-none tabular-nums">
+                    <Counter to={item.value} suffix={item.suffix} prefix={item.prefix} />
                   </div>
                 </div>
               ))}
@@ -84,12 +87,18 @@ export function WhyEvernest() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: index * 0.08 }}
-                  className="rounded-[1.9rem] border border-white/10 bg-white/8 p-6 backdrop-blur-sm shadow-[0_24px_60px_-30px_rgba(0,0,0,0.45)]"
+                  onMouseMove={(e) => {
+                    const r = e.currentTarget.getBoundingClientRect()
+                    e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`)
+                    e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`)
+                  }}
+                  className="group spotlight-card rounded-[1.9rem] border border-white/10 bg-white/8 p-6 backdrop-blur-sm shadow-[0_24px_60px_-30px_rgba(0,0,0,0.45)]"
+                  style={{ "--mx": "50%", "--my": "50%" } as React.CSSProperties}
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-red/15 text-brand-red">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-red/15 text-brand-red transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-5 text-2xl font-display font-bold text-white">
+                  <h3 className="mt-5 text-2xl font-display font-bold tracking-[-0.01em] text-white">
                     {reason.title}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-brand-ice/76">

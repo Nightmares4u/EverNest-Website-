@@ -5,13 +5,14 @@ import { ArrowRight, BriefcaseBusiness, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { LocationVisual } from "@/components/shared/LocationVisual"
+import { studyVisasData } from "@/data/study-visas"
 
 const pathways = [
   {
     country: "United States",
     code: "US",
     slug: "united-states",
-    image: "/images/destinations/usa.svg",
+    studySlug: "usa",
     programs: ["H-1B Work Visa", "EB-3 Green Card", "B1/B2 Visitor Visa"],
     desc: "Investment and employment-based green card opportunities for professionals and investors."
   },
@@ -19,7 +20,7 @@ const pathways = [
     country: "United Kingdom",
     code: "GB",
     slug: "united-kingdom",
-    image: "/images/destinations/united-kingdom.svg",
+    studySlug: "united-kingdom",
     programs: ["Skilled Worker", "Global Talent", "Graduate Route"],
     desc: "Points-based immigration and talent programs for skilled workers."
   },
@@ -27,7 +28,7 @@ const pathways = [
     country: "Australia",
     code: "AU",
     slug: "australia",
-    image: "/images/destinations/australia.svg",
+    studySlug: "australia",
     programs: ["Subclass 189", "Subclass 190", "Subclass 491"],
     desc: "Pathways for highly skilled professionals and business investors seeking permanent residency."
   }
@@ -58,7 +59,10 @@ export function FeaturedImmigration() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {pathways.map((pathway, i) => (
+          {pathways.map((pathway, i) => {
+            const imageData = studyVisasData[pathway.studySlug]
+
+            return (
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +71,14 @@ export function FeaturedImmigration() {
               key={pathway.country} 
               className="group relative flex flex-col rounded-[2rem] border border-border-subtle bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-card"
             >
-              <LocationVisual title={pathway.country} code={pathway.code} image={pathway.image} badge="Immigration" icon={BriefcaseBusiness} />
+              <LocationVisual
+                title={pathway.country}
+                code={pathway.code}
+                image={imageData?.homepageImage}
+                imageAlt={imageData?.imageAlt}
+                badge="Immigration"
+                icon={BriefcaseBusiness}
+              />
               
               <div className="p-4 md:p-5 flex flex-col flex-grow">
                 <h3 className="text-2xl font-display font-bold text-brand-blue">{pathway.country}</h3>
@@ -90,7 +101,8 @@ export function FeaturedImmigration() {
                 </Button>
               </div>
             </motion.div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

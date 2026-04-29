@@ -1,151 +1,304 @@
-import Image from "next/image"
 import Link from "next/link"
+import {
+  ArrowUpRight,
+  Clock3,
+  PlayCircle,
+  Podcast,
+  Radio,
+} from "lucide-react"
+
 import { sirRazaProfile } from "@/data/leadership"
-import { mediaFeatures } from "@/data/media"
+import { mediaFeatures, sirRazaMediaSection, type MediaPlatform } from "@/data/media"
 
 export function LeadershipProfile() {
+  const featuredMedia = mediaFeatures.find((item) => item.featured)
+  const supportingMedia = mediaFeatures.filter((item) => !item.featured)
+  const supportingVideoMedia = supportingMedia.filter(
+    (item) => item.platform === "youtube" && item.youtubeEmbedUrl,
+  )
+  const upcomingMedia = supportingMedia.filter(
+    (item) => !(item.platform === "youtube" && item.youtubeEmbedUrl),
+  )
+
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-slate-900">
-        <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-5 mix-blend-overlay"></div>
-        <div className="container mx-auto px-4 max-w-7xl relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="flex-1 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-sm font-medium mb-6">
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,#07122a_0%,#0b1b3a_100%)] pt-24 pb-16 lg:pt-32 lg:pb-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(225,29,46,0.18),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_24%)]" />
+        <div className="container relative z-10 mx-auto max-w-7xl px-4">
+          <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-1.5 text-sm font-medium text-red-200 backdrop-blur-sm">
                 Leadership
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+              <h1 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
                 {sirRazaProfile.name}
               </h1>
-              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto lg:mx-0">
-                {sirRazaProfile.title}
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+              <p className="mt-4 text-xl text-blue-100">{sirRazaProfile.title}</p>
+
+              <div className="mt-8 space-y-5 text-base leading-8 text-slate-200 md:text-lg">
+                {sirRazaProfile.bio.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                {sirRazaProfile.areasOfExpertise.map((area) => (
+                  <span
+                    key={area}
+                    className="rounded-full border border-white/12 bg-white/8 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-sm"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-full bg-red-600 text-white hover:bg-red-700 transition-colors"
+                  className="inline-flex items-center justify-center rounded-full bg-brand-red px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-red-2"
                 >
                   Book Free Consultation
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors backdrop-blur-sm"
+                  className="inline-flex items-center justify-center rounded-full border border-white/14 bg-white/8 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/14"
                 >
-                  Partner With EN Consultants
+                  Speak With EN Consultants
                 </Link>
               </div>
             </div>
-            <div className="flex-1 w-full max-w-md lg:max-w-lg relative">
-              <div className="aspect-[4/5] relative rounded-2xl overflow-hidden bg-slate-800 border border-slate-700 shadow-2xl">
-                {/* Fallback structure if image is missing */}
-                <div className="absolute inset-0 flex items-center justify-center text-slate-500">
-                  <span className="text-sm font-medium">Portrait coming soon</span>
-                </div>
-                {/* 
-                  When image is available:
-                  <Image src="/images/leadership/sir-raza/portrait.jpg" alt="Sir Raza" fill className="object-cover" />
-                */}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Bio & Credentials */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-7">
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                Leadership in Global Education Consulting
-              </h2>
-              <div className="space-y-4 text-lg text-slate-600 mb-10">
-                {sirRazaProfile.bio.map((paragraph, idx) => (
-                  <p key={idx}>{paragraph}</p>
-                ))}
-              </div>
-              
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Areas of Expertise</h3>
-              <div className="flex flex-wrap gap-3">
-                {sirRazaProfile.areasOfExpertise.map((area, idx) => (
-                  <span key={idx} className="px-4 py-2 rounded-full bg-slate-50 border border-slate-100 text-sm font-medium text-slate-700">
-                    {area}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 space-y-8">
-                {sirRazaProfile.credentials.map((cred, idx) => (
-                  <div key={idx}>
-                    <h4 className="font-bold text-slate-900 mb-2">{cred.label}</h4>
-                    <p className="text-slate-600 text-sm">{cred.description}</p>
+            <div className="rounded-[28px] border border-white/10 bg-white/6 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.22)] backdrop-blur-sm">
+              <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+                {sirRazaProfile.credentials.map((credential) => (
+                  <div
+                    key={credential.label}
+                    className="rounded-2xl border border-white/8 bg-slate-950/30 p-5"
+                  >
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-red-200">
+                      {credential.label}
+                    </p>
+                    <p className="mt-3 text-sm leading-7 text-slate-200/88">
+                      {credential.description}
+                    </p>
                   </div>
                 ))}
               </div>
+
+              <div className="mt-6 rounded-2xl border border-white/8 bg-[linear-gradient(135deg,rgba(225,29,46,0.16),rgba(255,255,255,0.04))] p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-red-100">
+                  Public-Facing Brand
+                </p>
+                <p className="mt-3 text-lg font-semibold text-white">
+                  EverNest Consultants
+                </p>
+                <p className="mt-2 text-sm leading-7 text-slate-200/88">
+                  EN Consultants (Pvt) Ltd. serves students, families, professionals, and investors through the EverNest Consultants trading brand.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Media & Moments Gallery */}
-      <section className="py-20 bg-slate-50 border-t border-slate-100">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Media & Institutional Moments</h2>
-            <p className="text-slate-600">
-              Insights, speaking sessions, and representative meetings globally.
+      <section className="border-t border-slate-100 bg-white py-20">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-bold tracking-tight text-brand-blue md:text-4xl">
+              {sirRazaMediaSection.heading}
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">
+              {sirRazaMediaSection.subtitle}
             </p>
           </div>
 
-          {sirRazaProfile.galleryImages.length > 0 || mediaFeatures.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Render Media Features first */}
-              {mediaFeatures.map((media) => (
-                <div key={media.id} className="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100">
-                   <div className="aspect-video bg-slate-100 relative">
-                     {media.platform === 'youtube' && media.youtubeId ? (
-                        <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                           {/* Replace with actual iframe on interaction or thumbnail */}
-                           <span className="text-sm">YouTube Video: {media.title}</span>
-                        </div>
-                     ) : (
-                        <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                           <span className="text-sm">Media Placeholder</span>
-                        </div>
-                     )}
-                   </div>
-                   <div className="p-5">
-                      <div className="text-xs font-bold text-red-600 uppercase tracking-wider mb-2">{media.platform}</div>
-                      <h4 className="font-bold text-slate-900 mb-2">{media.title}</h4>
-                      {media.description && <p className="text-sm text-slate-600">{media.description}</p>}
-                   </div>
+          <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1.18fr)_minmax(320px,0.82fr)]">
+            {featuredMedia ? (
+              <article className="overflow-hidden rounded-[28px] border border-border-subtle bg-white shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
+                <div className="aspect-video w-full overflow-hidden bg-slate-950">
+                  {featuredMedia.platform === "youtube" && featuredMedia.youtubeEmbedUrl ? (
+                    <iframe
+                      src={featuredMedia.youtubeEmbedUrl}
+                      title={featuredMedia.title}
+                      className="h-full w-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                  ) : null}
                 </div>
-              ))}
-              
-              {/* Render Gallery Images */}
-              {sirRazaProfile.galleryImages.map((img, idx) => (
-                <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100">
-                   <div className="aspect-video bg-slate-100 relative">
-                     <Image src={img.src} alt={img.alt} fill className="object-cover" />
-                   </div>
-                   {img.caption && (
-                     <div className="p-4">
-                       <p className="text-sm font-medium text-slate-700">{img.caption}</p>
-                     </div>
-                   )}
+
+                <div className="grid gap-5 p-6 md:p-8">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="inline-flex items-center rounded-full bg-brand-blush px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-red">
+                      YouTube
+                    </span>
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-slate-500">
+                      <PlayCircle className="h-4 w-4 text-brand-red" />
+                      Featured Video
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+                      {featuredMedia.title}
+                    </h3>
+                    <p className="mt-3 max-w-3xl text-base leading-8 text-slate-600">
+                      {featuredMedia.description}
+                    </p>
+                  </div>
+
+                  {featuredMedia.url ? (
+                    <div>
+                      <Link
+                        href={featuredMedia.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-brand-blue px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-blue-2"
+                      >
+                        {featuredMedia.ctaLabel || "Watch Video"}
+                        <ArrowUpRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  ) : null}
                 </div>
+              </article>
+            ) : null}
+
+            <div className="grid gap-6">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+                {supportingVideoMedia.map((media) => (
+                  <article
+                    key={media.id}
+                    className="overflow-hidden rounded-[24px] border border-border-subtle bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] shadow-[0_18px_40px_rgba(15,23,42,0.06)]"
+                  >
+                    <div className="aspect-video w-full overflow-hidden bg-slate-950">
+                      <iframe
+                        src={media.youtubeEmbedUrl}
+                        title={media.title}
+                        className="h-full w-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    </div>
+
+                    <div className="p-6">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-ice text-brand-blue">
+                          {platformIcon(media.platform)}
+                        </div>
+                        <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                          {media.label || platformLabel(media.platform)}
+                        </span>
+                      </div>
+
+                      <div className="mt-5">
+                        <h3 className="text-xl font-bold tracking-tight text-slate-900">
+                          {media.title}
+                        </h3>
+                        <p className="mt-3 text-sm leading-7 text-slate-600">
+                          {media.description}
+                        </p>
+                      </div>
+
+                      {media.url ? (
+                        <div className="mt-6">
+                          <Link
+                            href={media.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full border border-brand-blue/12 bg-white px-4 py-2.5 text-sm font-semibold text-brand-blue transition-colors hover:border-brand-blue/30 hover:bg-brand-ice"
+                          >
+                            {media.ctaLabel || "Watch Video"}
+                            <ArrowUpRight className="h-4 w-4" />
+                          </Link>
+                        </div>
+                      ) : null}
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              {upcomingMedia.map((media) => (
+                <article
+                  key={media.id}
+                  className="flex h-full flex-col rounded-[24px] border border-border-subtle bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-6 shadow-[0_18px_40px_rgba(15,23,42,0.06)]"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-ice text-brand-blue">
+                      {platformIcon(media.platform)}
+                    </div>
+                    <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      {media.label || platformLabel(media.platform)}
+                    </span>
+                  </div>
+
+                  <div className="mt-5 flex-1">
+                    <h3 className="text-xl font-bold tracking-tight text-slate-900">
+                      {media.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">
+                      {media.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-6">
+                    {media.url ? (
+                      <Link
+                        href={media.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-brand-blue/12 bg-white px-4 py-2.5 text-sm font-semibold text-brand-blue transition-colors hover:border-brand-blue/30 hover:bg-brand-ice"
+                      >
+                        {media.ctaLabel || "Watch Video"}
+                        <ArrowUpRight className="h-4 w-4" />
+                      </Link>
+                    ) : (
+                      <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2.5 text-sm font-semibold text-amber-800">
+                        <Clock3 className="h-4 w-4" />
+                        {media.ctaLabel || "Coming Soon"}
+                      </span>
+                    )}
+                  </div>
+                </article>
               ))}
             </div>
-          ) : (
-            <div className="bg-white p-12 rounded-2xl border border-slate-100 text-center shadow-sm max-w-2xl mx-auto">
-              <p className="text-slate-500 font-medium">Media gallery coming soon.</p>
-            </div>
-          )}
+          </div>
         </div>
       </section>
     </div>
   )
+}
+
+function platformLabel(platform: MediaPlatform) {
+  if (platform === "youtube") {
+    return "YouTube"
+  }
+
+  if (platform === "tiktok") {
+    return "TikTok"
+  }
+
+  if (platform === "facebook") {
+    return "Facebook"
+  }
+
+  return "Coming Soon"
+}
+
+function platformIcon(platform: MediaPlatform) {
+  if (platform === "youtube") {
+    return <PlayCircle className="h-6 w-6" />
+  }
+
+  if (platform === "tiktok") {
+    return <Podcast className="h-6 w-6" />
+  }
+
+  if (platform === "facebook") {
+    return <Radio className="h-6 w-6" />
+  }
+
+  return <Clock3 className="h-6 w-6" />
 }

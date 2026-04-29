@@ -38,13 +38,14 @@ export function ProcessSteps() {
       <div className="absolute inset-0 bg-grid-soft opacity-30" aria-hidden="true" />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              className="text-sm font-bold tracking-[0.22em] uppercase text-brand-blue/50"
+              className="text-[10px] font-bold tracking-[0.32em] uppercase text-brand-blue/45 flex items-center gap-3"
             >
+              <span className="inline-block w-8 h-px bg-brand-red" />
               Process
             </motion.p>
             <motion.h2
@@ -52,7 +53,7 @@ export function ProcessSteps() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ delay: 0.05 }}
-              className="mt-4 text-4xl md:text-5xl font-display font-bold text-brand-blue"
+              className="mt-4 text-4xl md:text-5xl font-display font-bold tracking-[-0.02em] text-brand-blue"
             >
               A transparent, structured path from{" "}
               <span className="text-brand-red">consultation</span> to decision
@@ -77,9 +78,10 @@ export function ProcessSteps() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-brand-red text-white px-7 py-4 font-bold shadow-glow hover:-translate-y-1 transition-all"
+                className="group inline-flex items-center justify-center rounded-full bg-brand-red text-white px-7 py-4 font-bold shadow-glow hover:-translate-y-1 transition-all"
               >
-                Book Free Consultation <ArrowRight className="ml-2 h-4 w-4" />
+                Book Free Consultation
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1.5" />
               </Link>
             </motion.div>
           </div>
@@ -94,18 +96,23 @@ export function ProcessSteps() {
                     initial={{ opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.45, delay: i * 0.05 }}
-                    className="group rounded-3xl bg-white border border-border-subtle p-8 shadow-sm hover:shadow-card hover:-translate-y-1 transition-all"
+                    transition={{ duration: 0.45, delay: i * 0.06 }}
+                    onMouseMove={(e) => {
+                      const r = e.currentTarget.getBoundingClientRect()
+                      e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`)
+                      e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`)
+                    }}
+                    className="group spotlight-card rounded-3xl bg-white border border-border-subtle p-8 shadow-sm hover:shadow-card hover:-translate-y-1.5 transition-all"
                   >
                     <div className="flex items-start justify-between gap-4">
-                      <div className="h-12 w-12 rounded-2xl bg-brand-blush text-brand-red flex items-center justify-center border border-brand-red/10">
+                      <div className="h-12 w-12 rounded-2xl bg-brand-blush text-brand-red flex items-center justify-center border border-brand-red/10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                         <Icon className="h-6 w-6" />
                       </div>
                       <div className="h-10 w-10 rounded-full bg-brand-ice text-brand-blue flex items-center justify-center font-bold text-sm border border-brand-blue/10">
                         {i + 1}
                       </div>
                     </div>
-                    <h3 className="mt-6 text-xl font-bold text-brand-blue">
+                    <h3 className="mt-6 text-xl font-bold tracking-[-0.01em] text-brand-blue">
                       {step.title}
                     </h3>
                     <p className="mt-3 text-sm text-foreground/70 leading-relaxed">
@@ -121,4 +128,3 @@ export function ProcessSteps() {
     </section>
   )
 }
-

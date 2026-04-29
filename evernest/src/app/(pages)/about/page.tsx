@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
-import type { SVGProps } from "react"
 import { Eye, Target } from "lucide-react"
+import { OfficeMediaCarousel } from "@/components/shared/OfficeMediaCarousel"
 import { LeadershipProfile } from "@/components/sections/LeadershipProfile"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { TrustPartnershipsSection } from "@/components/sections/TrustPartnershipsSection"
@@ -66,16 +66,7 @@ export default function AboutPage() {
             </div>
 
             <div className="relative">
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-brand-blue relative">
-                {/* Abstract graphic representing global connection */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                  <Globe2Icon className="w-full h-full text-white" />
-                </div>
-                <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-white">
-                  <div className="text-2xl font-display font-bold mb-2">Pakistan Offices</div>
-                  <p className="text-brand-ice/80 text-sm">EverNest Consultants serves clients through its Karachi and Lahore offices with structured guidance across study, immigration, and partnership services.</p>
-                </div>
-              </div>
+              <OfficeMediaCarousel />
             </div>
           </div>
         </div>
@@ -130,26 +121,5 @@ export default function AboutPage() {
 
       <FinalCTA />
     </>
-  )
-}
-
-function Globe2Icon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-      <path d="M2 12h20" />
-    </svg>
   )
 }

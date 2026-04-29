@@ -9,20 +9,21 @@ import {
   Sparkles,
 } from "lucide-react"
 
+import { InstitutionLogoGrid } from "@/components/shared/InstitutionLogoGrid"
+import {
+  aboutInstitutionPreview,
+  institutionalNetworkSection,
+} from "@/data/institutional-network"
 import {
   certificationRecognitionItems,
   featuredCredibilityGallery,
   trustPartnershipSection,
   trustSignalCards,
-  universityPartnerMedia,
   type CredibilityMediaItem,
   type TrustSignalIcon,
-  type UniversityPartnerMediaItem,
 } from "@/data/trust-partnerships"
 
 export function TrustPartnershipsSection() {
-  const universityTrack = [...universityPartnerMedia, ...universityPartnerMedia]
-
   return (
     <section className="relative overflow-hidden border-t border-slate-100 bg-[linear-gradient(180deg,#ffffff_0%,#f7faff_42%,#ffffff_100%)] py-20 md:py-24">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(225,29,46,0.08),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(11,27,58,0.08),transparent_28%)]" />
@@ -44,7 +45,7 @@ export function TrustPartnershipsSection() {
         </div>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-12">
-          {trustSignalCards.map((card, index) => (
+          {trustSignalCards.map((card) => (
             <article
               key={card.title}
               className={[
@@ -91,7 +92,7 @@ export function TrustPartnershipsSection() {
                     card.featured ? "text-2xl md:text-[1.9rem]" : "text-xl text-brand-blue",
                   ].join(" ")}
                 >
-                  {index === 0 ? "ICEF Certified Agency" : card.title}
+                  {card.title}
                 </h3>
                 <p
                   className={[
@@ -164,25 +165,36 @@ export function TrustPartnershipsSection() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.24em] text-brand-blue/45">
-                University & Institutional Partners
+                Institutional Network
               </p>
               <h3 className="mt-3 text-3xl font-display font-bold tracking-tight text-brand-blue">
-                A cleaner carousel for partnership media, certificates, and representative touchpoints.
+                {institutionalNetworkSection.heading}
               </h3>
             </div>
             <p className="max-w-2xl text-sm leading-7 text-slate-500">
-              Add university logos, representative visit photos, or certificate thumbnails here without turning the page into a dense gallery.
+              {institutionalNetworkSection.subtitle}
             </p>
           </div>
 
-          <div className="relative mt-10 overflow-hidden rounded-[28px] border border-brand-blue/10 bg-brand-blue px-4 py-5 shadow-[0_24px_60px_rgba(11,27,58,0.16)] md:px-6">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-brand-blue to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-brand-blue to-transparent" />
+          <div className="mt-10 rounded-[32px] border border-brand-blue/10 bg-[linear-gradient(135deg,#07122a_0%,#102447_62%,#152a55_100%)] p-6 shadow-[0_24px_60px_rgba(11,27,58,0.18)] md:p-8">
+            <InstitutionLogoGrid
+              institutions={aboutInstitutionPreview}
+              gridClassName="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"
+              cardClassName="border-white/10 bg-white/96 shadow-none"
+              showRegion={false}
+              compact
+            />
 
-            <div className="flex min-w-max animate-marquee gap-4">
-              {universityTrack.map((item, index) => (
-                <UniversityPartnerChip key={`${item.title}-${index}`} item={item} />
-              ))}
+            <div className="mt-8 flex flex-col items-start justify-between gap-4 rounded-[24px] border border-white/10 bg-white/8 px-5 py-5 text-white/88 md:flex-row md:items-center">
+              <p className="max-w-3xl text-sm leading-7 text-slate-200">
+                Showing a selected set of 20 institutions on the About page for clarity. The full 29-institution network is available on the credentials view.
+              </p>
+              <Link
+                href="/about/credentials"
+                className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-blue transition-colors hover:bg-brand-ice"
+              >
+                View Full Credentials
+              </Link>
             </div>
           </div>
         </div>
@@ -275,7 +287,7 @@ function MediaPlaceholder({
           <div className="mt-8 flex h-[calc(100%-4rem)] items-center justify-center">
             <div className="w-full max-w-[19rem] rounded-[26px] border border-white/16 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(241,245,255,0.9))] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.18)]">
               <div className="flex items-center justify-between">
-                <div className="h-11 w-11 rounded-2xl bg-brand-blue text-white flex items-center justify-center">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-blue text-white">
                   <ShieldCheck className="h-5 w-5" />
                 </div>
                 <div className="rounded-full bg-brand-blush px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-brand-red">
@@ -324,53 +336,6 @@ function MediaPlaceholder({
       </div>
     </div>
   )
-}
-
-function UniversityPartnerChip({ item }: { item: UniversityPartnerMediaItem }) {
-  const chip = (
-    <div className="flex min-w-[240px] items-center gap-4 rounded-[24px] border border-white/10 bg-white/8 px-5 py-4 backdrop-blur-sm">
-      {item.imagePath ? (
-        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/10">
-          <Image
-            src={item.imagePath}
-            alt={item.title}
-            fill
-            className="object-cover"
-            sizes="56px"
-          />
-        </div>
-      ) : (
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-sm font-bold uppercase tracking-[0.2em] text-white">
-          {item.title
-            .split(" ")
-            .slice(0, 2)
-            .map((part) => part[0])
-            .join("")}
-        </div>
-      )}
-      <div className="min-w-0">
-        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-red-200">
-          {item.category}
-        </p>
-        <p className="mt-1 truncate text-sm font-semibold text-white">
-          {item.title}
-        </p>
-        <p className="mt-1 truncate text-xs text-slate-300">
-          Premium partner media placeholder ready for final artwork.
-        </p>
-      </div>
-    </div>
-  )
-
-  if (item.link) {
-    return (
-      <Link href={item.link} target="_blank" rel="noopener noreferrer" className="block">
-        {chip}
-      </Link>
-    )
-  }
-
-  return chip
 }
 
 function renderTrustIcon(icon: TrustSignalIcon) {

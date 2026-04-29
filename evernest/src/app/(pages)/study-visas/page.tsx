@@ -12,7 +12,7 @@ import {
 } from "lucide-react"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { studyVisasData } from "@/data/study-visas"
-import { buildMetadata } from "@/lib/metadata"
+import { buildMetadata, getFirstSentence } from "@/lib/metadata"
 
 export const metadata: Metadata = buildMetadata({
   title: "Study Visas",
@@ -25,9 +25,29 @@ export const metadata: Metadata = buildMetadata({
 const destinations = Object.entries(studyVisasData).map(([slug, data]) => ({
   name: data.name,
   slug,
-  image: `/images/destinations/${slug}.svg`, // Safe local fallback
-  code: data.name.substring(0, 2).toUpperCase(),
-  desc: data.heroDesc.split(".")[0] + ".",
+  image: data.homepageImage || data.sectionBackgroundImage,
+  imageAlt: data.homepageImage ? (data.imageAlt || data.name) : (data.backgroundImageAlt || data.name),
+  code:
+    ({
+      italy: "IT",
+      france: "FR",
+      uae: "AE",
+      usa: "US",
+      canada: "CA",
+      "united-kingdom": "UK",
+      finland: "FI",
+      turkey: "TR",
+      georgia: "GE",
+      azerbaijan: "AZ",
+      ireland: "IE",
+      malta: "MT",
+      uzbekistan: "UZ",
+      malaysia: "MY",
+      spain: "ES",
+      cyprus: "CY",
+      australia: "AU",
+    }[slug] || data.name.substring(0, 2).toUpperCase()),
+  desc: getFirstSentence(data.heroDesc),
   cost: data.costs?.[0]?.desc || "Varies by program"
 }))
 
@@ -55,7 +75,7 @@ export default function StudyVisasIndexPage() {
             {/* Destination Strip */}
             <div className="flex flex-wrap justify-center gap-3 mt-8">
               {["United States", "Canada", "United Kingdom", "Australia", "New Zealand", "European Union countries"].map((country, i) => (
-                <span key={i} className="px-4 py-2 bg-brand-blue-light/50 border border-white/20 rounded-full text-sm font-medium text-brand-ice/90 backdrop-blur-sm shadow-sm hover:bg-brand-red/80 transition-colors">
+                <span key={i} className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-sm font-medium text-brand-ice/90 backdrop-blur-sm shadow-sm hover:bg-brand-red/80 transition-colors">
                   {country}
                 </span>
               ))}
@@ -90,13 +110,26 @@ export default function StudyVisasIndexPage() {
                 className="group flex flex-col bg-white rounded-2xl border border-border-subtle shadow-sm hover:shadow-card hover:border-brand-blue/30 hover:-translate-y-1 transition-all overflow-hidden"
               >
                 <div className="relative h-40 w-full overflow-hidden">
-                  <Image 
-                    src={dest.image} 
-                    alt={dest.name} 
-                    fill 
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  {dest.image ? (
+                    <>
+                      <Image
+                        src={dest.image}
+                        alt={dest.imageAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,18,42,0.08)_0%,rgba(7,18,42,0.12)_32%,rgba(7,18,42,0.5)_100%)]"></div>
+                      <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(7,18,42,0.26)_0%,rgba(7,18,42,0.1)_46%,rgba(7,18,42,0.16)_100%)]"></div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-[linear-gradient(145deg,#08162f_0%,#102750_54%,#183978_100%)]" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.16),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(225,29,46,0.24),transparent_28%)]" />
+                      <div className="absolute -right-12 top-8 h-44 w-44 rounded-full border border-white/10 bg-white/5" />
+                      <div className="absolute -left-10 bottom-0 h-36 w-36 rounded-full bg-brand-red/18 blur-2xl" />
+                    </>
+                  )}
                   <div className="absolute bottom-4 left-4 h-10 w-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white font-bold font-display">
                     {dest.code}
                   </div>

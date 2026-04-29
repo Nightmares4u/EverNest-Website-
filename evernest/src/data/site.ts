@@ -58,5 +58,8 @@ export const siteConfig = {
     { label: "Registered Since", value: "2013" },
   ],
   social: [],
-  googleReviewsUrl: "",
+  googleReviewsUrl:
+    "https://www.google.com/search?q=evernest+consultants&oq=evernest+consultants&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABixAxiABDIHCAIQABiABDINCAMQABiDARixAxiABDIKCAQQABixAxiABDIKCAUQABixAxiABDIKCAYQABixAxiABDIHCAcQLhiABDINCAgQABiDARixAxiABDINCAkQABiDARixAxiABNIBCDQyNzJqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#lrd=0x3eb33f0f7f1c54af:0x35bbd106f3ccb0a7,1,,,,",
+  googleReviewRating: 4.5,
+  googleReviewCount: 81,
 }

@@ -1,17 +1,18 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, GraduationCap } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { LocationVisual } from "@/components/shared/LocationVisual"
+import { studyVisasData } from "@/data/study-visas"
 
 const destinations = [
-  { name: "Italy", code: "IT", slug: "italy", desc: "Top-tier education with rich cultural heritage.", image: "/images/destinations/italy.svg" },
-  { name: "France", code: "FR", slug: "france", desc: "World-class universities and vibrant student life.", image: "/images/destinations/france.svg" },
-  { name: "UAE", code: "AE", slug: "uae", desc: "Modern campuses with strong regional opportunity.", image: "/images/destinations/uae.svg" },
-  { name: "USA", code: "US", slug: "usa", desc: "Leading global universities and diverse opportunities.", image: "/images/destinations/usa.svg" },
-  { name: "Canada", code: "CA", slug: "canada", desc: "High quality of life and post-study work options.", image: "/images/destinations/canada.svg" },
-  { name: "UK", code: "GB", slug: "united-kingdom", desc: "Prestigious institutions with a global reputation.", image: "/images/destinations/united-kingdom.svg" },
+  { name: "Italy", code: "IT", slug: "italy", desc: "Top-tier education with rich cultural heritage." },
+  { name: "France", code: "FR", slug: "france", desc: "World-class universities and vibrant student life." },
+  { name: "UAE", code: "AE", slug: "uae", desc: "Modern campuses with strong regional opportunity." },
+  { name: "USA", code: "US", slug: "usa", desc: "Leading global universities and diverse opportunities." },
+  { name: "Canada", code: "CA", slug: "canada", desc: "High quality of life and post-study work options." },
+  { name: "UK", code: "GB", slug: "united-kingdom", desc: "Prestigious institutions with a global reputation." },
 ]
 
 export function FeaturedDestinations() {
@@ -64,13 +65,20 @@ export function FeaturedDestinations() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {destinations.map((dest, i) => (
-            <motion.div
+          {destinations.map((dest, i) => {
+            const pageData = studyVisasData[dest.slug]
+
+            if (!pageData) {
+              return null
+            }
+
+            return (
+              <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              key={dest.name}
+              key={dest.slug}
             >
               <Link 
                 href={`/study-visas/${dest.slug}`}
@@ -79,9 +87,12 @@ export function FeaturedDestinations() {
                 <LocationVisual
                   title={dest.name}
                   code={dest.code}
-                  image={dest.image}
+                  image={pageData.homepageImage}
+                  imageAlt={pageData.imageAlt}
                   badge="Study Visa"
-                  icon={GraduationCap}
+                  showCodeTag={false}
+                  showIconBadge={false}
+                  showFooterCode={false}
                 />
                 <div className="flex flex-grow flex-col px-2 pb-3 pt-6">
                   <h3 className="text-2xl font-bold text-brand-blue mb-3">{dest.name}</h3>
@@ -95,7 +106,8 @@ export function FeaturedDestinations() {
                 </div>
               </Link>
             </motion.div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

@@ -10,9 +10,10 @@ import { ProcessSteps } from "@/components/sections/ProcessSteps"
 import { WhyEvernest } from "@/components/sections/WhyEvernest"
 import { B2BHighlight } from "@/components/sections/B2BHighlight"
 import { SuccessStoriesGrid } from "@/components/sections/SuccessStoriesGrid"
-import { GoogleReviewsCTA } from "@/components/sections/GoogleReviewsCTA"
+import { GoogleReviewsShowcase } from "@/components/sections/GoogleReviewsShowcase"
 import { PartnerStrip } from "@/components/sections/PartnerStrip"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { homepageGoogleReviews } from "@/data/google-reviews"
 import { buildMetadata } from "@/lib/metadata"
 
 export const metadata: Metadata = buildMetadata({
@@ -41,7 +42,7 @@ export default function Home() {
       <ProcessSteps />
       <B2BHighlight />
       <SuccessStoriesGrid />
-      <GoogleReviewsCTA />
+      <GoogleReviewsShowcase reviews={homepageGoogleReviews} compact />
       <PartnerStrip />
       <FinalCTA />
     </>

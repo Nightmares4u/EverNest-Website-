@@ -34,6 +34,10 @@ export interface StudyVisaLanguageRequirements {
 export interface StudyVisaCountryData {
   name: string;
   heroDesc: string;
+  homepageImage?: string;
+  sectionBackgroundImage?: string;
+  imageAlt?: string;
+  backgroundImageAlt?: string;
   benefits?: TitledDescription[];
   admissionRequirements?: StudyVisaAdmissionRequirements;
   languageRequirements?: StudyVisaLanguageRequirements;
