@@ -72,8 +72,8 @@ export function B2BHighlight() {
                   <div className="text-sm text-brand-ice/80 font-medium">Partner communication & updates</div>
                 </div>
                 <div className="group">
-                  <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">18+</div>
-                  <div className="text-sm text-brand-ice/80 font-medium">Countries served</div>
+                  <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">500+</div>
+                  <div className="text-sm text-brand-ice/80 font-medium">Partner institutions</div>
                 </div>
                 <div className="group">
                   <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">Professional</div>
@@ -83,7 +83,7 @@ export function B2BHighlight() {
 
               <div className="relative z-10 mt-10 rounded-[1.5rem] border border-white/10 bg-white/8 p-5 backdrop-blur-sm">
                 <div className="text-xs font-bold uppercase tracking-[0.22em] text-white/45">
-                  Regional contact desks
+                  Global contact desks
                 </div>
                 <div className="mt-3 grid gap-4 text-sm text-brand-ice/80 sm:grid-cols-2">
                   <div>

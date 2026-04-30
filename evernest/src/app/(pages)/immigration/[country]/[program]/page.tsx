@@ -6,6 +6,7 @@ import { use } from "react"
 
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { CinematicPageHero } from "@/components/shared/CinematicPageHero"
 import { immigrationProgramsData } from "@/data/immigration-programs"
 import { buildMetadata, getFirstSentence } from "@/lib/metadata"
 
@@ -47,33 +48,22 @@ export default function ImmigrationProgramPage({ params }: { params: Promise<{ c
   return (
     <>
       {/* Hero */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-brand-blue text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('/globe.svg')] bg-center opacity-10 mix-blend-overlay"></div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-3xl">
-            <Link href="/immigration" className="text-brand-ice/60 hover:text-white text-sm font-medium flex items-center mb-6 transition-colors">
-              &larr; Back to all immigration pathways
-            </Link>
-            <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm font-medium text-white mb-6 backdrop-blur-sm">
-              {programData.country} Immigration
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              {programData.name} <span className="text-brand-red">Program</span>
-            </h1>
-            <p className="text-lg md:text-xl text-brand-ice/80 mb-10 leading-relaxed max-w-2xl">
-              {programData.heroDesc}
-            </p>
-            <div className="flex flex-wrap gap-6">
-              {programData.stats.map((stat, i: number) => (
-                <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 min-w-[120px]">
-                  <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-                  <div className="text-sm text-brand-ice/70">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <CinematicPageHero
+        variant="immigration"
+        eyebrow={`${programData.country} Immigration`}
+        icon={<Briefcase className="h-7 w-7" />}
+        backLink={{ href: "/immigration", label: "Back to all immigration pathways" }}
+        title={<>{programData.name} <span className="text-brand-red">Program</span></>}
+        subtitle={programData.heroDesc}
+        chips={programData.benefits.slice(0, 4)}
+        stats={programData.stats}
+        galleryImages={[
+          { src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200&auto=format&fit=crop", alt: "Immigration consultation and planning" },
+          { src: "/images/offices/karachi/karachi-pic-1.png", alt: "EverNest advisory office" },
+          { src: "/images/trust/certificates/aeo-ielts-certificate.png", alt: "EverNest advisory credentials" },
+        ]}
+        visualLabel={`${programData.name} pathway`}
+      />
 
       {/* Content */}
       <section className="py-20 bg-brand-neutral">

@@ -1,9 +1,10 @@
 "use client"
 
-import { CheckCircle2, Landmark, ShieldCheck, Waypoints } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight, CheckCircle2, Landmark, ShieldCheck, Waypoints } from "lucide-react"
 import { motion } from "framer-motion"
 import { siteConfig } from "@/data/site"
-import { Counter } from "@/components/ui/Counter"
 
 const reasons = [
   {
@@ -19,20 +20,31 @@ const reasons = [
   {
     icon: Landmark,
     title: "Pakistan-rooted support",
-    desc: "Karachi and Lahore serve as the core public offices for counseling, follow-up, and client-facing coordination.",
+    desc: "Karachi, Islamabad, and Lahore serve as our core public offices for counseling, follow-up, and client-facing coordination.",
   },
   {
     icon: Waypoints,
-    title: "Regional desk access",
+    title: "Global desk access",
     desc: `North America support through ${siteConfig.satelliteContacts[0].manager} and Europe support through ${siteConfig.satelliteContacts[1].manager}.`,
   },
 ] as const
 
-const stats = [
-  { label: "Registered", value: 2013, suffix: "", prefix: "" },
-  { label: "Pakistan Offices", value: 2, suffix: "", prefix: "" },
-  { label: "Regional Desks", value: 2, suffix: "", prefix: "" },
-  { label: "Countries Served", value: 18, suffix: "+", prefix: "" },
+const recognitions = [
+  {
+    label: "British Council UK",
+    sub: "Certified Agent",
+    src: "/images/trust/british-council/british-council-certified-agent.png",
+  },
+  {
+    label: "AEO / IELTS",
+    sub: "Certified Partner",
+    src: "/images/trust/certificates/aeo-ielts-certificate.png",
+  },
+  {
+    label: "IELTS Network",
+    sub: "Recognized Partner",
+    src: "/images/trust/certificates/ielts-recognition-certificate.png",
+  },
 ]
 
 export function WhyEvernest() {
@@ -60,20 +72,42 @@ export function WhyEvernest() {
               manage, and the decision-making easier to trust.
             </p>
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-2">
-              {stats.map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-[1.5rem] border border-white/10 bg-white/8 p-5 backdrop-blur-sm"
-                >
-                  <div className="text-[10px] font-bold uppercase tracking-[0.32em] text-white/45">
-                    {item.label}
-                  </div>
-                  <div className="mt-2 text-4xl font-display font-bold text-white leading-none tabular-nums">
-                    <Counter to={item.value} suffix={item.suffix} prefix={item.prefix} />
-                  </div>
+            <div className="mt-10 rounded-[1.6rem] border border-white/10 bg-white/[0.06] p-5 backdrop-blur-sm">
+              <div className="flex items-center justify-between gap-3">
+                <div className="text-[10px] font-bold uppercase tracking-[0.32em] text-white/55">
+                  Recognitions & Standards
                 </div>
-              ))}
+                <Link
+                  href="/about/credentials"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-ice hover:text-white transition-colors"
+                >
+                  View all
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {recognitions.map((r) => (
+                  <Link
+                    key={r.label}
+                    href="/about/credentials"
+                    className="group flex items-center gap-3 rounded-xl border border-white/8 bg-white/5 p-3 transition-all hover:border-white/20 hover:bg-white/10"
+                  >
+                    <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md border border-white/10 bg-white/10">
+                      <Image
+                        src={r.src}
+                        alt={r.label}
+                        fill
+                        sizes="40px"
+                        className="object-cover opacity-90 transition-opacity group-hover:opacity-100"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-sm font-bold text-white truncate">{r.label}</div>
+                      <div className="text-[11px] text-brand-ice/70 truncate">{r.sub}</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </motion.div>
 

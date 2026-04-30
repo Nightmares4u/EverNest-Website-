@@ -22,6 +22,7 @@ const immigrationPathways = [
     href: "/immigration/united-states",
     programs: [
       { name: "USA Work Permit", href: "/immigration/usa-work-permit" },
+      { name: "EB-2 NIW", href: "/immigration/us/eb-2" },
       { name: "H-1B Visa", href: "/immigration/h1b" },
       { name: "J-1 Visa", href: "/immigration/j1" }
     ]
@@ -31,6 +32,10 @@ const immigrationPathways = [
     href: "/immigration/express-entry",
     programs: [
       { name: "Express Entry", href: "/immigration/express-entry" },
+      { name: "PNP", href: "/immigration/express-entry#canada-pnp" },
+      { name: "Family Sponsorship", href: "/immigration/express-entry#canada-family-sponsorship" },
+      { name: "Caregiver Program", href: "/immigration/express-entry#canada-caregiver" },
+      { name: "RNIP", href: "/immigration/express-entry#canada-rnip" },
     ]
   },
   {
@@ -415,9 +420,9 @@ export function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
-            className="md:hidden fixed inset-0 top-16 z-40 bg-white/96 backdrop-blur-xl overflow-y-auto pb-24"
+            className="absolute left-0 right-0 top-full z-50 h-[calc(100dvh-100%)] overflow-y-auto border-t border-border-subtle bg-white shadow-[0_28px_80px_rgba(11,27,58,0.16)] md:hidden"
           >
-            <div className="container mx-auto px-4 py-6 flex flex-col space-y-6">
+            <div className="container mx-auto flex flex-col gap-4 px-4 py-5 pb-28">
               {[
                 { href: "/", label: "Home", i: 0 },
                 { href: "/b2b-partnerships", label: "B2B Partnerships", i: 3 },
@@ -426,31 +431,53 @@ export function Header() {
                 { href: "/contact", label: "Contact", i: 8 },
               ].map(({ href, label, i }) => (
                 <motion.div key={href} custom={i} variants={itemVariants} initial="hidden" animate="show">
-                  <Link href={href} className="text-lg font-medium hover:text-brand-red transition-colors">{label}</Link>
+                  <Link
+                    href={href}
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "block rounded-2xl border px-4 py-3 text-lg font-semibold transition-colors",
+                      pathname === href
+                        ? "border-brand-red/20 bg-brand-blush text-brand-red"
+                        : "border-border-subtle bg-brand-neutral/70 text-brand-blue hover:border-brand-red/20 hover:bg-brand-blush hover:text-brand-red"
+                    )}
+                  >
+                    {label}
+                  </Link>
                 </motion.div>
               ))}
 
-              <motion.div custom={1} variants={itemVariants} initial="hidden" animate="show" className="space-y-3">
-                <div className="text-lg font-medium text-brand-blue">Study Visas</div>
-                <div className="grid grid-cols-2 gap-2 pl-4">
+              <motion.div custom={1} variants={itemVariants} initial="hidden" animate="show" className="rounded-2xl border border-border-subtle bg-white p-4 shadow-sm">
+                <div className="text-lg font-semibold text-brand-blue">Study Visas</div>
+                <div className="mt-3 grid grid-cols-2 gap-2">
                   {studyDestinations.slice(0, 6).map((country) => (
-                    <Link key={country} href={`/study-visas/${country.toLowerCase().replace(" ", "-")}`} className="text-sm text-foreground/70">
+                    <Link
+                      key={country}
+                      href={`/study-visas/${country.toLowerCase().replace(" ", "-")}`}
+                      onClick={() => setIsOpen(false)}
+                      className="rounded-xl bg-brand-neutral px-3 py-2 text-sm font-medium text-foreground/70 transition-colors hover:bg-brand-blush hover:text-brand-red"
+                    >
                       {country}
                     </Link>
                   ))}
-                  <Link href="/study-visas" className="text-sm text-brand-red font-medium">Explore all →</Link>
+                  <Link
+                    href="/study-visas"
+                    onClick={() => setIsOpen(false)}
+                    className="rounded-xl bg-brand-blush px-3 py-2 text-sm font-bold text-brand-red"
+                  >
+                    Explore all →
+                  </Link>
                 </div>
               </motion.div>
 
-              <motion.div custom={2} variants={itemVariants} initial="hidden" animate="show" className="space-y-3">
-                <Link href="/immigration" className="text-lg font-medium text-brand-blue block">Immigration</Link>
-                <div className="grid gap-4 pl-4">
+              <motion.div custom={2} variants={itemVariants} initial="hidden" animate="show" className="rounded-2xl border border-border-subtle bg-white p-4 shadow-sm">
+                <Link href="/immigration" onClick={() => setIsOpen(false)} className="block text-lg font-semibold text-brand-blue hover:text-brand-red">Immigration</Link>
+                <div className="mt-3 grid gap-4">
                   {immigrationPathways.map((pathway) => (
                     <div key={pathway.name}>
-                      <Link href={pathway.href} className="text-sm font-medium mb-2 block hover:text-brand-red">{pathway.name}</Link>
+                      <Link href={pathway.href} onClick={() => setIsOpen(false)} className="mb-2 block text-sm font-semibold text-foreground/80 hover:text-brand-red">{pathway.name}</Link>
                       <div className="flex flex-wrap gap-2">
                         {pathway.programs.map((program) => (
-                          <Link key={program.name} href={program.href} className="text-xs bg-brand-ice px-2 py-1 rounded hover:bg-brand-red hover:text-white transition-colors">
+                          <Link key={program.name} href={program.href} onClick={() => setIsOpen(false)} className="rounded-full bg-brand-ice px-3 py-1.5 text-xs font-medium text-brand-blue hover:bg-brand-red hover:text-white transition-colors">
                             {program.name}
                           </Link>
                         ))}
@@ -460,20 +487,20 @@ export function Header() {
                 </div>
               </motion.div>
 
-              <motion.div custom={5} variants={itemVariants} initial="hidden" animate="show" className="space-y-3">
-                <Link href="/resources" className="text-lg font-medium text-brand-blue block">Resources</Link>
-                <div className="grid gap-2 pl-4">
+              <motion.div custom={5} variants={itemVariants} initial="hidden" animate="show" className="rounded-2xl border border-border-subtle bg-white p-4 shadow-sm">
+                <Link href="/resources" onClick={() => setIsOpen(false)} className="block text-lg font-semibold text-brand-blue hover:text-brand-red">Resources</Link>
+                <div className="mt-3 grid gap-2">
                   {resourcesLinks.map((link) => (
-                    <Link key={link.slug} href={`/resources/${link.slug}`} className="text-sm text-foreground/70">
+                    <Link key={link.slug} href={`/resources/${link.slug}`} onClick={() => setIsOpen(false)} className="rounded-xl bg-brand-neutral px-3 py-2 text-sm font-medium text-foreground/70 transition-colors hover:bg-brand-blush hover:text-brand-red">
                       {link.name}
                     </Link>
                   ))}
                 </div>
               </motion.div>
 
-              <motion.div custom={9} variants={itemVariants} initial="hidden" animate="show" className="pt-6 mt-6 border-t border-border-subtle">
+              <motion.div custom={9} variants={itemVariants} initial="hidden" animate="show" className="pt-2">
                 <Button asChild variant="default" className="w-full rounded-full h-12 text-base">
-                  <Link href="/contact">Book Free Consultation</Link>
+                  <Link href="/contact" onClick={() => setIsOpen(false)}>Book Free Consultation</Link>
                 </Button>
               </motion.div>
             </div>

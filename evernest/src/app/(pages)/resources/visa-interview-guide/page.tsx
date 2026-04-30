@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ChevronDown, CheckCircle2, AlertCircle, Globe } from "lucide-react"
+import { ChevronDown, CheckCircle2, AlertCircle, Globe, MessageSquareText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { CinematicPageHero } from "@/components/shared/CinematicPageHero"
 import { siteConfig } from "@/data/site"
 import { buildMetadata } from "@/lib/metadata"
 
@@ -165,22 +166,22 @@ export const metadata: Metadata = buildMetadata({
 export default function VisaInterviewGuidePage() {
   return (
     <>
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-brand-blue text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('/globe.svg')] bg-center opacity-10 mix-blend-overlay"></div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-          <div className="max-w-4xl mx-auto">
-            <Link href="/resources" className="text-brand-ice/60 hover:text-white text-sm font-medium flex items-center justify-center mb-6 transition-colors">
-              &larr; Back to Resources
-            </Link>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              {pageData.heroTitle}
-            </h1>
-            <p className="text-xl md:text-2xl text-brand-red font-medium mb-10">
-              {pageData.heroSubtitle}
-            </p>
-          </div>
-        </div>
-      </section>
+      <CinematicPageHero
+        variant="article"
+        eyebrow="Interview readiness"
+        icon={<MessageSquareText className="h-7 w-7" />}
+        backLink={{ href: "/resources", label: "Back to Resources" }}
+        title={pageData.heroTitle}
+        subtitle={pageData.heroSubtitle}
+        chips={["Financial clarity", "Study intent", "SOP consistency", "Confidence"]}
+        galleryImages={[
+          { src: "/images/trust/training/team-training-session.jpg", alt: "EverNest training and preparation session" },
+          { src: "/images/offices/karachi/karachi-pic-2.png", alt: "EverNest counselling office" },
+          { src: "/images/trust/ielts/ielts-partner-network.jpg", alt: "IELTS partner network event" },
+        ]}
+        visualLabel="Interview preparation"
+        center
+      />
 
       <section className="py-20 bg-brand-neutral">
         <div className="container mx-auto px-4 md:px-6">

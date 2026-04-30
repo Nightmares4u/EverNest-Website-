@@ -8,7 +8,6 @@ import { studyVisasData } from "@/data/study-visas"
 import type { StudyVisaCountryData } from "@/data/types"
 import { buildMetadata, getFirstSentence } from "@/lib/metadata"
 import { use } from "react"
-
 import Image from "next/image"
 
 export async function generateMetadata({
@@ -53,8 +52,8 @@ export default function StudyVisaCountryPage({ params }: { params: Promise<{ cou
       <section className="pt-32 pb-24 md:pt-48 md:pb-32 text-white overflow-hidden relative bg-brand-blue">
         {sectionBackgroundImage ? (
           <div className="absolute inset-0 z-0">
-            <Image 
-              src={sectionBackgroundImage} 
+            <Image
+              src={sectionBackgroundImage}
               alt={pageData.backgroundImageAlt || `Study in ${pageData.name}`}
               fill
               className="object-cover"
@@ -68,7 +67,7 @@ export default function StudyVisaCountryPage({ params }: { params: Promise<{ cou
         ) : (
           <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(225,29,46,0.16),transparent_30%),linear-gradient(180deg,#07122a_0%,#0b1b3a_48%,#102447_100%)]"></div>
         )}
-        
+
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl">
             <Link href="/study-visas" className="text-brand-ice/60 hover:text-white text-sm font-medium flex items-center mb-6 transition-colors">

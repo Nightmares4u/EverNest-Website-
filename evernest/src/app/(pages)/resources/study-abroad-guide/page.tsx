@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, GraduationCap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { CinematicPageHero } from "@/components/shared/CinematicPageHero"
 import { siteConfig } from "@/data/site"
 import { buildMetadata } from "@/lib/metadata"
 
@@ -153,22 +154,22 @@ export const metadata: Metadata = buildMetadata({
 export default function StudyAbroadGuidePage() {
   return (
     <>
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-brand-blue text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('/globe.svg')] bg-center opacity-10 mix-blend-overlay"></div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-          <div className="max-w-4xl mx-auto">
-            <Link href="/resources" className="text-brand-ice/60 hover:text-white text-sm font-medium flex items-center justify-center mb-6 transition-colors">
-              &larr; Back to Resources
-            </Link>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              {pageData.heroTitle}
-            </h1>
-            <p className="text-xl md:text-2xl text-brand-red font-medium mb-10">
-              {pageData.heroSubtitle}
-            </p>
-          </div>
-        </div>
-      </section>
+      <CinematicPageHero
+        variant="article"
+        eyebrow="Student planning guide"
+        icon={<GraduationCap className="h-7 w-7" />}
+        backLink={{ href: "/resources", label: "Back to Resources" }}
+        title={pageData.heroTitle}
+        subtitle={pageData.heroSubtitle}
+        chips={["Destination selection", "Admissions", "Budgeting", "Student visa"]}
+        galleryImages={[
+          { src: "/images/destinations/homepage/united-kingdom-landmark.jpg", alt: "United Kingdom study destination" },
+          { src: "/images/destinations/homepage/canada-landmark.jpg", alt: "Canada study destination" },
+          { src: "/images/destinations/homepage/australia-landmark.jpg", alt: "Australia study destination" },
+        ]}
+        visualLabel="Step-by-step journey"
+        center
+      />
 
       <section className="py-20 bg-brand-neutral">
         <div className="container mx-auto px-4 md:px-6">

@@ -11,6 +11,7 @@ import {
   GraduationCap,
 } from "lucide-react"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { CinematicPageHero } from "@/components/shared/CinematicPageHero"
 import { studyVisasData } from "@/data/study-visas"
 import { buildMetadata, getFirstSentence } from "@/lib/metadata"
 
@@ -51,38 +52,30 @@ const destinations = Object.entries(studyVisasData).map(([slug, data]) => ({
   cost: data.costs?.[0]?.desc || "Varies by program"
 }))
 
+const studyHeroImages = [
+  studyVisasData["united-kingdom"]?.homepageImage,
+  studyVisasData.canada?.homepageImage,
+  studyVisasData.italy?.homepageImage,
+].filter(Boolean).map((src, index) => ({
+  src: src as string,
+  alt: ["United Kingdom study destination", "Canada study destination", "Italy study destination"][index],
+}))
+
 export default function StudyVisasIndexPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-brand-blue text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('/globe.svg')] bg-center opacity-10 mix-blend-overlay"></div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-brand-red mb-6 backdrop-blur-sm border border-white/20">
-              <GraduationCap className="h-8 w-8" />
-            </div>
-            <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-bold text-brand-red mb-6 backdrop-blur-sm tracking-wide uppercase">
-              Secure a Study Visa
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold mb-6">
-              Studying Abroad is No More Than a <span className="text-brand-red">Dream</span>
-            </h1>
-            <p className="text-lg md:text-2xl text-brand-ice/90 mb-10 leading-relaxed font-medium">
-              The top institutes of the world are waiting. EverNest helps you find the one that suits you.
-            </p>
-            
-            {/* Destination Strip */}
-            <div className="flex flex-wrap justify-center gap-3 mt-8">
-              {["United States", "Canada", "United Kingdom", "Australia", "New Zealand", "European Union countries"].map((country, i) => (
-                <span key={i} className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-sm font-medium text-brand-ice/90 backdrop-blur-sm shadow-sm hover:bg-brand-red/80 transition-colors">
-                  {country}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <CinematicPageHero
+        variant="study"
+        eyebrow="Secure a Study Visa"
+        icon={<GraduationCap className="h-7 w-7" />}
+        title={<>Studying Abroad is No More Than a <span className="text-brand-red">Dream</span></>}
+        subtitle="The top institutes of the world are waiting. EverNest helps you find the one that suits you."
+        chips={["United States", "Canada", "United Kingdom", "Australia", "New Zealand", "European Union countries"]}
+        galleryImages={studyHeroImages}
+        visualLabel="Explore study destinations"
+        center
+      />
 
       {/* Intro Section */}
       <section className="py-16 bg-white border-b border-border-subtle">

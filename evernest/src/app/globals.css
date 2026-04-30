@@ -37,12 +37,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: clip;
 }
 
 img {
@@ -106,6 +108,26 @@ img {
   100% { transform: scale(1); opacity: 0; }
 }
 
+@keyframes cinematic-route-dash {
+  0%   { stroke-dashoffset: 90; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes cinematic-drift {
+  0%, 100% { transform: scale(1.035) translate3d(0, 0, 0); }
+  50%      { transform: scale(1.075) translate3d(-1.5%, 1%, 0); }
+}
+
+@keyframes cinematic-reveal {
+  0%   { opacity: 0; transform: translateY(14px); filter: blur(8px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes cinematic-visual-rise {
+  0%   { opacity: 0; transform: translateY(18px) scale(0.985); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 /* ── Utilities ──────────────────────────────────────────── */
 
 @layer utilities {
@@ -119,6 +141,28 @@ img {
   .animate-orb-2     { animation: orb-float-2 11s ease-in-out infinite; }
   .animate-scroll-dot { animation: scroll-dot 2s ease-in-out infinite; }
   .animate-ping-ring { animation: ping-ring 2.2s ease-out infinite; }
+
+  .cinematic-route-line {
+    animation: cinematic-route-dash 6s linear infinite;
+  }
+
+  .cinematic-route-line-alt {
+    animation-duration: 8s;
+    animation-direction: reverse;
+  }
+
+  .cinematic-hero-drift {
+    animation: cinematic-drift 16s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .cinematic-hero-reveal {
+    animation: cinematic-reveal 0.78s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .cinematic-hero-visual {
+    animation: cinematic-visual-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.14s both;
+  }
 
   .bg-grid-soft {
     background-image: radial-gradient(circle at 1px 1px, rgba(11, 27, 58, 0.08) 1px, transparent 0);
@@ -226,7 +270,11 @@ img {
     .animate-marquee,
     .animate-ping-ring,
     .animate-scroll-dot,
-    .scroll-cue-dot {
+    .scroll-cue-dot,
+    .cinematic-route-line,
+    .cinematic-hero-drift,
+    .cinematic-hero-reveal,
+    .cinematic-hero-visual {
       animation: none;
     }
     .bg-hero-mesh {

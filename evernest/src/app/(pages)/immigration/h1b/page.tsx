@@ -3,6 +3,7 @@ import Link from "next/link"
 import { CheckCircle2, Globe, BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { CinematicPageHero } from "@/components/shared/CinematicPageHero"
 import { buildMetadata } from "@/lib/metadata"
 
 const pageData = {
@@ -47,25 +48,21 @@ export const metadata: Metadata = buildMetadata({
 export default function H1BVisaPage() {
   return (
     <>
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-brand-blue text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('/globe.svg')] bg-center opacity-10 mix-blend-overlay"></div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-4xl">
-            <Link href="/immigration" className="text-brand-ice/60 hover:text-white text-sm font-medium flex items-center mb-6 transition-colors">
-              &larr; Back to all immigration pathways
-            </Link>
-            <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm font-medium text-white mb-6 backdrop-blur-sm">
-              U.S. Immigration
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              {pageData.heroTitle}
-            </h1>
-            <p className="text-lg md:text-xl text-brand-ice/80 mb-10 leading-relaxed max-w-3xl">
-              {pageData.heroDesc}
-            </p>
-          </div>
-        </div>
-      </section>
+      <CinematicPageHero
+        variant="immigration"
+        eyebrow="U.S. Immigration"
+        icon={<Globe className="h-7 w-7" />}
+        backLink={{ href: "/immigration", label: "Back to all immigration pathways" }}
+        title={pageData.heroTitle}
+        subtitle={pageData.heroDesc}
+        chips={["Employer sponsorship", "Specialty occupation", "3-year initial stay", "PR pathway"]}
+        galleryImages={[
+          { src: "/images/destinations/homepage/usa-landmark.jpg", alt: "USA immigration pathway" },
+          { src: "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop", alt: "Professional work visa planning" },
+          { src: "/images/offices/karachi/karachi-pic-1.png", alt: "EverNest advisory office" },
+        ]}
+        visualLabel="H-1B pathway"
+      />
 
       <section className="py-20 bg-brand-neutral">
         <div className="container mx-auto px-4 md:px-6">
