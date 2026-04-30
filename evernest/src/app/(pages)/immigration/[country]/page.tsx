@@ -9,7 +9,6 @@ import { studyVisasData } from "@/data/study-visas"
 import type { FaqItem, ImmigrationCountryData, ImmigrationProgramData } from "@/data/types"
 import { buildMetadata, getFirstSentence } from "@/lib/metadata"
 import { use } from "react"
-
 import Image from "next/image"
 
 const studyBackgroundMap: Record<string, keyof typeof studyVisasData> = {

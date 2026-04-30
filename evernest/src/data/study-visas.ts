@@ -274,6 +274,110 @@ export const studyVisasData: Record<string, StudyVisaCountryData> = {
       ]
     }
   },
+  germany: {
+    name: "Germany",
+    heroDesc: "Germany is a leading European study destination for students who want research-focused universities, strong industry links, and globally respected degrees. With many English-taught programs, affordable public university options, and clear career pathways after graduation, Germany gives ambitious students a practical route into Europe. EverNest Consultants supports students with university selection, application planning, documentation, and visa guidance so the move from admission to arrival feels structured and confident.",
+    homepageImage: "/images/destinations/homepage/germany-landmark.jpg",
+    sectionBackgroundImage: "/images/destinations/homepage/germany-landmark.jpg",
+    imageAlt: "German flag outside the Reichstag building in Berlin",
+    backgroundImageAlt: "German flag outside the Reichstag building in Berlin",
+    benefits: [
+      {
+        title: "Research-Led Universities",
+        desc: "Germany is known for rigorous public universities, applied sciences institutions, and programs connected to engineering, technology, business, health sciences, and research."
+      },
+      {
+        title: "Affordable Study Options",
+        desc: "Many public universities offer low or no tuition for international students, with semester contributions and living costs varying by city and institution."
+      },
+      {
+        title: "English-Taught Programs",
+        desc: "Students can find a growing range of English-taught bachelor’s and master’s programs, especially at postgraduate level and in high-demand professional fields."
+      },
+      {
+        title: "European Career Pathways",
+        desc: "Germany’s strong economy and employer network make it attractive for students who want practical exposure, internships, and post-study career planning."
+      }
+    ],
+    admissionRequirements: {
+      undergraduate: [
+        "Higher Secondary Certificate, A-Levels, or an equivalent qualification accepted by the chosen university",
+        "Program-specific academic requirements and subject prerequisites",
+        "Foundation or preparatory pathway where required by the institution"
+      ],
+      master: [
+        "Recognized bachelor’s degree in a relevant field",
+        "Strong academic record and program-specific prerequisites",
+        "Some programs may require GRE, GMAT, portfolio, or professional experience"
+      ],
+      phd: [
+        "Relevant master’s degree",
+        "Research proposal aligned with the university or supervisor",
+        "Academic references and research experience where required"
+      ]
+    },
+    languageRequirements: {
+      english: [
+        "IELTS, TOEFL, PTE, or equivalent English proficiency accepted by the university",
+        "Some universities may waive English testing based on prior English-medium education"
+      ],
+      german: [
+        "German-taught programs usually require recognized German language proof such as TestDaF, DSH, Goethe-Zertifikat, or an equivalent accepted test"
+      ]
+    },
+    documents: [
+      "University application form",
+      "Academic transcripts and certificates",
+      "Statement of Purpose or motivation letter",
+      "CV",
+      "Letters of recommendation where required",
+      "Passport",
+      "Language proficiency proof",
+      "Financial documents for visa planning"
+    ],
+    intakes: [
+      "Winter Intake is the main intake with the widest program availability.",
+      "Summer Intake is available at selected universities and programs.",
+      "Early planning is important because admission, APS/document checks, blocked account preparation, and visa appointments can take time."
+    ],
+    costs: [
+      {
+        title: "Tuition and Semester Contributions",
+        desc: "Many public universities charge low or no tuition, while private universities and specialized programs vary by institution."
+      },
+      {
+        title: "Living Costs",
+        desc: "Living expenses depend on the city, accommodation, lifestyle, health insurance, and transport choices."
+      }
+    ],
+    scholarships: [
+      "DAAD scholarship opportunities",
+      "University merit scholarships",
+      "Program-specific funding options",
+      "EverNest Consultants helps students identify suitable scholarships and prepare stronger application files."
+    ],
+    visaProcessTitle: "Germany Study Visa",
+    visaProcessDesc: "Students usually apply for a German national study visa after securing admission and preparing financial proof.",
+    visaProcessSteps: [
+      "Secure admission or conditional admission from a German institution.",
+      "Prepare academic, financial, health insurance, and language documents.",
+      "Complete the visa application file and appointment requirements.",
+      "Attend the visa appointment and submit biometrics where required.",
+      "Travel after approval and complete post-arrival registration steps."
+    ],
+    workDuringStudies: "International students may be able to work part-time during studies under current German student residence rules.",
+    postStudy: "Graduates may be eligible to remain in Germany after completing their degree to look for qualified employment, depending on their profile and current residence rules.",
+    whyEvernest: {
+      title: "Why Choose EverNest for Germany?",
+      desc: "EverNest Consultants helps students approach Germany with a clear plan instead of a scattered application process.",
+      points: [
+        "University and course shortlisting based on academic profile",
+        "Application and documentation guidance",
+        "Financial and visa file preparation support",
+        "Pre-departure guidance for a smoother move to Germany"
+      ]
+    }
+  },
   uae: {
     name: "United Arab Emirates",
     heroDesc: "The United Arab Emirates (UAE) has become a top destination for globally recognized education, accompanied by cultural proximity and modern amenities, for most Pakistani students. With reasonable tuition, the Emirates also has excellent universities and offers a Muslim-friendly atmosphere. With such a wide array of amenities, the country provides a good combination of education and lifestyle. To ensure a seamless transition with minimum hassle for your admission, visa, and post-arrival travel, EverNest Consultants works with trusted immigration and education experts.",

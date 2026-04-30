@@ -383,6 +383,23 @@ export const immigrationData: Record<string, ImmigrationCountryData> = {
     programsDesc: "For those wanting to work, visit, or immigrate to the United States permanently, there are multiple US immigration programs available. Along with permanent residency options, there are temporary USA visa options and employment-based immigration options. Here are some popular programs that start the immigration process.",
     programs: [
       {
+        title: "EB-2 NIW Green Card",
+        desc: "The EB-2 National Interest Waiver is an employment-based U.S. green card route for professionals whose work has strong merit and national importance. Qualified applicants may self-petition without a job offer or employer sponsorship.",
+        overview: "EB-2 NIW is often suitable for advanced degree holders, researchers, entrepreneurs, physicians, academics, engineers, technology professionals, and other specialists who can show that their proposed work benefits the United States.",
+        requirements: [
+          "Advanced degree or evidence of exceptional ability in sciences, arts, business, or a related field",
+          "A proposed endeavor with substantial merit and national importance",
+          "Evidence that the applicant is well positioned to advance the proposed endeavor",
+          "A strong case showing that waiving the job offer and labor certification requirement benefits the United States"
+        ],
+        benefits: [
+          "No employer sponsorship required",
+          "No PERM labor certification required",
+          "Self-petition option for qualified professionals",
+          "Direct pathway to U.S. permanent residency for the applicant and eligible family members"
+        ]
+      },
+      {
         title: "H-1B Work Visa",
         desc: "The H-1B visa USA program permits foreign professional employees in specific roles to work in the United States. These positions must fall within the category of specialty occupation that requires specific skills and expertise.",
         overview: "The US work visa is most utilized by professionals who work in the information technology, engineering, finance, and healthcare sectors. It allows U.S. employers to hire skilled foreign professionals.",

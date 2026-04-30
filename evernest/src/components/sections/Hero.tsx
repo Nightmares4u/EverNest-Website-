@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { motion, useMotionValue, animate } from "framer-motion"
-import { ArrowRight, Briefcase, Globe2, GraduationCap, Handshake, ShieldCheck, Waypoints } from "lucide-react"
+import { ArrowRight, Award, Globe2, GraduationCap, Handshake, ShieldCheck, Waypoints } from "lucide-react"
 import { siteConfig } from "@/data/site"
 import { useEffect, useRef, useState } from "react"
 
@@ -81,10 +81,9 @@ function ScrollCue() {
 
 export function Hero() {
   const trustBadges = [
-    { icon: ShieldCheck, label: "Registered since 2013" },
-    { icon: Briefcase, label: "13+ years" },
-    { icon: Globe2, label: "18+ countries" },
-    { icon: Waypoints, label: "2 offices + global desks" },
+    { icon: ShieldCheck, label: "Founded 2013" },
+    { icon: Award, label: "British Council Certified" },
+    { icon: Waypoints, label: "3 offices · 2 global desks" },
   ]
 
   const heroPanels = [
@@ -111,8 +110,8 @@ export function Hero() {
     },
     {
       icon: Waypoints,
-      title: "Regional Desks",
-      desc: "Pakistan headquarters with active North America and Europe contact desks.",
+      title: "Global Desks",
+      desc: "Pakistan headquarters with active North America and Europe global desks.",
       href: "/contact",
       cta: "View Contact Options",
     },
@@ -277,9 +276,9 @@ export function Hero() {
                   </div>
                 </div>
                 <div className="rounded-2xl bg-brand-red/10 px-3 py-2 text-right text-xs font-semibold text-brand-red">
-                  2 offices
+                  3 offices
                   <br />
-                  2 regional desks
+                  2 global desks
                 </div>
               </div>
 
@@ -320,7 +319,7 @@ export function Hero() {
               <div className="mt-5 grid gap-4 rounded-[1.7rem] bg-[radial-gradient(120%_120%_at_0%_0%,#1a3a6e_0%,#0b1b3a_45%,#07122a_100%)] px-5 py-5 text-white md:grid-cols-2">
                 <div>
                   <div className="text-xs font-bold uppercase tracking-[0.22em] text-white/45">
-                    North America Desk
+                    North America Global Desk
                   </div>
                   <div className="mt-2 text-lg font-bold">{siteConfig.satelliteContacts[0].manager}</div>
                   <div className="text-sm text-brand-ice/75">
@@ -329,7 +328,7 @@ export function Hero() {
                 </div>
                 <div>
                   <div className="text-xs font-bold uppercase tracking-[0.22em] text-white/45">
-                    Europe Desk
+                    Europe Global Desk
                   </div>
                   <div className="mt-2 text-lg font-bold">{siteConfig.satelliteContacts[1].manager}</div>
                   <div className="text-sm text-brand-ice/75">

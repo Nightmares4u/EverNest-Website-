@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { ShieldCheck, Globe2, Banknote, Clock } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { CinematicPageHero } from "@/components/shared/CinematicPageHero"
 import { PartnershipInquiryForm } from "@/components/shared/PartnershipInquiryForm"
 import { siteConfig } from "@/data/site"
 import { buildMetadata } from "@/lib/metadata"
@@ -19,30 +18,21 @@ export default function B2BPartnershipsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-brand-blue text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('/globe.svg')] bg-center opacity-10 mix-blend-overlay"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red/20 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
-        
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm font-medium text-white mb-6 backdrop-blur-sm">
-              <span className="flex h-2 w-2 rounded-full bg-brand-red mr-2"></span>
-              Corporate Affiliation Program
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold mb-6">
-              Grow your consultancy <span className="text-brand-red">with us.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-brand-ice/80 mb-10 leading-relaxed max-w-2xl">
-              Access 500+ global institutions, priority processing, and industry-leading commission splits by joining the {siteConfig.name} partner network.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg" className="rounded-full">
-                <Link href="#apply">Partner With EN Consultants</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CinematicPageHero
+        variant="partnership"
+        eyebrow="Corporate Affiliation Program"
+        icon={<ShieldCheck className="h-7 w-7" />}
+        title={<>Grow your consultancy <span className="text-brand-red">with us.</span></>}
+        subtitle={`Access 500+ global institutions, priority processing, and industry-leading commission splits by joining the ${siteConfig.name} partner network.`}
+        chips={["500+ institutions", "Priority processing", "Partner support", "Since 2013"]}
+        ctas={[{ href: "#apply", label: "Partner With EN Consultants" }]}
+        galleryImages={[
+          { src: "/images/offices/karachi/karachi-pic-1.png", alt: "EverNest Karachi office" },
+          { src: "/images/trust/training/team-training-session.jpg", alt: "EverNest team training session" },
+          { src: "/images/partners/logos/university-of-glasgow.jpeg", alt: "University partner network" },
+        ]}
+        visualLabel="Institutional network"
+      />
 
       {/* Partner Benefits */}
       <section className="py-20 bg-brand-neutral">

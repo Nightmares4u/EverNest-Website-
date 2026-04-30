@@ -9,7 +9,7 @@ import { studyVisasData } from "@/data/study-visas"
 const destinations = [
   { name: "Italy", code: "IT", slug: "italy", desc: "Top-tier education with rich cultural heritage." },
   { name: "France", code: "FR", slug: "france", desc: "World-class universities and vibrant student life." },
-  { name: "UAE", code: "AE", slug: "uae", desc: "Modern campuses with strong regional opportunity." },
+  { name: "Germany", code: "DE", slug: "germany", desc: "Research-led universities with strong career pathways in Europe." },
   { name: "USA", code: "US", slug: "usa", desc: "Leading global universities and diverse opportunities." },
   { name: "Canada", code: "CA", slug: "canada", desc: "High quality of life and post-study work options." },
   { name: "UK", code: "GB", slug: "united-kingdom", desc: "Prestigious institutions with a global reputation." },

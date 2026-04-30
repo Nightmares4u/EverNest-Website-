@@ -58,8 +58,10 @@ export const mediaFeatures: MediaFeature[] = [
     title: "Seminar at Jinnah Polytechnic",
     description:
       "A public seminar session by Mr. Raza at Jinnah Polytechnic, highlighting education and immigration guidance for students.",
-    platform: "coming-soon",
-    label: "Upcoming Session",
-    ctaLabel: "Coming Soon",
+    platform: "youtube",
+    label: "YouTube Session",
+    url: "https://www.youtube.com/watch?v=vXRQ85lzMSk",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/vXRQ85lzMSk",
+    ctaLabel: "Watch on YouTube",
   },
 ];

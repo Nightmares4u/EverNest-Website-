@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 import { Hero } from "@/components/sections/Hero"
-import { TrustRibbon } from "@/components/sections/TrustRibbon"
+import { OurJourney } from "@/components/sections/OurJourney"
 import { CoreServices } from "@/components/sections/CoreServices"
 import { SplitSection } from "@/components/sections/SplitSection"
 import { FeaturedDestinations } from "@/components/sections/FeaturedDestinations"
@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TrustRibbon />
+      <OurJourney />
       <CoreServices />
       <FeaturedDestinations />
       <SplitSection />

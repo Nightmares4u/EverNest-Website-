@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowRight, Plane } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FinalCTA } from "@/components/sections/FinalCTA"
+import { CinematicPageHero } from "@/components/shared/CinematicPageHero"
 
 import Image from "next/image"
 import { immigrationData } from "@/data/immigration-countries"
@@ -42,25 +43,29 @@ const pathways = Object.entries(immigrationData).map(([slug, data]) => ({
   programs: data.programs ? data.programs.slice(0, 4) : [] // Limit to 4 programs
 }))
 
+const immigrationHeroImages = [
+  studyVisasData.canada?.homepageImage,
+  studyVisasData.australia?.homepageImage,
+  fallbackCountryImages["european-union"],
+].filter(Boolean).map((src, index) => ({
+  src: src as string,
+  alt: ["Canada immigration pathway", "Australia immigration pathway", "European immigration pathway"][index],
+}))
+
 export default function ImmigrationIndexPage() {
   return (
     <>
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-brand-blue text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('/globe.svg')] bg-center opacity-10 mix-blend-overlay"></div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-          <div className="max-w-3xl mx-auto">
-            <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-brand-red mb-6 backdrop-blur-sm border border-white/20">
-              <Plane className="h-8 w-8" />
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold mb-6">
-              Global Immigration <span className="text-brand-red">Pathways</span>
-            </h1>
-            <p className="text-lg md:text-xl text-brand-ice/80 mb-10 leading-relaxed">
-              Navigate complex immigration laws with confidence. We specialize in skilled, business, and investment immigration to top-tier countries.
-            </p>
-          </div>
-        </div>
-      </section>
+      <CinematicPageHero
+        variant="immigration"
+        eyebrow="Global mobility strategy"
+        icon={<Plane className="h-7 w-7" />}
+        title={<>Global Immigration <span className="text-brand-red">Pathways</span></>}
+        subtitle="Navigate complex immigration laws with confidence. We specialize in skilled, business, and investment immigration to top-tier countries."
+        chips={["Skilled migration", "Business visas", "Investment routes", "PR planning"]}
+        galleryImages={immigrationHeroImages}
+        visualLabel="Immigration pathways"
+        center
+      />
 
       <section className="py-20 bg-brand-ice/50">
         <div className="container mx-auto px-4 md:px-6">

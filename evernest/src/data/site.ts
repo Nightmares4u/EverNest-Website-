@@ -27,18 +27,18 @@ export const siteConfig = {
   ],
   satelliteContacts: [
     {
-      label: "Edmonton Satellite Office / North America Desk",
+      label: "Edmonton Satellite Office / North America Global Desk",
       phone: "+1 780 804 0473",
       phoneHref: "+17808040473",
       manager: "Syed Yashal",
-      managerTitle: "Regional Manager - North America",
+      managerTitle: "Global Desk Manager — North America",
     },
     {
-      label: "Naples, Italy Satellite Office / Europe Desk",
+      label: "Naples, Italy Satellite Office / Europe Global Desk",
       phone: "+39 344 696 3397",
       phoneHref: "+393446963397",
       manager: "Mehdi Jiwani",
-      managerTitle: "Regional Manager - Europe",
+      managerTitle: "Global Desk Manager — Europe",
     },
   ],
   pakistanOffice: {
@@ -52,10 +52,12 @@ export const siteConfig = {
   stats: [
     { label: "Experience", value: "13+ Years" },
     { label: "Countries Served", value: "18+" },
-    { label: "Offices", value: "2" },
-    { label: "Regional Desks", value: "2" },
+    { label: "Pakistan Offices", value: "3" },
+    { label: "Global Desks", value: "2" },
+    { label: "Institutional Partnerships", value: "500+" },
+    { label: "Global Network", value: "2,000+" },
     { label: "Cases Processed", value: "Thousands" },
-    { label: "Registered Since", value: "2013" },
+    { label: "Founded", value: "2013" },
   ],
   social: [],
   googleReviewsUrl:

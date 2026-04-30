@@ -17,12 +17,12 @@ const pathways = [
     desc: "Investment and employment-based green card opportunities for professionals and investors."
   },
   {
-    country: "United Kingdom",
-    code: "GB",
-    slug: "united-kingdom",
-    studySlug: "united-kingdom",
-    programs: ["Skilled Worker", "Global Talent", "Graduate Route"],
-    desc: "Points-based immigration and talent programs for skilled workers."
+    country: "Canada",
+    code: "CA",
+    slug: "express-entry",
+    studySlug: "canada",
+    programs: ["Express Entry", "Provincial Nominee Program", "Canadian PR"],
+    desc: "Express Entry and PR planning for skilled professionals seeking long-term settlement."
   },
   {
     country: "Australia",
