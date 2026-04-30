@@ -184,7 +184,7 @@ export function Hero() {
                   </motion.span>
                 </span>
               ))}
-              <span className="inline-block overflow-hidden">
+              <span className="inline-block overflow-hidden pb-5 -mb-5">
                 <motion.span
                   variants={wordVariants}
                   className="inline-block text-brand-red relative"
