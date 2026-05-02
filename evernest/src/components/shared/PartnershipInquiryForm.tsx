@@ -220,6 +220,9 @@ export function PartnershipInquiryForm() {
             </a>
             .
           </p>
+          <p className="text-xs text-center text-foreground/50">
+            After you send the WhatsApp inquiry, our team will review your partnership details and respond with the recommended next steps.
+          </p>
         </div>
       </form>
     </div>
