@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/metadata"
 export const metadata: Metadata = buildMetadata({
   title: "B2B Partnerships",
   description:
-    "Explore B2B partnerships with EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd., for institutional collaboration and recruitment support.",
+    "Partner with EverNest Consultants, the trading name of EN Consultants (Pvt) Ltd., to expand student recruitment, study visa, and immigration services through a structured B2B collaboration network.",
   path: "/b2b-partnerships",
   keywords: ["B2B partnerships", siteConfig.legalName, "student recruitment partnerships", "education consultancy partnerships"],
 })
@@ -20,12 +20,12 @@ export default function B2BPartnershipsPage() {
       {/* Hero */}
       <CinematicPageHero
         variant="partnership"
-        eyebrow="Corporate Affiliation Program"
+        eyebrow="Strategic Partner Network"
         icon={<ShieldCheck className="h-7 w-7" />}
-        title={<>Grow your consultancy <span className="text-brand-red">with us.</span></>}
-        subtitle={`Access 500+ global institutions, priority processing, and industry-leading commission splits by joining the ${siteConfig.name} partner network.`}
+        title={<>Grow your education consultancy <span className="text-brand-red">with EverNest.</span></>}
+        subtitle="Access 500+ global institutions, structured case coordination, and partner-focused support for student recruitment and visa referrals."
         chips={["500+ institutions", "Priority processing", "Partner support", "Since 2013"]}
-        ctas={[{ href: "#apply", label: "Partner With EN Consultants" }]}
+        ctas={[{ href: "#apply", label: "Become a Partner" }]}
         galleryImages={[
           { src: "/images/offices/karachi/karachi-pic-1.png", alt: "EverNest Karachi office" },
           { src: "/images/trust/training/team-training-session.jpg", alt: "EverNest team training session" },
@@ -42,7 +42,7 @@ export default function B2BPartnershipsPage() {
               Why Partner With EverNest?
             </h2>
             <p className="text-lg text-foreground/70">
-              We empower local agents and consultants to offer premium international services without the overhead of direct affiliations.
+              We help education consultants, visa agents, and sub-agents offer stronger international study and immigration pathways without building every institutional relationship directly.
             </p>
           </div>
 
@@ -97,7 +97,7 @@ export default function B2BPartnershipsPage() {
             
             <div>
               <h2 className="text-3xl font-display font-bold text-brand-blue mb-6">
-                How it works
+                Partnership process
               </h2>
               <div className="space-y-8">
                 <div className="flex gap-4">
@@ -106,7 +106,7 @@ export default function B2BPartnershipsPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-brand-blue mb-2">Submit Application</h3>
-                    <p className="text-foreground/70">Share your business details through the partnership inquiry form and open a draft message in WhatsApp for review before you send it.</p>
+                    <p className="text-foreground/70">Complete the inquiry form with your business details. A WhatsApp draft will open for your review before you send it to our team.</p>
                   </div>
                 </div>
                 

@@ -22,27 +22,27 @@ export function B2BHighlight() {
                 <Briefcase className="h-6 w-6" />
               </div>
               <div className="text-sm font-bold uppercase tracking-[0.22em] text-brand-blue/45 mb-4">
-                Institutional Growth
+                Partner Network
               </div>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-blue mb-4">
-                B2B Partnerships
+                Education Recruitment Partnerships
               </h2>
               <p className="text-lg text-foreground/70 mb-8 leading-relaxed">
-                Expand your consultancy’s reach with a structured partner program designed for consultants, sub‑agents, and institutional teams. Access a professional process, coordinated support, and a stronger global offering.
+                Partner with EverNest to expand your student recruitment, study visa, and immigration offering through a structured process built for consultants, sub-agents, and institutional teams.
               </p>
               
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center text-foreground/80">
                   <div className="h-2 w-2 rounded-full bg-brand-red mr-3"></div>
-                  Clear partner coordination & documentation flow
+                  Clear coordination and documentation flow
                 </li>
                 <li className="flex items-center text-foreground/80">
                   <div className="h-2 w-2 rounded-full bg-brand-red mr-3"></div>
-                  Partner-focused case updates & follow-ups
+                  Case updates built for partner follow-up
                 </li>
                 <li className="flex items-center text-foreground/80">
                   <div className="h-2 w-2 rounded-full bg-brand-red mr-3"></div>
-                  Institutional and global network access
+                  Access to global institutional pathways
                 </li>
               </ul>
 
@@ -60,7 +60,7 @@ export function B2BHighlight() {
               <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3"></div>
               
-              <h3 className="text-3xl font-display font-bold mb-10 relative z-10">Why partner with us?</h3>
+              <h3 className="text-3xl font-display font-bold mb-10 relative z-10">Why partners work with EverNest</h3>
               
               <div className="grid grid-cols-2 gap-x-8 gap-y-10 relative z-10">
                 <div className="group">
@@ -69,11 +69,11 @@ export function B2BHighlight() {
                 </div>
                 <div className="group">
                   <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">Responsive</div>
-                  <div className="text-sm text-brand-ice/80 font-medium">Partner communication & updates</div>
+                  <div className="text-sm text-brand-ice/80 font-medium">Partner communication and case updates</div>
                 </div>
                 <div className="group">
                   <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">500+</div>
-                  <div className="text-sm text-brand-ice/80 font-medium">Partner institutions</div>
+                  <div className="text-sm text-brand-ice/80 font-medium">Global institutional access</div>
                 </div>
                 <div className="group">
                   <div className="text-4xl font-display font-bold text-brand-red mb-2 group-hover:scale-105 origin-left transition-transform">Professional</div>

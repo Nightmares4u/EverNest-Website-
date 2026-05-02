@@ -46,9 +46,7 @@ export function PartnershipInquiryForm() {
         Start your partnership inquiry
       </h2>
       <p className="text-foreground/60 mb-6 leading-relaxed">
-        Share your details and our team will guide you through the next step.
-        This page opens WhatsApp with your partnership brief and does
-        not submit data directly yet.
+        Share your details and our team will guide you through the next step. This form opens WhatsApp with your partnership brief for review before sending.
       </p>
 
       <form className="space-y-4" onSubmit={handleSubmit}>
@@ -209,7 +207,7 @@ export function PartnershipInquiryForm() {
             type="submit"
             className="w-full h-12 text-base"
           >
-            Partner With EN Consultants on WhatsApp
+            Send Partnership Inquiry on WhatsApp
           </Button>
           <p className="text-xs text-center text-foreground/50">
             Prefer email first? Reach us directly at
