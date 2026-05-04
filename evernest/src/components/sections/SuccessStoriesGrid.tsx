@@ -18,6 +18,9 @@ export function SuccessStoriesGrid() {
   const safeIndex = storyCount ? activeIndex % storyCount : 0
   const activeStory = successStories[safeIndex]
   const hasMultipleStories = storyCount > 1
+  const shouldContainOnMobile = activeStory?.mobileImageFit === "contain"
+  const shouldUseContainedImage = activeStory?.imageFit === "contain" || shouldContainOnMobile
+  const shouldCoverOnDesktop = shouldContainOnMobile && activeStory?.imageFit !== "contain"
 
   const goToStory = (nextIndex: number) => {
     if (!storyCount || nextIndex === safeIndex) {
@@ -52,14 +55,14 @@ export function SuccessStoriesGrid() {
       return
     }
 
-    const intervalId = window.setInterval(() => {
+    const timeoutId = window.setTimeout(() => {
       advanceStory()
     }, AUTO_ADVANCE_MS)
 
     return () => {
-      window.clearInterval(intervalId)
+      window.clearTimeout(timeoutId)
     }
-  }, [hasMultipleStories, prefersReducedMotion])
+  }, [activeStory?.id, hasMultipleStories, prefersReducedMotion])
 
   if (!activeStory) {
     return null
@@ -124,7 +127,7 @@ export function SuccessStoriesGrid() {
                   transition={{ duration: prefersReducedMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0"
                 >
-                  {activeStory.imageFit === "contain" ? (
+                  {shouldUseContainedImage ? (
                     <>
                       <Image
                         src={activeStory.imagePath}
@@ -137,14 +140,18 @@ export function SuccessStoriesGrid() {
                         sizes="(max-width: 1024px) 100vw, 52vw"
                       />
                       <div className="absolute inset-0 bg-slate-950/24" />
-                      <div className="absolute inset-0 p-5 sm:p-6 lg:p-8">
+                      <div
+                        className={`absolute inset-0 p-5 sm:p-6 ${
+                          shouldCoverOnDesktop ? "lg:p-0" : "lg:p-8"
+                        }`}
+                      >
                         <Image
                           src={activeStory.imagePath}
                           alt={activeStory.imageAlt}
                           fill
                           priority={activeIndex === 0}
-                          className="object-contain"
-                          style={{ objectPosition: activeStory.imagePosition ?? "center bottom" }}
+                          className={shouldCoverOnDesktop ? "object-contain lg:object-cover" : "object-contain"}
+                          style={{ objectPosition: activeStory.imagePosition ?? "center top" }}
                           sizes="(max-width: 1024px) 100vw, 52vw"
                         />
                       </div>
