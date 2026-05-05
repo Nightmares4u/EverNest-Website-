@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { SuccessStoriesGrid } from "@/components/sections/SuccessStoriesGrid"
+import { VideoReelsShowcase } from "@/components/sections/VideoReelsShowcase"
 import { GoogleReviewsShowcase } from "@/components/sections/GoogleReviewsShowcase"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { successStoriesGoogleReviews } from "@/data/google-reviews"
@@ -17,6 +18,7 @@ export default function SuccessStoriesPage() {
   return (
     <div className="pt-20">
       <SuccessStoriesGrid />
+      <VideoReelsShowcase />
       <GoogleReviewsShowcase reviews={successStoriesGoogleReviews} />
       <FinalCTA />
     </div>
