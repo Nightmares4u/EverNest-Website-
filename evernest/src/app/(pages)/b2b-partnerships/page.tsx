@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { ShieldCheck, Globe2, Banknote, Clock } from "lucide-react"
+import { ArrowUpRight, Clock, Globe2, Banknote, PlayCircle, ShieldCheck } from "lucide-react"
 import { FinalCTA } from "@/components/sections/FinalCTA"
 import { CinematicPageHero } from "@/components/shared/CinematicPageHero"
 import { PartnershipInquiryForm } from "@/components/shared/PartnershipInquiryForm"
@@ -14,6 +14,62 @@ export const metadata: Metadata = buildMetadata({
   keywords: ["B2B partnerships", siteConfig.legalName, "student recruitment partnerships", "education consultancy partnerships"],
 })
 
+const b2bReel = {
+  title: "Inside EverNest's Partner Network",
+  label: "B2B Partnership Reel",
+  description:
+    "A short look at how EverNest supports partner consultants through structured coordination, institutional access, and priority case handling.",
+  sourceUrl: "https://youtube.com/shorts/iRrajUzR4B0",
+  embedUrl: "https://www.youtube.com/embed/iRrajUzR4B0",
+}
+
+function B2BHeroReel() {
+  return (
+    <div className="relative mx-auto w-full max-w-[25rem]">
+      <div className="absolute -inset-6 rounded-[2.5rem] bg-brand-red/16 blur-3xl" />
+      <div className="relative overflow-hidden rounded-[2rem] border border-white/14 bg-white/[0.08] p-3 shadow-[0_30px_90px_-38px_rgba(0,0,0,0.78)] backdrop-blur-md">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.12),transparent_32%),radial-gradient(circle_at_95%_90%,rgba(225,29,46,0.2),transparent_34%)]" />
+
+        <div className="relative mx-auto max-w-[18rem] overflow-hidden rounded-[1.35rem] border border-white/12 bg-slate-950">
+          <div className="aspect-[9/16]">
+            <iframe
+              src={`${b2bReel.embedUrl}?rel=0&modestbranding=1&playsinline=1`}
+              title={b2bReel.title}
+              className="h-full w-full"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+
+        <div className="relative mt-4 rounded-[1.25rem] border border-white/10 bg-white/[0.07] p-4">
+          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.24em] text-brand-red">
+            <PlayCircle className="h-3.5 w-3.5" />
+            {b2bReel.label}
+          </div>
+          <h2 className="mt-2 text-2xl font-display font-bold leading-tight text-white">
+            {b2bReel.title}
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-brand-ice/72">
+            {b2bReel.description}
+          </p>
+          <a
+            href={b2bReel.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 rounded-full bg-brand-red px-4 py-2.5 text-sm font-bold text-white shadow-glow transition-colors hover:bg-brand-red-2"
+          >
+            Watch on YouTube
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function B2BPartnershipsPage() {
   return (
     <>
@@ -26,12 +82,7 @@ export default function B2BPartnershipsPage() {
         subtitle={`Access 500+ global institutions, priority processing, and industry-leading commission splits by joining the ${siteConfig.name} partner network.`}
         chips={["500+ institutions", "Priority processing", "Partner support", "Since 2013"]}
         ctas={[{ href: "#apply", label: "Partner With EN Consultants" }]}
-        galleryImages={[
-          { src: "/images/offices/karachi/karachi-pic-1.png", alt: "EverNest Karachi office" },
-          { src: "/images/trust/training/team-training-session.jpg", alt: "EverNest team training session" },
-          { src: "/images/partners/logos/university-of-glasgow.jpeg", alt: "University partner network" },
-        ]}
-        visualLabel="Institutional network"
+        visual={<B2BHeroReel />}
       />
 
       {/* Partner Benefits */}

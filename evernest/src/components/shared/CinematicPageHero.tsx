@@ -37,6 +37,7 @@ type CinematicPageHeroProps = {
   image?: HeroImage
   galleryImages?: HeroImage[]
   visualLabel?: string
+  visual?: ReactNode
   variant?: HeroVariant
   center?: boolean
 }
@@ -81,6 +82,7 @@ export function CinematicPageHero({
   image,
   galleryImages = [],
   visualLabel,
+  visual,
   variant = "study",
   center = false,
 }: CinematicPageHeroProps) {
@@ -207,12 +209,18 @@ export function CinematicPageHero({
             ) : null}
           </div>
 
-          <HeroVisual
-            images={visualImages}
-            variant={variant}
-            visualLabel={visualLabel || theme.label}
-            chips={chips}
-          />
+          {visual ? (
+            <div className="cinematic-hero-visual relative mx-auto w-full max-w-[32rem] lg:mx-0">
+              {visual}
+            </div>
+          ) : (
+            <HeroVisual
+              images={visualImages}
+              variant={variant}
+              visualLabel={visualLabel || theme.label}
+              chips={chips}
+            />
+          )}
         </div>
       </div>
     </section>
