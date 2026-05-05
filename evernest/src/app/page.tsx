@@ -9,6 +9,7 @@ import { FeaturedImmigration } from "@/components/sections/FeaturedImmigration"
 import { ProcessSteps } from "@/components/sections/ProcessSteps"
 import { WhyEvernest } from "@/components/sections/WhyEvernest"
 import { B2BHighlight } from "@/components/sections/B2BHighlight"
+import { VideoReelsShowcase } from "@/components/sections/VideoReelsShowcase"
 import { SuccessStoriesGrid } from "@/components/sections/SuccessStoriesGrid"
 import { GoogleReviewsShowcase } from "@/components/sections/GoogleReviewsShowcase"
 import { PartnerStrip } from "@/components/sections/PartnerStrip"
@@ -41,6 +42,7 @@ export default function Home() {
       <WhyEvernest />
       <ProcessSteps />
       <B2BHighlight />
+      <VideoReelsShowcase />
       <SuccessStoriesGrid />
       <GoogleReviewsShowcase reviews={homepageGoogleReviews} compact />
       <PartnerStrip />
